@@ -11,4 +11,5 @@ initGame(topic, type)
 startRound()            	
 submitAnswer(answer)   	
 endGame()               	
-resetGame()             	
+resetGame()   
+helloooo          	
