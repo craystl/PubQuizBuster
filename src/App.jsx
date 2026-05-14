@@ -6,8 +6,16 @@ function App() {
         <p>Answer questions, track your score, and challenge your friends.</p>
         <p>Play Pub Quiz Buster to test your general knowledge!</p>
         
-
-        //figure out if we can link our original html files, so we don't have to rewrite all the content as jsx
+        <button 
+        style = {{
+          backgroundColor: "black", 
+          color: "white",
+          fontSize: "20px",
+          padding: "12px 30px" }}
+        onClick={() => (window.location = 'quiz-menu.html')}
+      >
+        Play
+      </button>
         
     </div>
   );
@@ -15,4 +23,6 @@ function App() {
 }
 
 export default App
+
+
 
