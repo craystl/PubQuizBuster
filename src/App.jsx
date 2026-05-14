@@ -12,7 +12,7 @@ function App() {
           color: "white",
           fontSize: "20px",
           padding: "12px 30px" }}
-        onClick={() => (window.location.href = "/quiz-menu.html")}
+        onClick={() => window.location.href = "/quiz-menu.html"}
       >
         Play
       </button>
