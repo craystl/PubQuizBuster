@@ -1,8 +1,6 @@
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import QuizMenu from './QuizMenu';
 
-function GameMenu() {
-  return <h1>Game Menu</h1>;
-}
 
 function Home() {
   return (
@@ -13,7 +11,7 @@ function Home() {
       <p>Answer questions, track your score, and challenge your friends.</p>
       <p>Play Pub Quiz Buster to test your general knowledge!</p>
 
-      <Link to="/game-menu">
+      <Link to="/quiz-menu">
         <button
           style={{
             marginTop: "20px",
@@ -35,7 +33,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/game-menu" element={<GameMenu />} />
+        <Route path="/quiz-menu" element={<QuizMenu />} />
       </Routes>
     </BrowserRouter>
   );
