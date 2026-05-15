@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import QuizMenu from './QuizMenu';
 import MemoryFlip from './MemoryFlip';
-import MultipleChoice from './MultipleChoice';
+import MultiChoice from './MultiChoice';
 import OddOneOut from './OddOneOut';
 
 function Home() {
