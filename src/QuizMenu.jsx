@@ -10,6 +10,8 @@ function QuizMenu() {
         justifyContent: "flex-start",
         alignItems: "center",
         minHeight: "100vh",
+        width: "100%",
+        boxSizing: "border-box",
         paddingTop: "40px",
         textAlign: "center",
       }}
