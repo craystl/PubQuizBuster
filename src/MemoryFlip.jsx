@@ -4,7 +4,6 @@ function MemoryFlip() {
       style={{
         margin: 0,
         fontFamily: "Arial, sans-serif",
-        background: "white",
         display: "flex",
         flexDirection: "column",
         justifyContent: "flex-start",
