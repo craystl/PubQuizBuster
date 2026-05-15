@@ -3,6 +3,7 @@ import QuizMenu from './QuizMenu';
 import MemoryFlip from './MemoryFlip';
 import MultiChoice from './MultiChoice';
 import OddOneOut from './OddOneOut';
+import ScorePage from './ScorePage';
 
 function Home() {
   return (
@@ -39,6 +40,7 @@ function App() {
         <Route path="/memory-flip" element={<MemoryFlip />} />
         <Route path="/multiple-choice" element={<MultiChoice />} />
         <Route path="/odd-one-out" element={<OddOneOut />} />
+        <Route path="/score-page" element={<ScorePage />} />
       </Routes>
     </BrowserRouter>
   );
