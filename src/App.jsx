@@ -1,6 +1,8 @@
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import QuizMenu from './QuizMenu';
-
+import MemoryFlip from './MemoryFlip';
+import MultipleChoice from './MultipleChoice';
+import OddOneOut from './OddOneOut';
 
 function Home() {
   return (
@@ -34,6 +36,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/quiz-menu" element={<QuizMenu />} />
+        <Route path="/memory-flip" element={<MemoryFlip />} />
+        <Route path="/multiple-choice" element={<MultipleChoice />} />
+        <Route path="/odd-one-out" element={<OddOneOut />} />
       </Routes>
     </BrowserRouter>
   );
