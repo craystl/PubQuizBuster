@@ -1,4 +1,8 @@
+import { useNavigate } from 'react-router-dom';
+
 function ScorePage() {
+  const navigate = useNavigate();
+  
   return (
     <div
       style={{
@@ -48,6 +52,7 @@ function ScorePage() {
           fontSize: "20px",
           border: "none",
         }}
+        onClick={() => navigate('/')}
       >
         Exit
       </button>
@@ -63,6 +68,7 @@ function ScorePage() {
           fontSize: "20px",
           border: "none",
         }}
+        onClick={() => navigate('/')}
       >
         Back to Home
       </button>
