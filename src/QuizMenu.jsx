@@ -1,4 +1,8 @@
+import { useNavigate } from 'react-router-dom';
+
 function QuizMenu() {
+  const navigate = useNavigate();
+  
   return (
     <div
       style={{
@@ -52,26 +56,9 @@ function QuizMenu() {
             Music & Arts
           </span>
 
-          <button
-            style={buttonStyle}
-            onClick={() => (window.location.href = "quiz-page1.html")}
-          >
-            Memory Flip
-          </button>
-
-          <button
-            style={buttonStyle}
-            onClick={() => (window.location.href = "quiz-page2.html")}
-          >
-            Multiple Choice
-          </button>
-
-          <button
-            style={buttonStyle}
-            onClick={() => (window.location.href = "quiz-page3.html")}
-          >
-            Odd One Out
-          </button>
+          <button style={buttonStyle} onClick={() => navigate('/memory-flip')}>Memory Flip</button>
+          <button style={buttonStyle} onClick={() => navigate('/multiple-choice')}>Multiple Choice</button>
+          <button style={buttonStyle} onClick={() => navigate('/odd-one-out')}>Odd One Out</button>
         </div>
 
         {/* History */}
@@ -91,26 +78,9 @@ function QuizMenu() {
             History
           </span>
 
-          <button
-            style={buttonStyle}
-            onClick={() => (window.location.href = "quiz-page1.html")}
-          >
-            Memory Flip
-          </button>
-
-          <button
-            style={buttonStyle}
-            onClick={() => (window.location.href = "quiz-page2.html")}
-          >
-            Multiple Choice
-          </button>
-
-          <button
-            style={buttonStyle}
-            onClick={() => (window.location.href = "quiz-page3.html")}
-          >
-            Odd One Out
-          </button>
+          <button style={buttonStyle} onClick={() => navigate('/memory-flip')}>Memory Flip</button>
+          <button style={buttonStyle} onClick={() => navigate('/multiple-choice')}>Multiple Choice</button>
+          <button style={buttonStyle} onClick={() => navigate('/odd-one-out')}>Odd One Out</button>
         </div>
 
         {/* Geography */}
@@ -130,26 +100,9 @@ function QuizMenu() {
             Geography
           </span>
 
-          <button
-            style={buttonStyle}
-            onClick={() => (window.location.href = "quiz-page1.html")}
-          >
-            Memory Flip
-          </button>
-
-          <button
-            style={buttonStyle}
-            onClick={() => (window.location.href = "quiz-page2.html")}
-          >
-            Multiple Choice
-          </button>
-
-          <button
-            style={buttonStyle}
-            onClick={() => (window.location.href = "quiz-page3.html")}
-          >
-            Odd One Out
-          </button>
+          <button style={buttonStyle} onClick={() => navigate('/memory-flip')}>Memory Flip</button>
+          <button style={buttonStyle} onClick={() => navigate('/multiple-choice')}>Multiple Choice</button>
+          <button style={buttonStyle} onClick={() => navigate('/odd-one-out')}>Odd One Out</button>
         </div>
 
         {/* Science & Nature */}
@@ -169,26 +122,9 @@ function QuizMenu() {
             Science & Nature
           </span>
 
-          <button
-            style={buttonStyle}
-            onClick={() => (window.location.href = "quiz-page1.html")}
-          >
-            Memory Flip
-          </button>
-
-          <button
-            style={buttonStyle}
-            onClick={() => (window.location.href = "quiz-page2.html")}
-          >
-            Multiple Choice
-          </button>
-
-          <button
-            style={buttonStyle}
-            onClick={() => (window.location.href = "quiz-page3.html")}
-          >
-            Odd One Out
-          </button>
+          <button style={buttonStyle} onClick={() => navigate('/memory-flip')}>Memory Flip</button>
+          <button style={buttonStyle} onClick={() => navigate('/multiple-choice')}>Multiple Choice</button>
+          <button style={buttonStyle} onClick={() => navigate('/odd-one-out')}>Odd One Out</button>
         </div>
       </div>
     </div>
