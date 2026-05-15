@@ -16,6 +16,7 @@ function Home() {
       <Link to="/game-menu">
         <button
           style={{
+            marginTop: "20px",
             backgroundColor: "black",
             color: "white",
             fontSize: "20px",
