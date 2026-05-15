@@ -73,12 +73,12 @@ function MultiChoice() {
 
         <br />
 
-        <button style={
+        <button style={{
           background: "black",
           color: "white",
           padding: "10px 25px",
           fontSize: "25px",
-        } 
+        }} 
           onClick={() => navigate('/score-page')}>
         Submit
       </button>
