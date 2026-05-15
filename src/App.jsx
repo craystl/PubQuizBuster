@@ -37,7 +37,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/quiz-menu" element={<QuizMenu />} />
         <Route path="/memory-flip" element={<MemoryFlip />} />
-        <Route path="/multiple-choice" element={<MultipleChoice />} />
+        <Route path="/multiple-choice" element={<MultiChoice />} />
         <Route path="/odd-one-out" element={<OddOneOut />} />
       </Routes>
     </BrowserRouter>
