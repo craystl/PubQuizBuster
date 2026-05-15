@@ -17,7 +17,6 @@ function MemoryFlip() {
         style={{
           fontSize: "2rem",
           marginBottom: "30px",
-          color: "#111",
         }}
       >
         Memory Flip
@@ -27,7 +26,6 @@ function MemoryFlip() {
         style={{
           maxWidth: "500px",
           fontSize: "1.1rem",
-          color: "#444",
           margin: "0 auto 25px auto",
           lineHeight: "1.5",
         }}
@@ -41,7 +39,6 @@ function MemoryFlip() {
           top: "30px",
           right: "30px",
           fontSize: "1.5rem",
-          color: "#111",
         }}
       >
         Score: <span id="score">0</span>
