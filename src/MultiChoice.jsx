@@ -1,4 +1,8 @@
+import { useNavigate } from 'react-router-dom';
+
 function MultiChoice() {
+  const navigate = useNavigate();
+  
   return (
     <div
       style={{
@@ -68,16 +72,15 @@ function MultiChoice() {
 
         <br />
 
-        <button
-          style={{
-            background: "black",
-            color: "white",
-            padding: "10px 25px",
-            fontSize: "25px",
-          }}
-        >
-          Submit
-        </button>
+        <button style={
+          background: "black",
+          color: "white",
+          padding: "10px 25px",
+          fontSize: "25px",
+        } 
+          onClick={() => navigate('/score-page')}>
+        Submit
+      </button>
       </div>
     </div>
   );
