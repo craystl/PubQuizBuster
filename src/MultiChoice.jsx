@@ -1,5 +1,4 @@
 import { useNavigate } from 'react-router-dom';
-import ScorePage from './ScorePage';
 
 function MultiChoice() {
   const navigate = useNavigate();
