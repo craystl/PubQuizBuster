@@ -1,9 +1,6 @@
-// apiClient.js
-// Loads quiz questions from the default questions.json file.
-
 import defaultQuestions from "./questions.json";
 
-// Fetches questions based on filter params from the default questions.json
+// Gets questions based on filter params from the default questions.json
 export const fetchQuestions = (params) => {
   const { topic, gameType, questionCount = 10 } = params;
 
@@ -23,13 +20,11 @@ export const fetchQuestions = (params) => {
     throw new Error(`No questions found for ${topic} - ${gameType}`);
   }
 
-  // Shuffle and slice to the requested number of questions
   return [...pool]
     .sort(() => Math.random() - 0.5)
     .slice(0, Math.min(questionCount, pool.length));
 };
 
-// Returns which topics and game types actually have questions.
 export const getAvailableOptions = () => {
   const available = {};
 
