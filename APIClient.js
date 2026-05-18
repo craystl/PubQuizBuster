@@ -1,48 +1,26 @@
-import defaultQuestions from "./questions.json";
 
-// Gets questions based on filter params from the default questions.json
-export const fetchQuestions = (params) => {
+export const fetchQuestions = async (params) => {
   const { topic, gameType, questionCount } = params; 
-
-  // Check that the topic exists
-  if (!defaultQuestions[topic]) {
-    throw new Error(`Topic "${topic}" not found in questions data`);
+  
+  // Gets questions from the backend in C#
+  const response = await fetch(`/api/questions?topic=${encodeURIComponent(topic)}&gameType=${encodeURIComponent(gameType)}&questionCount=${questionCount}`);
+  
+  // If failed to retrieve questions from the backend in C#
+  if (!response.ok) {
+    throw new Error(`Failed to fetch questions: ${response.statusText}`);
   }
-
-  // Check the game type exists for that topic
-  if (!defaultQuestions[topic][gameType]) {
-    throw new Error(`Game type "${gameType}" not found for topic "${topic}"`);
-  }
-
-  // Grab the questions for our working pool
-  const pool = defaultQuestions[topic][gameType];
-
-  // If there are no questions in our pool
-  if (pool.length === 0) {
-    throw new Error(`No questions found for ${topic} - ${gameType}`);
-  }
-
-  // Shallow copy the pool so we don't affect the actual data
-  return [...pool]
-    // Sort them
-    .sort(() => Math.random() - 0.5)
-    // Take as many questions as requested 
-    .slice(0, Math.min(questionCount, pool.length));
+  // Give questions back to code
+  return await response.json();
 };
 
-// Get available options
-export const getAvailableOptions = () => {
+// Get available options from DBPedia data
+export const getAvailableOptions = async () => {
   const available = {};
-
-  // Returns an object containing of only topics and games that have questions in them
-  for (const topic of Object.keys(defaultQuestions)) {
-    const gameTypes = Object.keys(defaultQuestions[topic]).filter(
-      (gt) => defaultQuestions[topic][gt]?.length > 0
-    );
-    if (gameTypes.length > 0) {
-      available[topic] = gameTypes;
-    }
+  const response = await fetch('/api/available-options');
+  
+  if (!response.ok) {
+    throw new Error('Failed to fetch available options');
   }
-
-  return available;
+  // Returns all the questions
+  return await response.json();
 };
