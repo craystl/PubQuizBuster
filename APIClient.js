@@ -1,4 +1,5 @@
 
+// Set the parameters
 export const fetchQuestions = async (params) => {
   const { topic, gameType, questionCount } = params; 
   
