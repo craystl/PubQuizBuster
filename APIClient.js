@@ -10,11 +10,11 @@ export const fetchQuestions = async (params) => {
   if (!response.ok) {
     throw new Error(`Failed to fetch questions: ${response.statusText}`);
   }
-  // Give questions back to code
+  // Returns all the questions
   return await response.json();
 };
 
-// Get available options from DBPedia data
+// Get available options for what games and topics are availab;e
 export const getAvailableOptions = async () => {
   const available = {};
   const response = await fetch('/api/available-options');
@@ -22,6 +22,6 @@ export const getAvailableOptions = async () => {
   if (!response.ok) {
     throw new Error('Failed to fetch available options');
   }
-  // Returns all the questions
+  // Returns games and topics
   return await response.json();
 };
