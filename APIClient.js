@@ -31,26 +31,28 @@ export const convertMemoryFlip = (activity) => {
     if (!groups[card.matchingName]) groups[card.matchingName] = [];
     groups[card.matchingName].push(card);
   }
-
-  const pairs = [];
-  let pairId = 0;
+  
+  const result = [];
+  let groupId = 0;
 
   for (const [artistName, groupCards] of Object.entries(groups)) {
     const artistCard = groupCards.find((c) => c.cardType === "artist-photo");
     const albumCards = groupCards.filter((c) => c.cardType === "album-cover");
 
-    for (const album of albumCards) {
-      pairs.push({
-        id: `pair_${pairId++}`,
-        frontLabel: artistName,
-        backLabel: album.albumTitle ?? album.label,
-        frontImage: artistCard ? `${BASE_URL}/data/memory-flip/images/${artistCard.img.split("/").pop()}` : null,
-        backImage: `${BASE_URL}/data/memory-flip/images/${album.img.split("/").pop()}`,
-      });
-    }
+    result.push({
+      id: `group_${groupId++}`,
+      artistName,
+      artistImage: artistCard
+        ? `${BASE_URL}/data/memory-flip/images/${artistCard.img.split("/").pop()}`
+        : null,
+      albums: albumCards.map((album) => ({
+        label: album.albumTitle ?? album.label,
+        image: `${BASE_URL}/data/memory-flip/images/${album.img.split("/").pop()}`,
+      })),
+    });
   }
 
-  return pairs;
+  return result;
 };
 
 //Converts a Multiple Choice activity into question objects for gameLogic.js
