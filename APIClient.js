@@ -1,27 +1,115 @@
+// Fetches the JSON files from the server and converts it to be readable for the Game Logic
 
-// Set the parameters
-export const fetchQuestions = async (params) => {
-  const { topic, gameType, questionCount } = params; 
-  
-  // Gets questions from the backend in C#
-  const response = await fetch(`/api/questions?topic=${encodeURIComponent(topic)}&gameType=${encodeURIComponent(gameType)}&questionCount=${questionCount}`);
-  
-  // If failed to retrieve questions from the backend in C#
+const BASE_URL = "http://localhost:3000";
+
+// Fetches the list of available activities for a game type
+export const fetchActivityList = async (gameType) => {
+  const response = await fetch(`${BASE_URL}/api/activities/${gameType}`);
   if (!response.ok) {
-    throw new Error(`Failed to fetch questions: ${response.statusText}`);
+    throw new Error(`Failed to fetch activity list for: ${gameType}`);
   }
-  // Returns all the questions
-  return await response.json();
+  return response.json();
 };
 
-// Get available options for what games and topics are availab;e
-export const getAvailableOptions = async () => {
-  const available = {};
-  const response = await fetch('/api/available-options');
-  
+// Fetches a specific activity JSON file from the server
+export const fetchActivity = async (gameType, fileName) => {
+  const response = await fetch(`${BASE_URL}/api/activity/${gameType}/${fileName}`);
   if (!response.ok) {
-    throw new Error('Failed to fetch available options');
+    throw new Error(`Failed to fetch activity: ${gameType}/${fileName}`);
   }
-  // Returns games and topics
-  return await response.json();
+  return response.json();
+};
+
+// Converters: JSON format --> gameLogic.js format
+
+// Converts a Memory Flip activity into pairs for memoryFlipLogic.js
+export const convertMemoryFlip = (activity) => {
+  const { cards } = activity;
+
+  const groups = {};
+  for (const card of cards) {
+    if (!groups[card.matchingName]) groups[card.matchingName] = [];
+    groups[card.matchingName].push(card);
+  }
+
+  const pairs = [];
+  let pairId = 0;
+
+  for (const [artistName, groupCards] of Object.entries(groups)) {
+    const artistCard = groupCards.find((c) => c.cardType === "artist-photo");
+    const albumCards = groupCards.filter((c) => c.cardType === "album-cover");
+
+    for (const album of albumCards) {
+      pairs.push({
+        id: `pair_${pairId++}`,
+        frontLabel: artistName,
+        backLabel: album.albumTitle ?? album.label,
+        frontImage: artistCard ? `${BASE_URL}/data/memory-flip/images/${artistCard.img.split("/").pop()}` : null,
+        backImage: `${BASE_URL}/data/memory-flip/images/${album.img.split("/").pop()}`,
+      });
+    }
+  }
+
+  return pairs;
+};
+
+//Converts a Multiple Choice activity into question objects for gameLogic.js
+export const convertMultipleChoice = (activity) => {
+  const { cards } = activity;
+
+  return cards.map((card, i) => {
+    const correctAnswer = card.correctAnswer ?? card.label;
+
+    const wrongOptions = cards
+      .filter((_, j) => j !== i)
+      .map((c) => c.label)
+      .sort(() => Math.random() - 0.5)
+      .slice(0, 3);
+
+    const options = [...wrongOptions, correctAnswer].sort(() => Math.random() - 0.5);
+
+    return {
+      text: card.questionText ?? `What is this?`,
+      correctAnswer,
+      options,
+      image: card.img ? `${BASE_URL}/data/multiple-choice/images/${card.img.split("/").pop()}` : null,
+    };
+  });
+};
+
+//Converts an Odd One Out activity into question objects for oddOneOutLogic.js
+export const convertOddOneOut = (activity) => {
+  const { cards } = activity;
+
+  const groupCount = {};
+  for (const card of cards) {
+    groupCount[card.matchingName] = (groupCount[card.matchingName] ?? 0) + 1;
+  }
+
+  const minCount = Math.min(...Object.values(groupCount));
+  const oddCard = cards.find((c) => groupCount[c.matchingName] === minCount);
+  const groupCards = cards.filter((c) => c.matchingName !== oddCard.matchingName);
+
+  return [
+    {
+      text: "Which one doesn't belong?",
+      oddItem: oddCard.label,
+      groupItems: groupCards.map((c) => c.label),
+      correctAnswer: oddCard.label,
+      explanation: activity.explanation ?? `${oddCard.label} is the odd one out`,
+      category: activity.title ?? activity.activityType,
+    },
+  ];
+};
+
+// Fetches and converts an activity into the format gameLogic.js expects
+export const fetchAndConvertActivity = async (gameType, fileName) => {
+  const activity = await fetchActivity(gameType, fileName);
+
+  switch (gameType) {
+    case "memory-flip":     return convertMemoryFlip(activity);
+    case "multiple-choice": return convertMultipleChoice(activity);
+    case "odd-one-out":     return convertOddOneOut(activity);
+    default: throw new Error(`Unknown game type: ${gameType}`);
+  }
 };
