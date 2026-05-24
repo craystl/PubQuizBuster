@@ -1,0 +1,42 @@
+[
+  {
+    "activityType": "odd-one-out",
+    "activityId": "movie-odd-one-out",
+    "title": "Movie Odd One Out",
+    "question": "Which one has not won one of the main acting Oscars?",
+    "items": [
+      {
+        "name": "Anthony Hopkins",
+        "isOddOneOut": false
+      },
+      {
+        "name": "Cillian Murphy",
+        "isOddOneOut": false
+      },
+      {
+        "name": "Donald Trump",
+        "isOddOneOut": true
+      }
+    ]
+  },
+  {
+    "activityType": "odd-one-out",
+    "activityId": "animal-odd-one-out",
+    "title": "Animal Odd One Out",
+    "question": "Which animal is not a mammal?",
+    "items": [
+      {
+        "name": "Elephant",
+        "isOddOneOut": false
+      },
+      {
+        "name": "Dolphin",
+        "isOddOneOut": false
+      },
+      {
+        "name": "Eagle",
+        "isOddOneOut": true
+      }
+    ]
+  }
+]
