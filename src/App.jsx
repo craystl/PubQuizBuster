@@ -1,49 +1,20 @@
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-import QuizMenu from './QuizMenu';
-import MemoryFlip from './MemoryFlip';
-import MultiChoice from './MultiChoice';
-import OddOneOut from './OddOneOut';
-import ScorePage from './ScorePage';
-
-function Home() {
-  return (
-    <div>
-      <h1>Pub Quiz Buster</h1>
-
-      <p>A quick quiz game to test your general knowledge.</p>
-      <p>Answer questions, track your score, and challenge your friends.</p>
-      <p>Play Pub Quiz Buster to test your general knowledge!</p>
-
-      <Link to="/quiz-menu">
-        <button
-          style={{
-            marginTop: "20px",
-            backgroundColor: "black",
-            color: "white",
-            fontSize: "20px",
-            padding: "12px 30px",
-          }}
-        >
-          Play
-        </button>
-      </Link>
-    </div>
-  );
-}
+import { useState } from "react";
+import Home from "./pages/Home";
+import QuizMenu from "./pages/QuizMenu";
+import OddOneOut from "./pages/Quiz3";
 
 function App() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/quiz-menu" element={<QuizMenu />} />
-        <Route path="/memory-flip" element={<MemoryFlip />} />
-        <Route path="/multiple-choice" element={<MultiChoice />} />
-        <Route path="/odd-one-out" element={<OddOneOut />} />
-        <Route path="/score-page" element={<ScorePage />} />
-      </Routes>
-    </BrowserRouter>
-  );
+  const [page, setPage] = useState("home");
+
+  if (page === "quiz-menu") {
+    return <QuizMenu onSelectGame={setPage} />;
+  }
+
+  if (page === "odd-one-out") {
+    return <OddOneOut />;
+  }
+
+  return <Home onPlay={() => setPage("quiz-menu")} />;
 }
 
 export default App;
