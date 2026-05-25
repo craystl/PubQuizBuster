@@ -113,6 +113,7 @@ function OddOneOut() {
         <h2
           style={{
             textAlign: "center",
+            color: result === "Correct!" ? "green" : "red",
           }}
         >
           {result}
