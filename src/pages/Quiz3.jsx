@@ -113,7 +113,7 @@ function OddOneOut() {
         <h2
           style={{
             textAlign: "center",
-            color: result === "Correct!" || "Quiz Finished!" ? "green" : "red"
+            color: result === ("Correct!" || "Quiz Finished!") ? "green" : "red"
           }}
         >
           {result}
