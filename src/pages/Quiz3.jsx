@@ -70,6 +70,7 @@ function OddOneOut() {
         style={{
           textAlign: "center",
           fontSize: "30px",
+          color: "#111",
         }}
       >
         {currentActivity.title}
@@ -79,6 +80,7 @@ function OddOneOut() {
         style={{
           textAlign: "center",
           fontSize: "20px",
+          color: "#222",
         }}
       >
         {currentActivity.question}
