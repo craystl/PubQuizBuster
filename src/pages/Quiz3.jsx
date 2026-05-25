@@ -27,7 +27,7 @@ function OddOneOut() {
     if (currentQuestionIndex < activities.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
     } else {
-      setResult("Quiz finished!");
+      setResult("Quiz Finished!");
     }
   }
 
@@ -113,7 +113,7 @@ function OddOneOut() {
         <h2
           style={{
             textAlign: "center",
-            color: result === ("Correct!" || "Quiz Finished!") ? "green" : "red"
+            color: (result === "Correct!" || result === "Quiz Finished!") ? "green" : "red"
           }}
         >
           {result}
