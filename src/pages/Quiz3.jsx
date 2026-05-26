@@ -27,7 +27,7 @@ function OddOneOut() {
     if (currentQuestionIndex < activities.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
     } else {
-      setResult("Quiz finished!");
+      setResult("Quiz Finished!");
     }
   }
 
@@ -70,6 +70,7 @@ function OddOneOut() {
         style={{
           textAlign: "center",
           fontSize: "30px",
+          color: "#111",
         }}
       >
         {currentActivity.title}
@@ -79,6 +80,7 @@ function OddOneOut() {
         style={{
           textAlign: "center",
           fontSize: "20px",
+          color: "#222",
         }}
       >
         {currentActivity.question}
@@ -111,6 +113,7 @@ function OddOneOut() {
         <h2
           style={{
             textAlign: "center",
+            color: (result === "Correct!" || result === "Quiz Finished!") ? "green" : "red"
           }}
         >
           {result}

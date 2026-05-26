@@ -187,7 +187,11 @@ function Home({ onPlay }) {
       <div style={{ position: "relative", zIndex: 10, textAlign: "center", padding: "0 24px" }}>
         <div className="pqb-badge">✨ Trivia Night Edition</div>
         <h1 className="pqb-title">Pub Quiz Buster</h1>
-        <p className="pqb-subtitle">🎬 Movies &nbsp;·&nbsp; 🎵 Music &nbsp;·&nbsp; 🌍 Geography</p>
+        <div className = "pqb-subtitle">
+          <span> 🎬 Movies </span>
+          <span> 🎵 Music </span>
+          <span> 🌍 Geography </span>
+        </div>
         <button className="pqb-btn" onClick={onPlay}>🎯 Play Now</button>
         <div className="pqb-pills">
           {[["🎬","Movies"],["🎵","Music"],["🌍","Geography"],["🏆","High Scores"]].map(([icon, label]) => (
