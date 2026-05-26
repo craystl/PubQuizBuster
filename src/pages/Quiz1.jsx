@@ -1,4 +1,21 @@
+import { useState, useEffect, useRef } from "react";
+import { createTimer, stopTimer } from "../gameLogic/timerLogic";
+
 function MemoryFlip() {
+  const [timeRemaining, setTimeRemaining] = useState(60);
+  const timerRef = useRef(null);
+
+  useEffect(() => {
+    timerRef.current = createTimer(
+      60,
+      (t) => setTimeRemaining(t),       // onTick: update display
+      () => alert("Time's up!"),         // onExpire: do something when timer hits 0
+      (t) => console.log("Warning!", t) // onWarning: fires at 5 seconds
+    );
+
+    return () => stopTimer(timerRef.current); // cleanup when leaving page
+  }, []);
+
   return (
     <div
       style={{
