@@ -1,4 +1,20 @@
+import { useState, useEffect, useRef } from "react";
+import { createTimer, stopTimer } from "../gameLogic/timerLogic";
+
 function MultiChoice() {
+  const [timeRemaining, setTimeRemaining] = useState(60);
+  const timerRef = useRef(null);
+
+  useEffect(() => {
+    timerRef.current = createTimer(
+      60,
+      (t) => setTimeRemaining(t),
+      () => alert("Time's up!"),
+      (t) => console.log("Warning!", t)
+    );
+    return () => stopTimer(timerRef.current);
+  }, []);
+
   return (
     <div
       style={{

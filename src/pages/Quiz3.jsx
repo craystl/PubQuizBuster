@@ -1,15 +1,28 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
+import { createTimer, stopTimer } from "../gameLogic/timerLogic";
 
 function OddOneOut() {
   const [activities, setActivities] = useState(null);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [score, setScore] = useState(0);
   const [result, setResult] = useState("");
+  const [timeRemaining, setTimeRemaining] = useState(60);
+  const timerRef = useRef(null);
 
   useEffect(() => {
     fetch("/data/odd-one-out/test_movie_odd_one_out.json")
       .then((response) => response.json())
       .then((data) => setActivities(data));
+  }, []);
+
+  useEffect(() => {
+    timerRef.current = createTimer(
+      60,
+      (t) => setTimeRemaining(t),
+      () => alert("Time's up!"),
+      (t) => console.log("Warning!", t)
+    );
+    return () => stopTimer(timerRef.current);
   }, []);
 
   function handleAnswerClick(item) {
@@ -44,13 +57,9 @@ function OddOneOut() {
         padding: "40px",
       }}
     >
-      <p
-        style={{
-          float: "left",
-          fontSize: "24px",
-        }}
-      >
-        Time: 60
+      <p 
+        style={{ float: "left", fontSize: "24px", color: timeRemaining <= 5 ? "red" : "#111" }}> 
+        Time: {timeRemaining} 
       </p>
 
       <p
