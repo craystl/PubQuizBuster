@@ -1,0 +1,58 @@
+{
+  "activityType": "multiple-choice",
+  "activityId": "test-geography",
+  "title": "Geography Multiple Choice",
+  "description": "Answer geography questions",
+  "questions": [
+    {
+      "text": "What is the capital of New Zealand?",
+      "correctAnswer": "Wellington",
+      "options": ["Wellington", "Auckland", "Christchurch", "Dunedin"]
+    },
+    {
+      "text": "What is the capital of Australia?",
+      "correctAnswer": "Canberra",
+      "options": ["Canberra", "Sydney", "Melbourne", "Brisbane"]
+    },
+    {
+      "text": "What is the largest country in the world by area?",
+      "correctAnswer": "Russia",
+      "options": ["Russia", "Canada", "China", "USA"]
+    },
+    {
+      "text": "What is the capital of Japan?",
+      "correctAnswer": "Tokyo",
+      "options": ["Tokyo", "Osaka", "Kyoto", "Hiroshima"]
+    },
+    {
+      "text": "Which country has the longest coastline?",
+      "correctAnswer": "Canada",
+      "options": ["Canada", "Russia", "Australia", "Norway"]
+    },
+    {
+      "text": "What is the capital of Brazil?",
+      "correctAnswer": "Brasília",
+      "options": ["Brasília", "São Paulo", "Rio de Janeiro", "Salvador"]
+    },
+    {
+      "text": "Which ocean is the largest?",
+      "correctAnswer": "Pacific Ocean",
+      "options": ["Pacific Ocean", "Atlantic Ocean", "Indian Ocean", "Arctic Ocean"]
+    },
+    {
+      "text": "What is the capital of Iceland?",
+      "correctAnswer": "Reykjavik",
+      "options": ["Reykjavik", "Akureyri", "Keflavik", "Selfoss"]
+    },
+    {
+      "text": "What is the smallest country in the world?",
+      "correctAnswer": "Vatican City",
+      "options": ["Vatican City", "Monaco", "San Marino", "Liechtenstein"]
+    },
+    {
+      "text": "What is the longest river in the world?",
+      "correctAnswer": "Nile",
+      "options": ["Nile", "Amazon", "Yangtze", "Mississippi"]
+    }
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "activityType": "matching-cards",
+  "activityId": "test-music",
+  "title": "Music Memory Flip",
+  "description": "Match the artist with their albums",
+  "matchSize": 3,
+  "cards": [
+    {
+      "id": "taylorswift-album-01",
+      "img": "",
+      "cardType": "album-cover",
+      "label": "Fearless",
+      "matchingName": "Taylor Swift",
+      "artistName": "Taylor Swift",
+      "albumTitle": "Fearless"
+    },
+    {
+      "id": "taylorswift-album-02",
+      "img": "",
+      "cardType": "album-cover",
+      "label": "1989",
+      "matchingName": "Taylor Swift",
+      "artistName": "Taylor Swift",
+      "albumTitle": "1989"
+    },
+    {
+      "id": "taylorswift-artist-01",
+      "img": "",
+      "cardType": "artist-photo",
+      "label": "Taylor Swift",
+      "matchingName": "Taylor Swift",
+      "artistName": "Taylor Swift"
+    },
+    {
+      "id": "adele-album-01",
+      "img": "",
+      "cardType": "album-cover",
+      "label": "21",
+      "matchingName": "Adele",
+      "artistName": "Adele",
+      "albumTitle": "21"
+    },
+    {
+      "id": "adele-album-02",
+      "img": "",
+      "cardType": "album-cover",
+      "label": "25",
+      "matchingName": "Adele",
+      "artistName": "Adele",
+      "albumTitle": "25"
+    },
+    {
+      "id": "adele-artist-01",
+      "img": "",
+      "cardType": "artist-photo",
+      "label": "Adele",
+      "matchingName": "Adele",
+      "artistName": "Adele"
+    },
+    {
+      "id": "beyonce-album-01",
+      "img": "",
+      "cardType": "album-cover",
+      "label": "Lemonade",
+      "matchingName": "Beyoncé",
+      "artistName": "Beyoncé",
+      "albumTitle": "Lemonade"
+    },
+    {
+      "id": "beyonce-album-02",
+      "img": "",
+      "cardType": "album-cover",
+      "label": "Renaissance",
+      "matchingName": "Beyoncé",
+      "artistName": "Beyoncé",
+      "albumTitle": "Renaissance"
+    },
+    {
+      "id": "beyonce-artist-01",
+      "img": "",
+      "cardType": "artist-photo",
+      "label": "Beyoncé",
+      "matchingName": "Beyoncé",
+      "artistName": "Beyoncé"
+    }
+  ]
+}
