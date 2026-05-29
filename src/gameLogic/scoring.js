@@ -3,8 +3,8 @@ const HIGH_SCORE_KEY = "pubQuizHighScores";
 export const calculatePoints = (isCorrect, timeRemaining, streak = 0) => {
   if (!isCorrect) return 0;
   const base = 100;
-  const streakBonus = streak * 25;       
-  return base + timeBonus + streakBonus;
+  const streakBonus = streak * 2;       
+  return base + streakBonus;
 };
  
 export const getHighScores = () => 

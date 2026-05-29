@@ -22,18 +22,15 @@ function MemoryFlip({ gameData }) {
 
   const handleCardClick = (cardId) => {
     if (!board || board.isSolved) return;
-    
     let newBoard = flipCard(board, cardId);
-    
-    if (newBoard.flippedIds.length === 3) { // Match 3 cards (1 + 2)
+    // if (newBoard.flippedIds.length === 3) {  ← deleted: wrong count for 1+2 match
+    if (newBoard.flippedIds.length === 3) {
       const { board: evaluatedBoard, isMatch } = evaluateFlip(newBoard);
       newBoard = evaluatedBoard;
       if (isMatch) setScore(calculateNewScore(score, true));
-      
       setTimeout(() => setBoard(resetBoard(newBoard)), isMatch ? 0 : 1000);
       return;
     }
-    
     setBoard(newBoard);
   };
 
@@ -54,107 +51,49 @@ function MemoryFlip({ gameData }) {
         textAlign: "center",
       }}
     >
-      <h1
-        style={{
-          fontSize: "2rem",
-          marginBottom: "30px",
-          color: "#111",
-        }}
-      >
+      <h1 style={{ fontSize: "2rem", marginBottom: "30px", color: "#111" }}>
         Memory Flip
       </h1>
 
-      <p
-        style={{
-          maxWidth: "500px",
-          fontSize: "1.1rem",
-          color: "#444",
-          margin: "0 auto 25px auto",
-          lineHeight: "1.5",
-        }}
-      >
+      <p style={{ maxWidth: "500px", fontSize: "1.1rem", color: "#444", margin: "0 auto 25px auto", lineHeight: "1.5" }}>
         *Question*
       </p>
 
-      <div
-        style={{
-          position: "fixed",
-          top: "30px",
-          right: "30px",
-          fontSize: "1.5rem",
-          color: "#111",
-        }}
-      >
-        Score: <span id="score">0</span>
+      <div style={{ position: "fixed", top: "30px", right: "30px", fontSize: "1.5rem", color: "#111" }}>
+        {/* Score: <span id="score">0</span>  ← deleted: was hardcoded static */}
+        Score: <span>{score}</span>
       </div>
 
-      <div
-        style={{
-          display: "flex",
-          gap: "20px",
-          marginTop: "40px",
-        }}
-      >
-        <div
-          style={{
-            width: "150px",
-            height: "200px",
-            background: "#9ad5de",
-            borderRadius: "8px",
-            cursor: "pointer",
-          }}
-        ></div>
-
-        <div
-          style={{
-            width: "150px",
-            height: "200px",
-            background: "#9ad5de",
-            borderRadius: "8px",
-            cursor: "pointer",
-          }}
-        ></div>
-
-        <div
-          style={{
-            width: "150px",
-            height: "200px",
-            background: "#9ad5de",
-            borderRadius: "8px",
-            cursor: "pointer",
-          }}
-        ></div>
-
-        <div
-          style={{
-            width: "150px",
-            height: "200px",
-            background: "#9ad5de",
-            borderRadius: "8px",
-            cursor: "pointer",
-          }}
-        ></div>
-
-        <div
-          style={{
-            width: "150px",
-            height: "200px",
-            background: "#9ad5de",
-            borderRadius: "8px",
-            cursor: "pointer",
-          }}
-        ></div>
+      {/* deleted: 5 hardcoded static divs with no onClick or state connection */}
+      {/* <div style={{ width: "150px", height: "200px", background: "#9ad5de" ... }}></div> × 5 */}
+      <div style={{ display: "flex", gap: "20px", marginTop: "40px", flexWrap: "wrap", justifyContent: "center" }}>
+        {board.cards.map((card) => (
+          <div
+            key={card.id}
+            onClick={() => handleCardClick(card.id)}
+            style={{
+              width: "150px",
+              height: "200px",
+              borderRadius: "8px",
+              cursor: "pointer",
+              background: card.isMatched ? "#a8e6a3" : card.isFlipped ? "#fff" : "#9ad5de",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              fontSize: "1rem",
+              padding: "10px",
+              textAlign: "center",
+              border: "2px solid #ccc",
+            }}
+          >
+            {(card.isFlipped || card.isMatched) ? card.value : "?"}
+          </div>
+        ))}
       </div>
 
-      <div
-        style={{
-          position: "fixed",
-          top: "30px",
-          left: "30px",
-          fontSize: "1.5rem",
-        }}
-      >
-        Time: <span id="timer">60</span>
+      <div style={{ position: "fixed", top: "30px", left: "30px", fontSize: "1.5rem" }}>
+        {/* Time: <span id="timer">60</span>  ← deleted: was hardcoded static */}
+        Time: <span style={{ color: timeRemaining <= 5 ? "red" : "inherit" }}>{timeRemaining}</span>
       </div>
     </div>
   );

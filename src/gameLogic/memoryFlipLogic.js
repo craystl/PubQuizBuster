@@ -78,7 +78,8 @@ export const flipCard = (board, cardId) => {
 
 // Evaluates whether the two flipped cards match
 export const evaluateFlip = (board) => {
-  if (board.flippedIds.length !== 2) return { board, isMatch: false };
+  //if (board.flippedIds.length !== 2) return { board, isMatch: false };
+  if (board.flippedIds.length !== 3) return { board, isMatch: false };
   const [firstId, secondId] = board.flippedIds;
   const first = board.cards.find((c) => c.id === firstId);
   const second = board.cards.find((c) => c.id === secondId);
