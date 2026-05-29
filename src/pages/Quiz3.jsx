@@ -1,6 +1,9 @@
 import { useEffect, useState, useRef } from "react";
 import { createTimer, stopTimer } from "../gameLogic/timerLogic";
 
+import { checkOddOneOutAnswer, getAnswerMessage, hasNextQuestion, getNextQuestionIndex } from "../gameLogic/oddOneOutLogic";
+import { calculatePoints, saveHighScore } from "../gameLogic/scoring";
+
 function OddOneOut() {
   const [activities, setActivities] = useState(null);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -25,23 +28,39 @@ function OddOneOut() {
     return () => stopTimer(timerRef.current);
   }, []);
 
-  function handleAnswerClick(item) {
-    if (item.isOddOneOut) {
-      setResult("Correct!");
-      setScore(score + 1);
-    } else {
-      setResult("Incorrect, try again.");
-    }
+  //function handleAnswerClick(item) {
+    //if (item.isOddOneOut) {
+      //setResult("Correct!");
+      //setScore(score + 1);
+    //} else {
+      //setResult("Incorrect, try again.");
+    //}
+  //}
+  function handleAnswerClick(item) 
+  {
+  const isCorrect = checkOddOneOutAnswer({ isOdd: item.isOddOneOut });
+  const points = calculatePoints(isCorrect, timeRemaining, 0);
+  setResult(getAnswerMessage(isCorrect));
+  setScore(score + points);
   }
 
-  function handleNextQuestion() {
-    setResult("");
+  //function handleNextQuestion() {
+    //setResult("");
 
-    if (currentQuestionIndex < activities.length - 1) {
-      setCurrentQuestionIndex(currentQuestionIndex + 1);
-    } else {
-      setResult("Quiz Finished!");
-    }
+    //if (currentQuestionIndex < activities.length - 1) {
+      //setCurrentQuestionIndex(currentQuestionIndex + 1);
+    //} else {
+      //setResult("Quiz Finished!");
+    //}
+  //}
+  function handleNextQuestion() 
+  {
+  setResult("");
+  if (!hasNextQuestion(currentQuestionIndex, activities.length)) {
+    setResult("Quiz Finished!");
+    return;
+  }
+  setCurrentQuestionIndex(getNextQuestionIndex(currentQuestionIndex, activities.length));
   }
 
   if (!activities) {
