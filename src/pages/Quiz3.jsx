@@ -50,7 +50,7 @@ function OddOneOut() {
     //if (currentQuestionIndex < activities.length - 1) {
       //setCurrentQuestionIndex(currentQuestionIndex + 1);
     //} else {
-      setResult("Quiz Finished!");
+      //setResult("Quiz Finished!");
     //}
   //}
   function handleNextQuestion() 

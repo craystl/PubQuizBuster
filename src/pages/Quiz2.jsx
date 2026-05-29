@@ -2,14 +2,22 @@ import { useState, useEffect, useRef } from "react";
 import { createTimer, stopTimer } from "../gameLogic/timerLogic";
 import { checkMultipleChoiceAnswer, calculateNewScore } from "../gameLogic/multipleChoiceLogic";
 
-function MultiChoice({ gameData }) {
+// function MultiChoice({ gameData }) {  ← deleted: now fetches own data like OddOneOut
+function MultiChoice() {
+  const [gameData, setGameData] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [timeRemaining, setTimeRemaining] = useState(60);
   const [score, setScore] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState("");
-
   const timerRef = useRef(null);
 
+  useEffect(() => {
+    fetch("/data/multiple-choice/test_geography_multiple_choice.json")
+      .then(res => res.json())
+      .then(data => setGameData(data));
+  }, []);
+
+  // const questions = gameData?.questions || gameData || [];  ← same, just now depends on local state
   const questions = gameData?.questions || gameData || [];
   const currentQuestion = questions[currentIndex];
   const questionText = currentQuestion?.text || currentQuestion?.question || currentQuestion?.title || "";
@@ -41,28 +49,25 @@ function MultiChoice({ gameData }) {
     }
   };
 
+  if (!gameData) return <div>Loading...</div>;
+
   return (
     <div style={{ fontFamily: "Arial, sans-serif", padding: "40px" }}>
       <p style={{ float: "left", fontSize: "24px" }}>
         {/* Time: 60  ← deleted: was hardcoded static */}
         Time: <span style={{ color: timeRemaining <= 5 ? "red" : "inherit" }}>{timeRemaining}</span>
       </p>
-
       <p style={{ float: "right", fontSize: "24px" }}>
         {/* Score: 0  ← deleted: was hardcoded static */}
         Score: {score}
       </p>
-
       <br /><br /><br />
-
       <h1 style={{ textAlign: "center", fontSize: "30px" }}>Multi-Choice</h1>
       <br />
-
       <h2 style={{ textAlign: "center", fontSize: "17px" }}>
         {/* Question  ← deleted: was hardcoded static */}
         {questionText}
       </h2>
-
       <div style={{ textAlign: "center", fontSize: "30px" }}>
         {/* deleted: hardcoded static radio inputs for Cat, Dog, Bird */}
         {/* <p><input type="radio" name="answer" /> Cat</p> */}
@@ -79,7 +84,6 @@ function MultiChoice({ gameData }) {
             /> {opt}
           </p>
         ))}
-
         <br />
         {/* <button style={...}>Submit</button>  ← deleted: had no onClick */}
         <button

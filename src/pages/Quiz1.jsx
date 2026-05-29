@@ -2,17 +2,27 @@ import { useState, useEffect, useRef } from "react";
 import { createTimer, stopTimer } from "../gameLogic/timerLogic";
 import { createBoard, flipCard, evaluateFlip, resetBoard, calculateNewScore } from "../gameLogic/memoryFlipLogic";
 
-function MemoryFlip({ gameData }) {
+// function MemoryFlip({ gameData }) {  ← deleted: now fetches own data like OddOneOut
+function MemoryFlip() {
+  const [gameData, setGameData] = useState(null);
   const [board, setBoard] = useState(null);
   const [score, setScore] = useState(0);
   const [timeRemaining, setTimeRemaining] = useState(60);
   const timerRef = useRef(null);
 
-  const pairs = gameData?.pairs || gameData || [];
-
   useEffect(() => {
-    if (pairs.length) setBoard(createBoard(pairs));
-  }, [pairs]);
+    fetch("/data/memory-flip/test_music_memory_flip.json")
+      .then(res => res.json())
+      .then(data => setGameData(data));
+  }, []);
+
+  // const data = gameData;  ← deleted: no longer needed
+  // useEffect(() => {
+  //   if (data?.cards?.length) setBoard(createBoard(data));
+  // }, [data]);
+  useEffect(() => {
+    if (gameData?.cards?.length) setBoard(createBoard(gameData));
+  }, [gameData]);
 
   useEffect(() => {
     if (!board || board.isSolved) return;
@@ -23,7 +33,6 @@ function MemoryFlip({ gameData }) {
   const handleCardClick = (cardId) => {
     if (!board || board.isSolved) return;
     let newBoard = flipCard(board, cardId);
-    // if (newBoard.flippedIds.length === 3) {  ← deleted: wrong count for 1+2 match
     if (newBoard.flippedIds.length === 3) {
       const { board: evaluatedBoard, isMatch } = evaluateFlip(newBoard);
       newBoard = evaluatedBoard;
@@ -54,16 +63,13 @@ function MemoryFlip({ gameData }) {
       <h1 style={{ fontSize: "2rem", marginBottom: "30px", color: "#111" }}>
         Memory Flip
       </h1>
-
       <p style={{ maxWidth: "500px", fontSize: "1.1rem", color: "#444", margin: "0 auto 25px auto", lineHeight: "1.5" }}>
         *Question*
       </p>
-
       <div style={{ position: "fixed", top: "30px", right: "30px", fontSize: "1.5rem", color: "#111" }}>
         {/* Score: <span id="score">0</span>  ← deleted: was hardcoded static */}
         Score: <span>{score}</span>
       </div>
-
       {/* deleted: 5 hardcoded static divs with no onClick or state connection */}
       {/* <div style={{ width: "150px", height: "200px", background: "#9ad5de" ... }}></div> × 5 */}
       <div style={{ display: "flex", gap: "20px", marginTop: "40px", flexWrap: "wrap", justifyContent: "center" }}>
@@ -90,7 +96,6 @@ function MemoryFlip({ gameData }) {
           </div>
         ))}
       </div>
-
       <div style={{ position: "fixed", top: "30px", left: "30px", fontSize: "1.5rem" }}>
         {/* Time: <span id="timer">60</span>  ← deleted: was hardcoded static */}
         Time: <span style={{ color: timeRemaining <= 5 ? "red" : "inherit" }}>{timeRemaining}</span>
