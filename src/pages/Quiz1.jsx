@@ -1,20 +1,43 @@
 import { useState, useEffect, useRef } from "react";
 import { createTimer, stopTimer } from "../gameLogic/timerLogic";
+import { createBoard, flipCard, evaluateFlip, resetBoard, calculateNewScore } from "../gameLogic/memoryFlipLogic";
 
-function MemoryFlip() {
+function MemoryFlip({ gameData }) {
+  const [board, setBoard] = useState(null);
+  const [score, setScore] = useState(0);
   const [timeRemaining, setTimeRemaining] = useState(60);
   const timerRef = useRef(null);
 
-  useEffect(() => {
-    timerRef.current = createTimer(
-      60,
-      (t) => setTimeRemaining(t),       // onTick: update display
-      () => alert("Time's up!"),         // onExpire: do something when timer hits 0
-      (t) => console.log("Warning!", t) // onWarning: fires at 5 seconds
-    );
+  const pairs = gameData?.pairs || gameData || [];
 
-    return () => stopTimer(timerRef.current); // cleanup when leaving page
-  }, []);
+  useEffect(() => {
+    if (pairs.length) setBoard(createBoard(pairs));
+  }, [pairs]);
+
+  useEffect(() => {
+    if (!board || board.isSolved) return;
+    timerRef.current = createTimer(60, (t) => setTimeRemaining(t), () => alert("Time's up!"));
+    return () => stopTimer(timerRef.current);
+  }, [board?.isSolved]);
+
+  const handleCardClick = (cardId) => {
+    if (!board || board.isSolved) return;
+    
+    let newBoard = flipCard(board, cardId);
+    
+    if (newBoard.flippedIds.length === 3) { // Match 3 cards (1 + 2)
+      const { board: evaluatedBoard, isMatch } = evaluateFlip(newBoard);
+      newBoard = evaluatedBoard;
+      if (isMatch) setScore(calculateNewScore(score, true));
+      
+      setTimeout(() => setBoard(resetBoard(newBoard)), isMatch ? 0 : 1000);
+      return;
+    }
+    
+    setBoard(newBoard);
+  };
+
+  if (!board) return <div>Loading...</div>;
 
   return (
     <div

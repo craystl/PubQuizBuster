@@ -1,11 +1,25 @@
 import { useState, useEffect, useRef } from "react";
 import { createTimer, stopTimer } from "../gameLogic/timerLogic";
+import { checkMultipleChoiceAnswer, calculateNewScore } from "../gameLogic/multipleChoiceLogic";
 
 function MultiChoice() {
+  const [currentIndex, setCurrentIndex] = useState(0);
   const [timeRemaining, setTimeRemaining] = useState(60);
+  const [score, setScore] = useState(0);
+  const [selectedAnswer, setSelectedAnswer] = useState("");
   const timerRef = useRef(null);
 
+  // Handle any JSON structure
+  const questions = questionsData?.questions || questionsData || [];
+  const currentQuestion = questions[currentIndex];
+  
+  const questionText = currentQuestion?.text || currentQuestion?.question || currentQuestion?.title || "";
+  const options = currentQuestion?.options || currentQuestion?.choices || currentQuestion?.answers || [];
+  const correctAnswer = currentQuestion?.correctAnswer || currentQuestion?.correct || currentQuestion?.answer || "";
+
   useEffect(() => {
+    if (!currentQuestion) return;
+    
     timerRef.current = createTimer(
       60,
       (t) => setTimeRemaining(t),
@@ -13,7 +27,23 @@ function MultiChoice() {
       (t) => console.log("Warning!", t)
     );
     return () => stopTimer(timerRef.current);
-  }, []);
+  }, [currentIndex]);
+
+  const handleSubmit = () => {
+    if (!selectedAnswer) return;
+    
+    const isCorrect = checkMultipleChoiceAnswer(selectedAnswer, correctAnswer);
+    setScore(calculateNewScore(score, isCorrect));
+    alert(isCorrect ? "Correct!" : "Wrong!");
+    stopTimer(timerRef.current);
+    
+    if (currentIndex + 1 < questions.length) {
+      setCurrentIndex(currentIndex + 1);
+      setSelectedAnswer("");
+    } else {
+      alert(`Game Over! Score: ${score + (isCorrect ? 100 : 0)}`);
+    }
+  };
 
   return (
     <div
