@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\dylan\\source\\repos\\PubQuizBuster-ActivityCreator-MultipleChoice\\ActivityCreator\\ActivityCreator.csproj": {}
+    "C:\\Users\\dylan\\source\\repos\\PubQuizBuster\\PubQuizBuster-ActivityCreator-MultipleChoice\\ActivityCreator\\ActivityCreator.csproj": {}
   },
   "projects": {
-    "C:\\Users\\dylan\\source\\repos\\PubQuizBuster-ActivityCreator-MultipleChoice\\ActivityCreator\\ActivityCreator.csproj": {
+    "C:\\Users\\dylan\\source\\repos\\PubQuizBuster\\PubQuizBuster-ActivityCreator-MultipleChoice\\ActivityCreator\\ActivityCreator.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\dylan\\source\\repos\\PubQuizBuster-ActivityCreator-MultipleChoice\\ActivityCreator\\ActivityCreator.csproj",
+        "projectUniqueName": "C:\\Users\\dylan\\source\\repos\\PubQuizBuster\\PubQuizBuster-ActivityCreator-MultipleChoice\\ActivityCreator\\ActivityCreator.csproj",
         "projectName": "ActivityCreator",
-        "projectPath": "C:\\Users\\dylan\\source\\repos\\PubQuizBuster-ActivityCreator-MultipleChoice\\ActivityCreator\\ActivityCreator.csproj",
+        "projectPath": "C:\\Users\\dylan\\source\\repos\\PubQuizBuster\\PubQuizBuster-ActivityCreator-MultipleChoice\\ActivityCreator\\ActivityCreator.csproj",
         "packagesPath": "C:\\Users\\dylan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\dylan\\source\\repos\\PubQuizBuster-ActivityCreator-MultipleChoice\\ActivityCreator\\obj\\",
+        "outputPath": "C:\\Users\\dylan\\source\\repos\\PubQuizBuster\\PubQuizBuster-ActivityCreator-MultipleChoice\\ActivityCreator\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\dylan\\AppData\\Roaming\\NuGet\\NuGet.Config",

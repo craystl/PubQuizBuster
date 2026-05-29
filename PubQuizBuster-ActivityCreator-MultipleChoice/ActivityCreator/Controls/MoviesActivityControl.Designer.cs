@@ -149,7 +149,7 @@ partial class MoviesActivityControl
         _headerPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 48F));
         _headerPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 160F));
         _headerPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 160F));
-        _headerPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 165F));
+        _headerPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 167F));
         _headerPanel.Controls.Add(_activityTitleLabel, 0, 0);
         _headerPanel.Controls.Add(_titleBox, 1, 0);
         _headerPanel.Controls.Add(_rootFilenameLabel, 2, 0);
@@ -183,14 +183,14 @@ partial class MoviesActivityControl
         _titleBox.Location = new Point(210, 6);
         _titleBox.Margin = new Padding(6);
         _titleBox.Name = "_titleBox";
-        _titleBox.Size = new Size(749, 39);
+        _titleBox.Size = new Size(748, 39);
         _titleBox.TabIndex = 1;
         _titleBox.Text = "Which movie star is the odd one out?";
         _titleBox.TextChanged += TitleBox_TextChanged;
         // 
         // _rootFilenameLabel
         // 
-        _rootFilenameLabel.Location = new Point(971, 0);
+        _rootFilenameLabel.Location = new Point(970, 0);
         _rootFilenameLabel.Margin = new Padding(6, 0, 6, 0);
         _rootFilenameLabel.Name = "_rootFilenameLabel";
         _rootFilenameLabel.Size = new Size(228, 51);
@@ -201,16 +201,16 @@ partial class MoviesActivityControl
         // _filenameBox
         // 
         _filenameBox.Dock = DockStyle.Fill;
-        _filenameBox.Location = new Point(1212, 6);
+        _filenameBox.Location = new Point(1211, 6);
         _filenameBox.Margin = new Padding(6);
         _filenameBox.Name = "_filenameBox";
-        _filenameBox.Size = new Size(690, 39);
+        _filenameBox.Size = new Size(689, 39);
         _filenameBox.TabIndex = 3;
         _filenameBox.Text = "movie_odd_one_out";
         // 
         // _loadButton
         // 
-        _loadButton.Location = new Point(1914, 6);
+        _loadButton.Location = new Point(1912, 6);
         _loadButton.Margin = new Padding(6);
         _loadButton.Name = "_loadButton";
         _loadButton.Size = new Size(148, 45);
@@ -220,7 +220,7 @@ partial class MoviesActivityControl
         // 
         // _viewButton
         // 
-        _viewButton.Location = new Point(2074, 6);
+        _viewButton.Location = new Point(2072, 6);
         _viewButton.Margin = new Padding(6);
         _viewButton.Name = "_viewButton";
         _viewButton.Size = new Size(148, 45);
@@ -230,7 +230,7 @@ partial class MoviesActivityControl
         // 
         // _saveButton
         // 
-        _saveButton.Location = new Point(2234, 6);
+        _saveButton.Location = new Point(2232, 6);
         _saveButton.Margin = new Padding(6);
         _saveButton.Name = "_saveButton";
         _saveButton.Size = new Size(149, 45);
