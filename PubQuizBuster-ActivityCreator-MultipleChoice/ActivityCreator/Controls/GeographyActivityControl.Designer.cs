@@ -55,10 +55,10 @@ partial class GeographyActivityControl
         _correctAnswerLabel = new Label();
         _correctAnswerCheckBox = new CheckBox();
         _filterCountryLayout = new TableLayoutPanel();
+        _countrySelectionInfoLabel = new Label();
         _CountryFilterLabel = new Label();
         _countryFilterNameLabel = new Label();
         _resultsPanel = new FlowLayoutPanel();
-        _resultsListBox = new ListBox();
         _selectedOuterPanel = new TableLayoutPanel();
         _selectedTitleLabel = new Label();
         _selectedPanel = new FlowLayoutPanel();
@@ -77,7 +77,6 @@ partial class GeographyActivityControl
         _searchPanel.SuspendLayout();
         _correctAnswerPanel.SuspendLayout();
         _filterCountryLayout.SuspendLayout();
-        _resultsPanel.SuspendLayout();
         _selectedOuterPanel.SuspendLayout();
         _selectedPanel.SuspendLayout();
         SuspendLayout();
@@ -299,13 +298,13 @@ partial class GeographyActivityControl
         // 
         // _continentCombo
         // 
+        _continentCombo.DropDownStyle = ComboBoxStyle.DropDownList;
         _continentCombo.FormattingEnabled = true;
         _continentCombo.Items.AddRange(new object[] { "Any", "Europe", "Asia", "Africa", "North America", "South America", "Oceania" });
         _continentCombo.Location = new Point(3, 45);
         _continentCombo.Name = "_continentCombo";
         _continentCombo.Size = new Size(201, 23);
         _continentCombo.TabIndex = 4;
-        _continentCombo.SelectedIndexChanged += SelectionChanged;
         // 
         // _selectContinentLabel
         // 
@@ -367,7 +366,6 @@ partial class GeographyActivityControl
         _maxAreaTextBox.Name = "_maxAreaTextBox";
         _maxAreaTextBox.Size = new Size(163, 23);
         _maxAreaTextBox.TabIndex = 7;
-        _maxAreaTextBox.TextChanged += SelectionChanged;
         // 
         // _minAreaTextBox
         // 
@@ -375,7 +373,6 @@ partial class GeographyActivityControl
         _minAreaTextBox.Name = "_minAreaTextBox";
         _minAreaTextBox.Size = new Size(163, 23);
         _minAreaTextBox.TabIndex = 8;
-        _minAreaTextBox.TextChanged += SelectionChanged;
         // 
         // _populationFilterPanel
         // 
@@ -426,7 +423,6 @@ partial class GeographyActivityControl
         _maxPopulationTextBox.Name = "_maxPopulationTextBox";
         _maxPopulationTextBox.Size = new Size(158, 23);
         _maxPopulationTextBox.TabIndex = 7;
-        _maxPopulationTextBox.TextChanged += SelectionChanged;
         // 
         // _minPopulationTextBox
         // 
@@ -434,7 +430,6 @@ partial class GeographyActivityControl
         _minPopulationTextBox.Name = "_minPopulationTextBox";
         _minPopulationTextBox.Size = new Size(158, 23);
         _minPopulationTextBox.TabIndex = 8;
-        _minPopulationTextBox.TextChanged += SelectionChanged;
         // 
         // _selectCategoryPanel
         // 
@@ -463,13 +458,13 @@ partial class GeographyActivityControl
         // 
         // _categoryCombo
         // 
+        _categoryCombo.DropDownStyle = ComboBoxStyle.DropDownList;
         _categoryCombo.FormattingEnabled = true;
         _categoryCombo.Items.AddRange(new object[] { "Country", "State/Territory", "City" });
         _categoryCombo.Location = new Point(3, 45);
         _categoryCombo.Name = "_categoryCombo";
         _categoryCombo.Size = new Size(187, 23);
         _categoryCombo.TabIndex = 4;
-        _categoryCombo.SelectedIndexChanged += SelectionChanged;
         // 
         // _searchPanel
         // 
@@ -545,28 +540,41 @@ partial class GeographyActivityControl
         _correctAnswerCheckBox.Size = new Size(30, 30);
         _correctAnswerCheckBox.TabIndex = 6;
         _correctAnswerCheckBox.UseVisualStyleBackColor = true;
-        _correctAnswerCheckBox.CheckedChanged += SelectionChanged;
         // 
         // _filterCountryLayout
         // 
         _filterCountryLayout.ColumnCount = 1;
         _filterCountryLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-        _filterCountryLayout.Controls.Add(_CountryFilterLabel, 0, 0);
-        _filterCountryLayout.Controls.Add(_countryFilterNameLabel, 0, 1);
+        _filterCountryLayout.Controls.Add(_countrySelectionInfoLabel, 0, 0);
+        _filterCountryLayout.Controls.Add(_CountryFilterLabel, 0, 1);
+        _filterCountryLayout.Controls.Add(_countryFilterNameLabel, 0, 2);
         _filterCountryLayout.Location = new Point(835, 11);
         _filterCountryLayout.Name = "_filterCountryLayout";
-        _filterCountryLayout.RowCount = 2;
-        _filterCountryLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 38.1355934F));
-        _filterCountryLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 61.8644066F));
+        _filterCountryLayout.RowCount = 3;
+        _filterCountryLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 73.11828F));
+        _filterCountryLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 26.88172F));
+        _filterCountryLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 24F));
         _filterCountryLayout.Size = new Size(232, 118);
         _filterCountryLayout.TabIndex = 14;
+        // 
+        // _countrySelectionInfoLabel
+        // 
+        _countrySelectionInfoLabel.Anchor = AnchorStyles.None;
+        _countrySelectionInfoLabel.AutoSize = true;
+        _countrySelectionInfoLabel.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+        _countrySelectionInfoLabel.Location = new Point(5, 4);
+        _countrySelectionInfoLabel.Name = "_countrySelectionInfoLabel";
+        _countrySelectionInfoLabel.Size = new Size(221, 60);
+        _countrySelectionInfoLabel.TabIndex = 0;
+        _countrySelectionInfoLabel.Text = "When searching for countries, click once to select it as a filter, a second time to instead select it as an answer, and a third time for both.";
+        _countrySelectionInfoLabel.TextAlign = ContentAlignment.MiddleCenter;
         // 
         // _CountryFilterLabel
         // 
         _CountryFilterLabel.Anchor = AnchorStyles.None;
         _CountryFilterLabel.AutoSize = true;
         _CountryFilterLabel.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-        _CountryFilterLabel.Location = new Point(18, 13);
+        _CountryFilterLabel.Location = new Point(18, 71);
         _CountryFilterLabel.Name = "_CountryFilterLabel";
         _CountryFilterLabel.Size = new Size(195, 19);
         _CountryFilterLabel.TabIndex = 7;
@@ -578,7 +586,7 @@ partial class GeographyActivityControl
         _countryFilterNameLabel.Anchor = AnchorStyles.None;
         _countryFilterNameLabel.AutoSize = true;
         _countryFilterNameLabel.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-        _countryFilterNameLabel.Location = new Point(95, 72);
+        _countryFilterNameLabel.Location = new Point(95, 96);
         _countryFilterNameLabel.Name = "_countryFilterNameLabel";
         _countryFilterNameLabel.Size = new Size(42, 19);
         _countryFilterNameLabel.TabIndex = 9;
@@ -590,22 +598,12 @@ partial class GeographyActivityControl
         _resultsPanel.AutoScroll = true;
         _resultsPanel.BackColor = Color.White;
         _resultsPanel.BorderStyle = BorderStyle.FixedSingle;
-        _resultsPanel.Controls.Add(_resultsListBox);
         _resultsPanel.Dock = DockStyle.Fill;
         _resultsPanel.Location = new Point(13, 262);
         _resultsPanel.Name = "_resultsPanel";
         _resultsPanel.Padding = new Padding(8);
         _resultsPanel.Size = new Size(975, 374);
         _resultsPanel.TabIndex = 4;
-        // 
-        // _resultsListBox
-        // 
-        _resultsListBox.FormattingEnabled = true;
-        _resultsListBox.ItemHeight = 15;
-        _resultsListBox.Location = new Point(11, 11);
-        _resultsListBox.Name = "_resultsListBox";
-        _resultsListBox.Size = new Size(947, 349);
-        _resultsListBox.TabIndex = 0;
         // 
         // _selectedOuterPanel
         // 
@@ -629,12 +627,12 @@ partial class GeographyActivityControl
         // _selectedTitleLabel
         // 
         _selectedTitleLabel.Dock = DockStyle.Fill;
-        _selectedTitleLabel.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+        _selectedTitleLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
         _selectedTitleLabel.Location = new Point(11, 8);
         _selectedTitleLabel.Name = "_selectedTitleLabel";
         _selectedTitleLabel.Size = new Size(282, 34);
         _selectedTitleLabel.TabIndex = 0;
-        _selectedTitleLabel.Text = "Currently Saved Questions (0 / 10)";
+        _selectedTitleLabel.Text = "Selected Answers for this Question (Max of 8)";
         _selectedTitleLabel.TextAlign = ContentAlignment.MiddleCenter;
         // 
         // _selectedPanel
@@ -655,14 +653,14 @@ partial class GeographyActivityControl
         // 
         _messageTextBox.Location = new Point(3, 3);
         _messageTextBox.Name = "_messageTextBox";
-        _messageTextBox.Size = new Size(279, 23);
+        _messageTextBox.Size = new Size(134, 23);
         _messageTextBox.TabIndex = 0;
         // 
         // _jsonTextBox
         // 
         _jsonTextBox.Location = new Point(3, 32);
         _jsonTextBox.Name = "_jsonTextBox";
-        _jsonTextBox.Size = new Size(279, 23);
+        _jsonTextBox.Size = new Size(134, 23);
         _jsonTextBox.TabIndex = 1;
         // 
         // _completeQuestionButton
@@ -712,7 +710,6 @@ partial class GeographyActivityControl
         _correctAnswerPanel.PerformLayout();
         _filterCountryLayout.ResumeLayout(false);
         _filterCountryLayout.PerformLayout();
-        _resultsPanel.ResumeLayout(false);
         _selectedOuterPanel.ResumeLayout(false);
         _selectedPanel.ResumeLayout(false);
         _selectedPanel.PerformLayout();
@@ -764,7 +761,7 @@ partial class GeographyActivityControl
     private TableLayoutPanel _filterCountryLayout;
     private Label _CountryFilterLabel;
     private Label _countryFilterNameLabel;
-    private ListBox _resultsListBox;
     private TextBox _messageTextBox;
     private TextBox _jsonTextBox;
+    private Label _countrySelectionInfoLabel;
 }

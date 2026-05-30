@@ -19,6 +19,7 @@ public sealed partial class GeographyActivityControl : UserControl
         ["property.label"] = "rdfs:label",
         ["class.country"] = "wd:Q3624078",
         ["class.city"] = "wd:Q515",
+        ["class.territoy"] = "wd:Q56061",
         ["property.continent"] = "wdt:P30",
         ["property.country"] = "wdt:P17",
         ["property.population"] = "wdt:P1082",
@@ -36,57 +37,77 @@ public sealed partial class GeographyActivityControl : UserControl
     public GeographyActivityControl()
     {
         InitializeComponent();
-
+        _continentCombo.SelectedIndex = 0;
+        _categoryCombo.SelectedIndex = 0;
         _http.DefaultRequestHeaders.UserAgent.Add(
-    new ProductInfoHeaderValue("PubQuizBusterGeographySparqlQuery", "0.1"));
+        new ProductInfoHeaderValue("PubQuizBusterGeographySparqlQuery", "0.1"));
     }
 
+    string? category;
     string? continent;
-    long? minPopulation = new long?();
-    long? maxPopulation = new long?();
-    long? minArea = new long?();
-    long? maxArea = new long?();
+    long? minPopulation;
+    long? maxPopulation;
+    long? minArea;
+    long? maxArea;
+    bool isCorrect;
     string sparqlQuery;
-    private void SelectionChanged(object? sender, EventArgs e)
-    {
-        try
-        {
-            continent = _continentCombo.SelectedItem.ToString();
-            maxPopulation = Convert.ToInt64(_maxPopulationTextBox.Text);
-            minPopulation = Convert.ToInt64(_minPopulationTextBox.Text);
-            maxArea = Convert.ToInt64(_maxAreaTextBox.Text);
-            minArea = Convert.ToInt64(_minAreaTextBox.Text);
-            _searchButton.Enabled = true;
-            sparqlQuery = buildSparqlQuery();
-        }
-        catch
-        {
-            _searchButton.Enabled = false;
-        }
-    }
 
     private string buildSparqlQuery()
     {
+        continent = _continentCombo.SelectedItem.ToString();
+        category = _categoryCombo.Text;
+        isCorrect = _correctAnswerCheckBox.Checked;
         var label = WikidataTerms["property.label"];
         var country = WikidataTerms["class.country"];
         var city = WikidataTerms["class.city"];
 
         var lines = new List<string>
         {
-            "SELECT DISTINCT ?item ?itemLabel ?continent ?population ?area",
+            "SELECT DISTINCT ?item ?itemLabel",
             "WHERE {",
-              "?item wdt:P31 wd:Q3624078 .     # country",
-              "?item wdt:P30 ?continent .      # continent",
-              "?item wdt:P1082 ?population .   # population",
-              "?item wdt:P2046 ?area .         # area",
-              $"FILTER (?population > {minPopulation} && ?population < {maxPopulation})",
-              $"FILTER (?area > {minArea} && ?area < {maxArea})",
+            "?item " + WikidataTerms["property.continent"] + " ?continent.",
+            "?item " + WikidataTerms["property.population"] + " ?population.",
+            "?item " + WikidataTerms["property.area"] + " ?area."
         };
-        if (continent != "any")
+        if (category == "Country")
+        {
+            lines.Add("?item " + WikidataTerms["property.instanceOf"] + " " + WikidataTerms["class.country"]);
+        }
+        if (category == "City")
+        {
+            //lines.Add("?item " + WikidataTerms["property.country"] + " ?country.");
+            lines.Add("?item " + WikidataTerms["property.instanceOf"] + " " + WikidataTerms["class.city"]);
+            lines.Add($"FILTER (?country = {_countryFilterNameLabel.Text}).");
+        }
+        if (category == "Territory")
+        {
+            lines.Add("?item " + WikidataTerms["property.instanceOf"] + " " + WikidataTerms["class.territory"]);
+        }
+        if (continent != "Any" && _continentCombo.SelectedItem != null)
         {
             string continentTerm = WikidataTerms[continent];
             lines.Add($"FILTER (?continent = {continentTerm})");
         }
+        try
+        {
+            lines.Add($"FILTER (?population < {Convert.ToInt64(_maxPopulationTextBox.Text)})");
+        }
+        catch { }
+        try
+        {
+            lines.Add($"FILTER (?population > {Convert.ToInt64(_minPopulationTextBox.Text)})");
+        }
+        catch { }
+        try
+        {
+            lines.Add($"FILTER (?area < {Convert.ToInt64(_maxAreaTextBox.Text)})");
+        }
+        catch { }
+        try
+        {
+            lines.Add($"FILTER (?area > {Convert.ToInt64(_minAreaTextBox.Text)})");
+        }
+        catch { }
         lines.AddRange(new[]
         {
                "SERVICE wikibase:label { bd:serviceParam wikibase:language \"en\". }",
@@ -98,7 +119,7 @@ public sealed partial class GeographyActivityControl : UserControl
 
     private async void _searchButton_Click(object sender, EventArgs e)
     {
-        buildSparqlQuery();
+        sparqlQuery = buildSparqlQuery();
         _searchButton.Enabled = false;
         ClearResultsPanel();
         SetMessage("Executing SPARQL query...");
@@ -110,8 +131,7 @@ public sealed partial class GeographyActivityControl : UserControl
     {
         try
         {
-            var queryText = sparqlQuery;
-            var requestUrl = BuildRequestUrl(queryText);
+            var requestUrl = BuildRequestUrl(sparqlQuery);
 
             using var request = new HttpRequestMessage(HttpMethod.Get, requestUrl);
             request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/sparql-results+json"));
@@ -133,7 +153,7 @@ public sealed partial class GeographyActivityControl : UserControl
                 new JsonSerializerOptions { WriteIndented = true });
 
             DisplayReturnedNames(jsonDocument.RootElement);
-            SetMessage($"Query complete. Returned {_resultsListBox.Items.Count} displayed name(s).");
+            SetMessage($"Query complete. Returned {_resultsPanel.Controls.Count} displayed name(s).");
         }
         catch (Exception ex)
         {
@@ -148,12 +168,7 @@ public sealed partial class GeographyActivityControl : UserControl
 
     private void ClearResultsPanel()
     {
-        DisposeChildControls(_resultsListBox);
-    }
-
-    private void ClearSelectedPanel()
-    {
-        DisposeChildControls(_selectedPanel);
+        DisposeChildControls(_resultsPanel);
     }
 
     private static void DisposeChildControls(Control parent)
@@ -182,12 +197,57 @@ public sealed partial class GeographyActivityControl : UserControl
             if (!binding.TryGetProperty("itemLabel", out var nameBinding)) continue;
             if (!nameBinding.TryGetProperty("value", out var value)) continue;
 
-            _resultsListBox.Items.Add(value.GetString() ?? "(no name)");
+            Label _returnedValueLabel = new Label();
+            _returnedValueLabel.Click += _returnedValue_Click;
+            _returnedValueLabel.Text = value.GetString() ?? "(no name)";
+            _resultsPanel.Controls.Add(_returnedValueLabel);
+        }
+    }
+
+    string[] currentQuestionAnswers = new string[8];
+    bool[] currentQuestionsIsCorrect = new bool[8];
+    int currentQuestionIndex = 0;
+    private void _returnedValue_Click(object sender, EventArgs e)
+    {
+        currentQuestionIndex++;
+        Label selectedAnswer = new Label();
+        Label clicked = sender as Label;
+        selectedAnswer.Location = new Point(0, 0);
+        selectedAnswer.AutoSize = true;
+        if (category == "Country")
+        {
+            if (_countryFilterNameLabel.Text == clicked.Text)
+            {
+                currentQuestionAnswers[currentQuestionIndex] = _countryFilterNameLabel.Text;
+                selectedAnswer.Text = _countryFilterNameLabel.Text;
+                _selectedPanel.Controls.Add(selectedAnswer);
+                selectedAnswer.Location = new Point (selectedAnswer.Location.X,selectedAnswer.Location.Y + 30);
+                _countryFilterNameLabel.Text = "None";
+                selectedAnswer.Name = "selectedAnswer" + currentQuestionIndex.ToString();
+            }
+            else
+            {
+                _countryFilterNameLabel.Text = clicked.Text;
+            }
         }
     }
 
     private void SetMessage(string message)
     {
         _messageTextBox.Text = message;
+    }
+}
+
+public class Question
+{
+    string prompt;
+    string[] answers;
+    bool[] isCorrect;
+
+    public Question(string prompt, string[] answers, bool[] isCorrect)
+    {
+        this.prompt = prompt;
+        this.answers = answers;
+        this.isCorrect = isCorrect;
     }
 }
