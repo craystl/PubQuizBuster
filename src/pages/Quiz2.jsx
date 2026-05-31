@@ -26,6 +26,10 @@ function MultiChoice() {
 
   useEffect(() => {
     if (!currentQuestion) return;
+    if (timerRef.current) 
+    {
+    stopTimer(timerRef.current);
+    } 
     timerRef.current = createTimer(
       60,
       (t) => setTimeRemaining(t),
@@ -33,7 +37,7 @@ function MultiChoice() {
       (t) => console.log("Warning!", t)
     );
     return () => stopTimer(timerRef.current);
-  }, [currentIndex]);
+  }, [currentIndex, gameData]);
 
   const handleSubmit = () => {
     if (!selectedAnswer) return;
