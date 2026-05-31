@@ -22,8 +22,8 @@ function QuizMenu({ onSelectGame }) {
       position: "relative",
       overflow: "hidden",
       boxSizing: "border-box",
-      paddingTop: "80px",
-      paddingBottom: "40px",
+      paddingTop: "100px",
+      paddingBottom: "60px",
     }}>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;700;900&display=swap');
