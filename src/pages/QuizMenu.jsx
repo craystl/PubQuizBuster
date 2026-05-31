@@ -17,11 +17,13 @@ function QuizMenu({ onSelectGame }) {
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
-      justifyContent: "center",
+      justifyContent: "flex-start",
       fontFamily: "'Nunito', sans-serif",
       position: "relative",
       overflow: "hidden",
       boxSizing: "border-box",
+      paddingTop: "80px",
+      paddingBottom: "40px",
     }}>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;700;900&display=swap');
@@ -132,9 +134,9 @@ function QuizMenu({ onSelectGame }) {
       <div className="qm-blob" style={{ width: "25vw", height: "25vw", maxWidth: 350, background: "#06b6d4", top: "30%", right: "3%", animationDelay: "1.5s" }} />
 
       <div style={{ position: "relative", zIndex: 10, textAlign: "center", padding: "0 24px", width: "100%", boxSizing: "border-box" }}>
-        <div className="qm-badge">✨ Choose your category</div>
+        <div className="qm-badge">✨ Available categories</div>
         <h1 className="qm-title">Pick a category!</h1>
-        <p className="qm-subtitle">Select a topic and game mode to begin</p>
+        <p className="qm-subtitle">Select a game to begin</p>
 
         <div style={{
           display: "grid",
