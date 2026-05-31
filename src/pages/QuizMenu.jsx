@@ -12,18 +12,16 @@ function QuizMenu({ onSelectGame }) {
   return (
     <div style={{
       width: "100%",
-      minHeight: "100vh",
+      height: "100vh",
       background: "linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%)",
       display: "flex",
       flexDirection: "column",
+      justifyContent: "center",
       alignItems: "center",
-      justifyContent: "flex-start",
-      fontFamily: "'Nunito', sans-serif",
+      overflow: "hidden",
       position: "relative",
-      overflow: "visible",
       boxSizing: "border-box",
-      paddingTop: "100px",
-      paddingBottom: "60px",
+      fontFamily: "'Nunito', sans-serif",
     }}>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;700;900&display=swap');
@@ -46,7 +44,7 @@ function QuizMenu({ onSelectGame }) {
           filter: blur(80px);
           opacity: 0.25;
         }
-        .qm-title {
+        .qm-title {        
           font-family: 'Fredoka One', cursive;
           font-size: clamp(2.5rem, 5vw, 4rem);
           background: linear-gradient(90deg, #fbbf24, #f87171, #a78bfa, #34d399, #fbbf24);
@@ -55,8 +53,9 @@ function QuizMenu({ onSelectGame }) {
           -webkit-text-fill-color: transparent;
           background-clip: text;
           animation: slideUp 0.6s cubic-bezier(0.22,1,0.36,1) 0.1s both,
-                     shimmer 5s linear 0.8s infinite;
-          margin: 0 0 8px 0;
+          shimmer 5s linear 0.8s infinite;
+          line-height: 1.2;
+          margin: 0 0 16px 0;
           letter-spacing: 2px;
         }
         .qm-subtitle {
