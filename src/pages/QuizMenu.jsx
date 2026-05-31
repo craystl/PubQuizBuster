@@ -6,7 +6,7 @@ function QuizMenu({ onSelectGame }) {
       <div style={gridStyle}>
         <div style={cardStyle}>
           <span style={categoryStyle}>Geography</span>
-          <button style={buttonStyle} onClick={() => onSelectGame("memory-flip")}>
+          <button style={buttonStyle} onClick={() => onSelectGame("multiple-choice")}>
             Multiple Choice
           </button>
         </div>
@@ -20,7 +20,7 @@ function QuizMenu({ onSelectGame }) {
 
         <div style={cardStyle}>
           <span style={categoryStyle}>Music</span>
-          <button style={buttonStyle} onClick={() => onSelectGame("multiple-choice")}>
+          <button style={buttonStyle} onClick={() => onSelectGame("memory-flip")}>
             Memory Flip
           </button>
         </div>
