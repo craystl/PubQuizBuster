@@ -20,7 +20,6 @@ function QuizMenu({ onSelectGame }) {
       justifyContent: "flex-start",
       fontFamily: "'Nunito', sans-serif",
       position: "relative",
-      overflow: "hidden",
       boxSizing: "border-box",
       paddingTop: "100px",
       paddingBottom: "60px",
