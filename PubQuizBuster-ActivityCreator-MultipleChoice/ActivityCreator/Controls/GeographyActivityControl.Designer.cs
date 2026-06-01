@@ -172,7 +172,7 @@ partial class GeographyActivityControl
         _rootFilenameLabel.Name = "_rootFilenameLabel";
         _rootFilenameLabel.Size = new Size(123, 24);
         _rootFilenameLabel.TabIndex = 2;
-        _rootFilenameLabel.Text = "Root JSON filename:";
+        _rootFilenameLabel.Text = "JSON filename:";
         _rootFilenameLabel.TextAlign = ContentAlignment.MiddleRight;
         // 
         // _filenameBox
@@ -199,6 +199,7 @@ partial class GeographyActivityControl
         _viewButton.Size = new Size(80, 21);
         _viewButton.TabIndex = 5;
         _viewButton.Text = "View";
+        _viewButton.Click += _viewButton_Click;
         // 
         // _saveButton
         // 
@@ -207,6 +208,7 @@ partial class GeographyActivityControl
         _saveButton.Size = new Size(80, 21);
         _saveButton.TabIndex = 6;
         _saveButton.Text = "Save";
+        _saveButton.Click += _saveButton_Click;
         // 
         // _dividerPanel
         // 
@@ -460,7 +462,7 @@ partial class GeographyActivityControl
         // 
         _categoryCombo.DropDownStyle = ComboBoxStyle.DropDownList;
         _categoryCombo.FormattingEnabled = true;
-        _categoryCombo.Items.AddRange(new object[] { "Country", "State/Territory", "City" });
+        _categoryCombo.Items.AddRange(new object[] { "Country", "Subdivision", "City" });
         _categoryCombo.Location = new Point(3, 45);
         _categoryCombo.Name = "_categoryCombo";
         _categoryCombo.Size = new Size(187, 23);
@@ -671,6 +673,7 @@ partial class GeographyActivityControl
         _completeQuestionButton.Size = new Size(282, 36);
         _completeQuestionButton.TabIndex = 2;
         _completeQuestionButton.Text = "Complete Question";
+        _completeQuestionButton.Click += _completeQuestionButton_Click;
         // 
         // _statusLabel
         // 
