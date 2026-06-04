@@ -50,18 +50,20 @@ function MultiChoice() {
   };
 
   const handleSubmit = () => {
-    if (selectedAnswers.length === 0) return;
-    const isCorrect = checkMultipleChoiceAnswer(selectedAnswers, correctAnswers);
-    setScore(calculateNewScore(score, isCorrect));
-    alert(isCorrect ? "Correct!" : "Wrong!");
-    stopTimer(timerRef.current);
+  if (selectedAnswers.length === 0) return;
+  const isCorrect = checkMultipleChoiceAnswer(selectedAnswers, correctAnswers);
+  setScore(calculateNewScore(score, isCorrect));
+  alert(isCorrect ? "Correct!" : "Wrong! Either wrong answer selected, or not all correct answers selected.");
+  stopTimer(timerRef.current);
+  if (isCorrect) {
     if (currentIndex + 1 < questions.length) {
       setCurrentIndex(currentIndex + 1);
       setSelectedAnswers([]);
     } else {
-      alert(`Game Over! Score: ${score + (isCorrect ? 100 : 0)}`);
+      alert(`Game Over! Score: ${score + 100}`);
     }
-  };
+  }
+};
 
   const getOptionText = (opt) => opt?.Text ?? opt;
 
