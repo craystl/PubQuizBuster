@@ -1,14 +1,17 @@
 import { useState, useEffect, useRef } from "react";
 import { createTimer, stopTimer } from "../gameLogic/timerLogic";
-import { checkMultipleChoiceAnswer, calculateNewScore } from "../gameLogic/multipleChoiceLogic";
+import {
+  checkMultipleChoiceAnswer,
+  calculateNewScore,
+  getCorrectAnswers,
+} from "../gameLogic/multipleChoiceLogic";
 
-// function MultiChoice({ gameData }) {  ← deleted: now fetches own data like OddOneOut
 function MultiChoice() {
   const [gameData, setGameData] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [timeRemaining, setTimeRemaining] = useState(60);
   const [score, setScore] = useState(0);
-  const [selectedAnswer, setSelectedAnswer] = useState("");
+  const [selectedAnswers, setSelectedAnswers] = useState([]); // now an array
   const timerRef = useRef(null);
 
   useEffect(() => {
@@ -17,19 +20,20 @@ function MultiChoice() {
       .then(data => setGameData(data));
   }, []);
 
-  // const questions = gameData?.questions || gameData || [];  ← same, just now depends on local state
-  const questions = gameData?.questions || gameData || [];
+  const questions = gameData?.Questions || gameData?.questions || [];
   const currentQuestion = questions[currentIndex];
-  const questionText = currentQuestion?.text || currentQuestion?.question || currentQuestion?.title || "";
-  const options = currentQuestion?.options || currentQuestion?.choices || currentQuestion?.answers || [];
-  const correctAnswer = currentQuestion?.correctAnswer || currentQuestion?.correct || currentQuestion?.answer || "";
+
+  // Support both new format (Prompt, Answers[].Text) and old format
+  const questionText = currentQuestion?.Prompt || currentQuestion?.text || currentQuestion?.question || "";
+  const options = currentQuestion?.Answers || currentQuestion?.options || currentQuestion?.choices || [];
+  const correctAnswers = getCorrectAnswers(options.length && options[0]?.IsCorrect !== undefined
+    ? options
+    : options.map(opt => ({ Text: opt, IsCorrect: opt === currentQuestion?.correctAnswer }))
+  );
 
   useEffect(() => {
     if (!currentQuestion) return;
-    if (timerRef.current) 
-    {
-    stopTimer(timerRef.current);
-    } 
+    if (timerRef.current) stopTimer(timerRef.current);
     timerRef.current = createTimer(
       60,
       (t) => setTimeRemaining(t),
@@ -39,57 +43,56 @@ function MultiChoice() {
     return () => stopTimer(timerRef.current);
   }, [currentIndex, gameData]);
 
+  const toggleAnswer = (text) => {
+    setSelectedAnswers(prev =>
+      prev.includes(text) ? prev.filter(a => a !== text) : [...prev, text]
+    );
+  };
+
   const handleSubmit = () => {
-    if (!selectedAnswer) return;
-    const isCorrect = checkMultipleChoiceAnswer(selectedAnswer, correctAnswer);
+    if (selectedAnswers.length === 0) return;
+    const isCorrect = checkMultipleChoiceAnswer(selectedAnswers, correctAnswers);
     setScore(calculateNewScore(score, isCorrect));
     alert(isCorrect ? "Correct!" : "Wrong!");
     stopTimer(timerRef.current);
     if (currentIndex + 1 < questions.length) {
       setCurrentIndex(currentIndex + 1);
-      setSelectedAnswer("");
+      setSelectedAnswers([]);
     } else {
       alert(`Game Over! Score: ${score + (isCorrect ? 100 : 0)}`);
     }
   };
+
+  const getOptionText = (opt) => opt?.Text ?? opt;
 
   if (!gameData) return <div>Loading...</div>;
 
   return (
     <div style={{ fontFamily: "Arial, sans-serif", padding: "40px" }}>
       <p style={{ float: "left", fontSize: "24px" }}>
-        {/* Time: 60  ← deleted: was hardcoded static */}
         Time: <span style={{ color: timeRemaining <= 5 ? "red" : "inherit" }}>{timeRemaining}</span>
       </p>
-      <p style={{ float: "right", fontSize: "24px" }}>
-        {/* Score: 0  ← deleted: was hardcoded static */}
-        Score: {score}
-      </p>
+      <p style={{ float: "right", fontSize: "24px" }}>Score: {score}</p>
       <br /><br /><br />
       <h1 style={{ textAlign: "center", fontSize: "30px" }}>Multi-Choice</h1>
       <br />
-      <h2 style={{ textAlign: "center", fontSize: "17px" }}>
-        {/* Question  ← deleted: was hardcoded static */}
-        {questionText}
-      </h2>
+      <h2 style={{ textAlign: "center", fontSize: "17px" }}>{questionText}</h2>
       <div style={{ textAlign: "center", fontSize: "30px" }}>
-        {/* deleted: hardcoded static radio inputs for Cat, Dog, Bird */}
-        {/* <p><input type="radio" name="answer" /> Cat</p> */}
-        {/* <p><input type="radio" name="answer" /> Dog</p> */}
-        {/* <p><input type="radio" name="answer" /> Bird</p> */}
-        {options.map((opt, i) => (
-          <p key={i}>
-            <input
-              type="radio"
-              name="answer"
-              value={opt}
-              checked={selectedAnswer === opt}
-              onChange={() => setSelectedAnswer(opt)}
-            /> {opt}
-          </p>
-        ))}
+        {options.map((opt, i) => {
+          const text = getOptionText(opt);
+          return (
+            <p key={i}>
+              <input
+                type="checkbox"
+                name="answer"
+                value={text}
+                checked={selectedAnswers.includes(text)}
+                onChange={() => toggleAnswer(text)}
+              /> {text}
+            </p>
+          );
+        })}
         <br />
-        {/* <button style={...}>Submit</button>  ← deleted: had no onClick */}
         <button
           onClick={handleSubmit}
           style={{
