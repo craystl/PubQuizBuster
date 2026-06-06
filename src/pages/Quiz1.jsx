@@ -45,63 +45,238 @@ function MemoryFlip() {
 
   if (!board) return <div>Loading...</div>;
 
-  return (
+return (
+  <>
+    <style>{`
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;700;900&display=swap');
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.memory-title {
+  font-family: 'Fredoka One', cursive;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  background: linear-gradient(
+    90deg,
+    #fbbf24,
+    #f87171,
+    #a78bfa,
+    #34d399,
+    #fbbf24
+  );
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 6s linear infinite;
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+
+.memory-text {
+  font-family: 'Nunito', sans-serif;
+  color: #d8d4ff;
+  font-size: 1.1rem;
+  max-width: 600px;
+  line-height: 1.6;
+}
+
+.memory-panel {
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 20px;
+  padding: 12px 24px;
+  color: white;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+
+.memory-card {
+  width: 150px;
+  height: 200px;
+  border-radius: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 14px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  transition: all 0.25s ease;
+  user-select: none;
+}
+
+.memory-card:hover {
+  transform: translateY(-6px) scale(1.03);
+}
+
+.memory-card-back {
+  background: linear-gradient(
+    135deg,
+    rgba(124,58,237,0.9),
+    rgba(59,130,246,0.8)
+  );
+  color: white;
+  border: 2px solid rgba(255,255,255,0.15);
+  box-shadow: 0 10px 25px rgba(124,58,237,0.4);
+}
+
+.memory-card-front {
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: white;
+}
+
+.memory-card-matched {
+  background: linear-gradient(
+    135deg,
+    #10b981,
+    #34d399
+  );
+  color: white;
+  box-shadow: 0 0 25px rgba(52,211,153,0.6);
+}
+`}</style>
+  
+    <div
+    style={{
+      minHeight: "100vh",
+      width: "100%",
+      background:
+        "linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%)",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      padding: "40px 20px",
+      position: "relative",
+      overflow: "hidden",
+      boxSizing: "border-box",
+    }}
+  >
+    {/* Background blobs */}
     <div
       style={{
-        margin: 0,
-        fontFamily: "Arial, sans-serif",
-        background: "white",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "flex-start",
-        alignItems: "center",
-        minHeight: "100vh",
-        paddingTop: "40px",
-        textAlign: "center",
+        position: "absolute",
+        width: "500px",
+        height: "500px",
+        background: "#7c3aed",
+        borderRadius: "50%",
+        filter: "blur(120px)",
+        opacity: 0.25,
+        top: "-150px",
+        left: "-100px",
+      }}
+    />
+
+    <div
+      style={{
+        position: "absolute",
+        width: "400px",
+        height: "400px",
+        background: "#f59e0b",
+        borderRadius: "50%",
+        filter: "blur(120px)",
+        opacity: 0.15,
+        bottom: "-120px",
+        right: "-80px",
+      }}
+    />
+
+    {/* Timer */}
+    <div
+      className="memory-panel"
+      style={{
+        position: "fixed",
+        left: "30px",
+        top: "30px",
+        zIndex: 20,
       }}
     >
-      <h1 style={{ fontSize: "2rem", marginBottom: "30px", color: "#111" }}>
-        Memory Flip
-      </h1>
-      <p style={{ maxWidth: "500px", fontSize: "1.1rem", color: "#444", margin: "0 auto 25px auto", lineHeight: "1.5" }}>
-        *Question*
+      ⏳ Time:{" "}
+      <span
+        style={{
+          color: timeRemaining <= 5 ? "#ff6b6b" : "#fff",
+        }}
+      >
+        {timeRemaining}
+      </span>
+    </div>
+
+    {/* Score */}
+    <div
+      className="memory-panel"
+      style={{
+        position: "fixed",
+        right: "30px",
+        top: "30px",
+        zIndex: 20,
+      }}
+    >
+      🏆 Score: {score}
+    </div>
+
+    <div
+      style={{
+        position: "relative",
+        zIndex: 10,
+        textAlign: "center",
+        width: "100%",
+        maxWidth: "1200px",
+        margin: "0 auto",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+      }}
+    >
+      <h1 className="memory-title">Memory Flip</h1>
+
+      <p className="memory-text">
+        Match the correct cards and build your score before the timer runs out.
       </p>
-      <div style={{ position: "fixed", top: "30px", right: "30px", fontSize: "1.5rem", color: "#111" }}>
-        {/* Score: <span id="score">0</span>  ← deleted: was hardcoded static */}
-        Score: <span>{score}</span>
-      </div>
-      {/* deleted: 5 hardcoded static divs with no onClick or state connection */}
-      {/* <div style={{ width: "150px", height: "200px", background: "#9ad5de" ... }}></div> × 5 */}
-      <div style={{ display: "flex", gap: "20px", marginTop: "40px", flexWrap: "wrap", justifyContent: "center" }}>
-        {board.cards.map((card) => (
-          <div
-            key={card.id}
-            onClick={() => handleCardClick(card.id)}
-            style={{
-              width: "150px",
-              height: "200px",
-              borderRadius: "8px",
-              cursor: "pointer",
-              background: card.isMatched ? "#a8e6a3" : card.isFlipped ? "#fff" : "#9ad5de",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              fontSize: "1rem",
-              padding: "10px",
-              textAlign: "center",
-              border: "2px solid #ccc",
-            }}
-          >
-            {(card.isFlipped || card.isMatched) ? card.value : "?"}
-          </div>
-        ))}
-      </div>
-      <div style={{ position: "fixed", top: "30px", left: "30px", fontSize: "1.5rem" }}>
-        {/* Time: <span id="timer">60</span>  ← deleted: was hardcoded static */}
-        Time: <span style={{ color: timeRemaining <= 5 ? "red" : "inherit" }}>{timeRemaining}</span>
+
+      <div
+        style={{
+          display: "flex",
+          gap: "20px",
+          flexWrap: "wrap",
+          justifyContent: "center",
+          marginTop: "50px",
+          maxWidth: "1000px",
+        }}
+      >
+        {board.cards.map((card) => {
+          let className = "memory-card memory-card-back";
+
+          if (card.isFlipped) {
+            className = "memory-card memory-card-front";
+          }
+
+          if (card.isMatched) {
+            className = "memory-card memory-card-matched";
+          }
+
+          return (
+            <div
+              key={card.id}
+              className={className}
+              onClick={() => handleCardClick(card.id)}
+            >
+              {card.isFlipped || card.isMatched
+                ? card.value
+                : "❓"}
+            </div>
+          );
+        })}
       </div>
     </div>
-  );
+  </div>
+  </>
+);
 }
 
 export default MemoryFlip;
