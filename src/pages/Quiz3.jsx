@@ -47,6 +47,7 @@ function Quiz3({ onExit, onFinish }) {
     setResult("");
     setIsCorrect(null);
     if (!hasNextQuestion(currentQuestionIndex, questions.length)) {
+      console.log("Quiz finished! Score:", scoreRef.current);
       stopTimer(timerRef.current);
       onFinish(scoreRef.current);
       return;
