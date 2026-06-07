@@ -2,8 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { createTimer, stopTimer } from "../gameLogic/timerLogic";
 import { createBoard, flipCard, evaluateFlip, resetBoard, calculateNewScore } from "../gameLogic/memoryFlipLogic";
 
-// function MemoryFlip({ gameData }) {  ← deleted: now fetches own data like OddOneOut
-function MemoryFlip() {
+function MemoryFlip({ onExit }) {
   const [gameData, setGameData] = useState(null);
   const [board, setBoard] = useState(null);
   const [score, setScore] = useState(0);
@@ -16,10 +15,6 @@ function MemoryFlip() {
       .then(data => setGameData(data));
   }, []);
 
-  // const data = gameData;  ← deleted: no longer needed
-  // useEffect(() => {
-  //   if (data?.cards?.length) setBoard(createBoard(data));
-  // }, [data]);
   useEffect(() => {
     if (gameData?.cards?.length) setBoard(createBoard(gameData));
   }, [gameData]);
@@ -42,6 +37,12 @@ function MemoryFlip() {
     }
     setBoard(newBoard);
   };
+
+  function handleExit() {
+    if (confirm("Are you sure you want to exit the quiz?")) {
+      onExit();
+    }
+  }
 
   if (!board) return <div>Loading...</div>;
 
@@ -274,6 +275,27 @@ return (
         })}
       </div>
     </div>
+
+    {/* Exit button — matches Quiz3 style */}
+    <button
+      onClick={handleExit}
+      style={{
+        position: "fixed",
+        bottom: "30px",
+        left: "30px",
+        background: "rgba(239,68,68,0.15)",
+        border: "1px solid rgba(239,68,68,0.4)",
+        color: "#ef4444",
+        borderRadius: "20px",
+        padding: "10px 24px",
+        fontSize: "15px",
+        cursor: "pointer",
+        fontWeight: "600",
+        zIndex: 20,
+      }}
+    >
+      ✕ Exit
+    </button>
   </div>
   </>
 );
