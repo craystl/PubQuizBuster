@@ -68,24 +68,13 @@ function Quiz3({ onExit }) {
 
   return (
     <div style={styles.page}>
-      {/* Timer top left */}
-      <div style={styles.timerBadge}>
-        ⏳ Time: {timeRemaining}
-      </div>
+      <div style={styles.timerBadge}>⏳ Time: {timeRemaining}</div>
+      <div style={styles.scoreBadge}>🏆 Score: {score}</div>
 
-      {/* Score top right */}
-      <div style={styles.scoreBadge}>
-        🏆 Score: {score}
-      </div>
-
-      {/* Title */}
       <h1 style={styles.title}>{title}</h1>
-
-      {/* Prompt */}
       <p style={styles.subtitle}>{currentQuestion.prompt}</p>
       <p style={styles.questionCount}>Question {currentQuestionIndex + 1} of {questions.length}</p>
 
-      {/* Answer buttons styled like cards */}
       <div style={styles.answersGrid}>
         {currentQuestion.answers.map((answer, index) => (
           <button
@@ -106,25 +95,17 @@ function Quiz3({ onExit }) {
         ))}
       </div>
 
-      {/* Result */}
       {result && (
         <div style={{
           ...styles.resultBadge,
-          background: (result === "Correct!" || result === "Quiz Finished!")
-            ? "rgba(34,197,94,0.2)"
-            : "rgba(239,68,68,0.2)",
-          borderColor: (result === "Correct!" || result === "Quiz Finished!")
-            ? "#22c55e"
-            : "#ef4444",
-          color: (result === "Correct!" || result === "Quiz Finished!")
-            ? "#22c55e"
-            : "#ef4444",
+          background: (result === "Correct!" || result === "Quiz Finished!") ? "rgba(34,197,94,0.2)" : "rgba(239,68,68,0.2)",
+          borderColor: (result === "Correct!" || result === "Quiz Finished!") ? "#22c55e" : "#ef4444",
+          color: (result === "Correct!" || result === "Quiz Finished!") ? "#22c55e" : "#ef4444",
         }}>
           {result === "Correct!" ? "✅ Correct!" : result === "Quiz Finished!" ? "🎉 Quiz Finished!" : "❌ Wrong!"}
         </div>
       )}
 
-      {/* Next button */}
       <button
         onClick={handleNextQuestion}
         style={styles.nextButton}
@@ -134,10 +115,7 @@ function Quiz3({ onExit }) {
         Next Question →
       </button>
 
-      {/* Exit button fixed bottom left */}
-      <button onClick={handleExit} style={styles.exitButton}>
-        ✕ Exit
-      </button>
+      <button onClick={handleExit} style={styles.exitButton}>✕ Exit</button>
     </div>
   );
 }
@@ -149,7 +127,7 @@ const styles = {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    padding: "100px 20px 40px",
+    padding: "120px 20px 100px",
     fontFamily: "'Segoe UI', sans-serif",
     boxSizing: "border-box",
     position: "relative",
@@ -165,6 +143,7 @@ const styles = {
     color: "#fff",
     fontSize: "16px",
     fontWeight: "700",
+    zIndex: 10,
   },
   scoreBadge: {
     position: "fixed",
@@ -177,15 +156,18 @@ const styles = {
     color: "#fff",
     fontSize: "16px",
     fontWeight: "700",
+    zIndex: 10,
   },
   title: {
-    fontSize: "clamp(22px, 4vw, 38px)",
+    fontSize: "clamp(20px, 3.5vw, 34px)",
     fontWeight: "800",
     background: "linear-gradient(90deg, #f472b6, #a78bfa, #67e8f9)",
     WebkitBackgroundClip: "text",
     WebkitTextFillColor: "transparent",
     textAlign: "center",
     margin: "0 0 16px 0",
+    lineHeight: "1.3",
+    padding: "0 10px",
   },
   subtitle: {
     color: "rgba(255,255,255,0.75)",
@@ -238,6 +220,7 @@ const styles = {
     cursor: "pointer",
     transition: "opacity 0.2s",
     boxShadow: "0 4px 20px rgba(167,139,250,0.4)",
+    marginBottom: "20px",
   },
   exitButton: {
     position: "fixed",
@@ -251,6 +234,7 @@ const styles = {
     fontSize: "15px",
     cursor: "pointer",
     fontWeight: "600",
+    zIndex: 10,
   },
 };
 
