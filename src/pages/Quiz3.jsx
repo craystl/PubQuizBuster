@@ -3,7 +3,7 @@ import { createTimer, stopTimer } from "../gameLogic/timerLogic";
 import { checkOddOneOutAnswer, getAnswerMessage, hasNextQuestion, getNextQuestionIndex } from "../gameLogic/oddOneOutLogic";
 import { calculatePoints, saveHighScore } from "../gameLogic/scoring";
 
-function Quiz3({ onExit }) {
+function Quiz3({ onExit, onFinish }) {
   const [questions, setQuestions] = useState(null);
   const [title, setTitle] = useState("");
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -44,7 +44,8 @@ function Quiz3({ onExit }) {
     setResult("");
     setIsCorrect(null);
     if (!hasNextQuestion(currentQuestionIndex, questions.length)) {
-      setResult("Quiz Finished!");
+      stopTimer(timerRef.current);
+      onFinish(score);
       return;
     }
     setCurrentQuestionIndex(getNextQuestionIndex(currentQuestionIndex, questions.length));
