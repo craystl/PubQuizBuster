@@ -9,6 +9,7 @@ function Quiz3({ onExit }) {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [score, setScore] = useState(0);
   const [result, setResult] = useState("");
+  const [isCorrect, setIsCorrect] = useState(null);
   const [timeRemaining, setTimeRemaining] = useState(60);
   const timerRef = useRef(null);
 
@@ -32,14 +33,16 @@ function Quiz3({ onExit }) {
   }, []);
 
   function handleAnswerClick(answer) {
-    const isCorrect = checkOddOneOutAnswer({ isOdd: answer.isCorrectOddOneOut });
-    const points = calculatePoints(isCorrect, timeRemaining, 0);
-    setResult(getAnswerMessage(isCorrect));
+    const correct = answer.isCorrectOddOneOut === true;
+    const points = calculatePoints(correct, timeRemaining, 0);
+    setIsCorrect(correct);
+    setResult(correct ? "Correct!" : "Wrong!");
     setScore(score + points);
   }
 
   function handleNextQuestion() {
     setResult("");
+    setIsCorrect(null);
     if (!hasNextQuestion(currentQuestionIndex, questions.length)) {
       setResult("Quiz Finished!");
       return;
@@ -65,17 +68,18 @@ function Quiz3({ onExit }) {
 
   return (
     <div style={styles.page}>
+      {/* Exit button top left */}
       <div style={styles.topBar}>
+        <button onClick={handleExit} style={styles.exitButton}>
+          ✕ Exit
+        </button>
+
         <div style={styles.statBox}>
           <span style={styles.statLabel}>⏱ Time</span>
           <span style={{ ...styles.statValue, color: timeRemaining <= 5 ? "#ff4d4d" : "#f97316" }}>
             {timeRemaining}s
           </span>
         </div>
-
-        <button onClick={handleExit} style={styles.exitButton}>
-          ✕ Exit
-        </button>
 
         <div style={styles.statBox}>
           <span style={styles.statLabel}>⭐ Score</span>
@@ -127,7 +131,7 @@ function Quiz3({ onExit }) {
             ? "#22c55e"
             : "#ef4444",
         }}>
-          {result}
+          {result === "Correct!" ? "✅ Correct!" : result === "Quiz Finished!" ? "🎉 Quiz Finished!" : "❌ Wrong!"}
         </div>
       )}
 
