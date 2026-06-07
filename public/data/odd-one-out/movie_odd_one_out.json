@@ -77,13 +77,13 @@
       ]
     },
     {
-      "prompt": "Which actor is also a musican?",
+      "prompt": "Which actor is also a musician?",
       "answers": [
         {
-          "name": "Q2023710",
+          "name": "Vanessa Hudgens",
           "wikidataId": "Q2023710",
           "wikidataUrl": "http://www.wikidata.org/entity/Q2023710",
-          "imageFile": "images/Q2023710_Q2023710.jpg",
+          "imageFile": "images/Vanessa_Hudgens_Q2023710.jpg",
           "isCorrectOddOneOut": false,
           "explanation": "No selected acting Oscar category is recorded for this person in Wikidata."
         },
@@ -336,7 +336,7 @@
       ]
     },
     {
-      "prompt": "Which actor was not born on the year 1990?",
+      "prompt": "Which actor was not born in the year 1990?",
       "answers": [
         {
           "name": "Jennifer Lawrence",
