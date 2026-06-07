@@ -10,7 +10,7 @@ function MemoryFlip({ onExit }) {
   const timerRef = useRef(null);
 
   useEffect(() => {
-    fetch("/data/memory-flip/test_music_memory_flip.json")
+    fetch("/data/memory-flip/music_memory_flip.json")
       .then(res => res.json())
       .then(data => setGameData(data));
   }, []);
