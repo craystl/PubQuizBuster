@@ -15,7 +15,7 @@ function MultiChoice() {
   const timerRef = useRef(null);
 
   useEffect(() => {
-    fetch("/data/multiple-choice/test_geography_multiple_choice.json")
+    fetch("/data/multiple-choice/geography_multiple_choice.json")
       .then(res => res.json())
       .then(data => setGameData(data));
   }, []);
