@@ -4,7 +4,7 @@ import QuizMenu from "./pages/QuizMenu";
 import OddOneOut from "./pages/Quiz3";
 import MultiChoice from "./pages/Quiz2";
 import MemoryFlip from "./pages/Quiz1";
-import ScorePage from "./pages/ScorePage";
+import ScorePage from "./pages/Scoreboard";
 
 function App() {
   const [page, setPage] = useState("home");
