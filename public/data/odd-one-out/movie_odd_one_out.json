@@ -1,0 +1,376 @@
+{
+  "type": "odd-one-out",
+  "title": "Which movie star is the odd one out?",
+  "questions": [
+    {
+      "prompt": "Which actor has won the most Oscars?",
+      "answers": [
+        {
+          "name": "Robin Williams",
+          "wikidataId": "Q83338",
+          "wikidataUrl": "http://www.wikidata.org/entity/Q83338",
+          "imageFile": "images/Robin_Williams_Q83338.jpg",
+          "isCorrectOddOneOut": false,
+          "explanation": "A selected acting Oscar category is recorded for this person in Wikidata (1 win(s))."
+        },
+        {
+          "name": "Marlon Brando",
+          "wikidataId": "Q34012",
+          "wikidataUrl": "http://www.wikidata.org/entity/Q34012",
+          "imageFile": "images/Marlon_Brando_Q34012.jpg",
+          "isCorrectOddOneOut": false,
+          "explanation": "A selected acting Oscar category is recorded for this person in Wikidata (2 win(s))."
+        },
+        {
+          "name": "Angelina Jolie",
+          "wikidataId": "Q13909",
+          "wikidataUrl": "http://www.wikidata.org/entity/Q13909",
+          "imageFile": "images/Angelina_Jolie_Q13909.jpg",
+          "isCorrectOddOneOut": false,
+          "explanation": "A selected acting Oscar category is recorded for this person in Wikidata (1 win(s))."
+        },
+        {
+          "name": "Katharine Hepburn",
+          "wikidataId": "Q56016",
+          "wikidataUrl": "http://www.wikidata.org/entity/Q56016",
+          "imageFile": "images/Katharine_Hepburn_Q56016.jpg",
+          "isCorrectOddOneOut": true,
+          "explanation": "This is the odd one out based on the selected filter criteria."
+        }
+      ]
+    },
+    {
+      "prompt": "Which actor is not Gen Z?",
+      "answers": [
+        {
+          "name": "Olivia Rodrigo",
+          "wikidataId": "Q63243883",
+          "wikidataUrl": "http://www.wikidata.org/entity/Q63243883",
+          "imageFile": "images/Olivia_Rodrigo_Q63243883.jpg",
+          "isCorrectOddOneOut": false,
+          "explanation": "No selected acting Oscar category is recorded for this person in Wikidata."
+        },
+        {
+          "name": "Joshua Bassett",
+          "wikidataId": "Q65586823",
+          "wikidataUrl": "http://www.wikidata.org/entity/Q65586823",
+          "imageFile": "images/Joshua_Bassett_Q65586823.jpg",
+          "isCorrectOddOneOut": false,
+          "explanation": "No selected acting Oscar category is recorded for this person in Wikidata."
+        },
+        {
+          "name": "Camila Cabello",
+          "wikidataId": "Q18810940",
+          "wikidataUrl": "http://www.wikidata.org/entity/Q18810940",
+          "imageFile": "images/Camila_Cabello_Q18810940.jpg",
+          "isCorrectOddOneOut": false,
+          "explanation": "No selected acting Oscar category is recorded for this person in Wikidata."
+        },
+        {
+          "name": "Selena Gomez",
+          "wikidataId": "Q83287",
+          "wikidataUrl": "http://www.wikidata.org/entity/Q83287",
+          "imageFile": "images/Selena_Gomez_Q83287.jpg",
+          "isCorrectOddOneOut": true,
+          "explanation": "This is the odd one out based on the selected filter criteria."
+        }
+      ]
+    },
+    {
+      "prompt": "Which actor is also a musican?",
+      "answers": [
+        {
+          "name": "Q2023710",
+          "wikidataId": "Q2023710",
+          "wikidataUrl": "http://www.wikidata.org/entity/Q2023710",
+          "imageFile": "images/Q2023710_Q2023710.jpg",
+          "isCorrectOddOneOut": false,
+          "explanation": "No selected acting Oscar category is recorded for this person in Wikidata."
+        },
+        {
+          "name": "Demi Lovato",
+          "wikidataId": "Q41173",
+          "wikidataUrl": "http://www.wikidata.org/entity/Q41173",
+          "imageFile": "images/Demi_Lovato_Q41173.jpg",
+          "isCorrectOddOneOut": true,
+          "explanation": "This is the odd one out based on the selected filter criteria."
+        },
+        {
+          "name": "Chlo\u00EB Grace Moretz",
+          "wikidataId": "Q4509",
+          "wikidataUrl": "http://www.wikidata.org/entity/Q4509",
+          "imageFile": "images/Chlo\u00EB_Grace_Moretz_Q4509.jpg",
+          "isCorrectOddOneOut": false,
+          "explanation": "No selected acting Oscar category is recorded for this person in Wikidata."
+        },
+        {
+          "name": "Joey King",
+          "wikidataId": "Q112536",
+          "wikidataUrl": "http://www.wikidata.org/entity/Q112536",
+          "imageFile": "images/Joey_King_Q112536.jpg",
+          "isCorrectOddOneOut": false,
+          "explanation": "No selected acting Oscar category is recorded for this person in Wikidata."
+        }
+      ]
+    },
+    {
+      "prompt": "Which actor has not won an Oscar?",
+      "answers": [
+        {
+          "name": "Anne Hathaway",
+          "wikidataId": "Q36301",
+          "wikidataUrl": "http://www.wikidata.org/entity/Q36301",
+          "imageFile": "images/Anne_Hathaway_Q36301.jpg",
+          "isCorrectOddOneOut": false,
+          "explanation": "A selected acting Oscar category is recorded for this person in Wikidata (1 win(s))."
+        },
+        {
+          "name": "Emma Stone",
+          "wikidataId": "Q147077",
+          "wikidataUrl": "http://www.wikidata.org/entity/Q147077",
+          "imageFile": "images/Emma_Stone_Q147077.jpg",
+          "isCorrectOddOneOut": false,
+          "explanation": "A selected acting Oscar category is recorded for this person in Wikidata (2 win(s))."
+        },
+        {
+          "name": "Rami Malek",
+          "wikidataId": "Q375590",
+          "wikidataUrl": "http://www.wikidata.org/entity/Q375590",
+          "imageFile": "images/Rami_Malek_Q375590.jpg",
+          "isCorrectOddOneOut": false,
+          "explanation": "A selected acting Oscar category is recorded for this person in Wikidata (1 win(s))."
+        },
+        {
+          "name": "Scarlett Johansson",
+          "wikidataId": "Q34436",
+          "wikidataUrl": "http://www.wikidata.org/entity/Q34436",
+          "imageFile": "images/Scarlett_Johansson_Q34436.jpg",
+          "isCorrectOddOneOut": true,
+          "explanation": "This is the odd one out based on the selected filter criteria."
+        }
+      ]
+    },
+    {
+      "prompt": "Which actress has won best actress?",
+      "answers": [
+        {
+          "name": "Mikey Madison",
+          "wikidataId": "Q26923245",
+          "wikidataUrl": "http://www.wikidata.org/entity/Q26923245",
+          "imageFile": "images/Mikey_Madison_Q26923245.jpg",
+          "isCorrectOddOneOut": true,
+          "explanation": "This is the odd one out based on the selected filter criteria."
+        },
+        {
+          "name": "Dakota Fanning",
+          "wikidataId": "Q115541",
+          "wikidataUrl": "http://www.wikidata.org/entity/Q115541",
+          "imageFile": "images/Dakota_Fanning_Q115541.jpg",
+          "isCorrectOddOneOut": false,
+          "explanation": "No selected acting Oscar category is recorded for this person in Wikidata."
+        },
+        {
+          "name": "Alia Bhatt",
+          "wikidataId": "Q4725343",
+          "wikidataUrl": "http://www.wikidata.org/entity/Q4725343",
+          "imageFile": "images/Alia_Bhatt_Q4725343.jpg",
+          "isCorrectOddOneOut": false,
+          "explanation": "No selected acting Oscar category is recorded for this person in Wikidata."
+        },
+        {
+          "name": "Zendaya",
+          "wikidataId": "Q189489",
+          "wikidataUrl": "http://www.wikidata.org/entity/Q189489",
+          "imageFile": "images/Zendaya_Q189489.jpg",
+          "isCorrectOddOneOut": false,
+          "explanation": "No selected acting Oscar category is recorded for this person in Wikidata."
+        }
+      ]
+    },
+    {
+      "prompt": "Which actor has won best actor?",
+      "answers": [
+        {
+          "name": "Eddie Redmayne",
+          "wikidataId": "Q28288",
+          "wikidataUrl": "http://www.wikidata.org/entity/Q28288",
+          "imageFile": "images/Eddie_Redmayne_Q28288.jpg",
+          "isCorrectOddOneOut": true,
+          "explanation": "This is the odd one out based on the selected filter criteria."
+        },
+        {
+          "name": "Corbin Bleu",
+          "wikidataId": "Q4617",
+          "wikidataUrl": "http://www.wikidata.org/entity/Q4617",
+          "imageFile": "images/Corbin_Bleu_Q4617.jpg",
+          "isCorrectOddOneOut": false,
+          "explanation": "No selected acting Oscar category is recorded for this person in Wikidata."
+        },
+        {
+          "name": "Andrew Garfield",
+          "wikidataId": "Q23891",
+          "wikidataUrl": "http://www.wikidata.org/entity/Q23891",
+          "imageFile": "images/Andrew_Garfield_Q23891.jpg",
+          "isCorrectOddOneOut": false,
+          "explanation": "No selected acting Oscar category is recorded for this person in Wikidata."
+        },
+        {
+          "name": "Taylor Lautner",
+          "wikidataId": "Q23359",
+          "wikidataUrl": "http://www.wikidata.org/entity/Q23359",
+          "imageFile": "images/Taylor_Lautner_Q23359.jpg",
+          "isCorrectOddOneOut": false,
+          "explanation": "No selected acting Oscar category is recorded for this person in Wikidata."
+        }
+      ]
+    },
+    {
+      "prompt": "Which actor/musician performed at Coachella 2026?",
+      "answers": [
+        {
+          "name": "Sabrina Carpenter",
+          "wikidataId": "Q7396400",
+          "wikidataUrl": "http://www.wikidata.org/entity/Q7396400",
+          "imageFile": "images/Sabrina_Carpenter_Q7396400.jpg",
+          "isCorrectOddOneOut": true,
+          "explanation": "This is the odd one out based on the selected filter criteria."
+        },
+        {
+          "name": "Hailee Steinfeld",
+          "wikidataId": "Q231726",
+          "wikidataUrl": "http://www.wikidata.org/entity/Q231726",
+          "imageFile": "images/Hailee_Steinfeld_Q231726.jpg",
+          "isCorrectOddOneOut": false,
+          "explanation": "No selected acting Oscar category is recorded for this person in Wikidata."
+        },
+        {
+          "name": "Florence Pugh",
+          "wikidataId": "Q22277803",
+          "wikidataUrl": "http://www.wikidata.org/entity/Q22277803",
+          "imageFile": "images/Florence_Pugh_Q22277803.jpg",
+          "isCorrectOddOneOut": false,
+          "explanation": "No selected acting Oscar category is recorded for this person in Wikidata."
+        },
+        {
+          "name": "Bella Thorne",
+          "wikidataId": "Q208117",
+          "wikidataUrl": "http://www.wikidata.org/entity/Q208117",
+          "imageFile": "images/Bella_Thorne_Q208117.jpg",
+          "isCorrectOddOneOut": false,
+          "explanation": "No selected acting Oscar category is recorded for this person in Wikidata."
+        }
+      ]
+    },
+    {
+      "prompt": "Which actress has not won best supporting actress?",
+      "answers": [
+        {
+          "name": "Mila Kunis",
+          "wikidataId": "Q37628",
+          "wikidataUrl": "http://www.wikidata.org/entity/Q37628",
+          "imageFile": "images/Mila_Kunis_Q37628.jpg",
+          "isCorrectOddOneOut": true,
+          "explanation": "This is the odd one out based on the selected filter criteria."
+        },
+        {
+          "name": "Emma Stone",
+          "wikidataId": "Q147077",
+          "wikidataUrl": "http://www.wikidata.org/entity/Q147077",
+          "imageFile": "images/Emma_Stone_Q147077.jpg",
+          "isCorrectOddOneOut": false,
+          "explanation": "No selected acting Oscar category is recorded for this person in Wikidata."
+        },
+        {
+          "name": "Zoe Salda\u00F1a",
+          "wikidataId": "Q190162",
+          "wikidataUrl": "http://www.wikidata.org/entity/Q190162",
+          "imageFile": "images/Zoe_Salda\u00F1a_Q190162.jpg",
+          "isCorrectOddOneOut": false,
+          "explanation": "A selected acting Oscar category is recorded for this person in Wikidata (1 win(s))."
+        },
+        {
+          "name": "Lupita Nyong\u0027o",
+          "wikidataId": "Q3840847",
+          "wikidataUrl": "http://www.wikidata.org/entity/Q3840847",
+          "imageFile": "images/Lupita_Nyong\u0027o_Q3840847.jpg",
+          "isCorrectOddOneOut": false,
+          "explanation": "A selected acting Oscar category is recorded for this person in Wikidata (1 win(s))."
+        }
+      ]
+    },
+    {
+      "prompt": "Which actor has won best supporting actor?",
+      "answers": [
+        {
+          "name": "Heath Ledger",
+          "wikidataId": "Q40572",
+          "wikidataUrl": "http://www.wikidata.org/entity/Q40572",
+          "imageFile": "images/Heath_Ledger_Q40572.jpg",
+          "isCorrectOddOneOut": true,
+          "explanation": "This is the odd one out based on the selected filter criteria."
+        },
+        {
+          "name": "Leonardo DiCaprio",
+          "wikidataId": "Q38111",
+          "wikidataUrl": "http://www.wikidata.org/entity/Q38111",
+          "imageFile": "images/Leonardo_DiCaprio_Q38111.jpg",
+          "isCorrectOddOneOut": false,
+          "explanation": "No selected acting Oscar category is recorded for this person in Wikidata."
+        },
+        {
+          "name": "Justin Trudeau",
+          "wikidataId": "Q3099714",
+          "wikidataUrl": "http://www.wikidata.org/entity/Q3099714",
+          "imageFile": "images/Justin_Trudeau_Q3099714.jpg",
+          "isCorrectOddOneOut": false,
+          "explanation": "No selected acting Oscar category is recorded for this person in Wikidata."
+        },
+        {
+          "name": "Josh Hutcherson",
+          "wikidataId": "Q217004",
+          "wikidataUrl": "http://www.wikidata.org/entity/Q217004",
+          "imageFile": "images/Josh_Hutcherson_Q217004.jpg",
+          "isCorrectOddOneOut": false,
+          "explanation": "No selected acting Oscar category is recorded for this person in Wikidata."
+        }
+      ]
+    },
+    {
+      "prompt": "Which actor was not born on the year 1990?",
+      "answers": [
+        {
+          "name": "Jennifer Lawrence",
+          "wikidataId": "Q189490",
+          "wikidataUrl": "http://www.wikidata.org/entity/Q189490",
+          "imageFile": "images/Jennifer_Lawrence_Q189490.jpg",
+          "isCorrectOddOneOut": false,
+          "explanation": "A selected acting Oscar category is recorded for this person in Wikidata (1 win(s))."
+        },
+        {
+          "name": "Dev Patel",
+          "wikidataId": "Q245075",
+          "wikidataUrl": "http://www.wikidata.org/entity/Q245075",
+          "imageFile": "images/Dev_Patel_Q245075.jpg",
+          "isCorrectOddOneOut": false,
+          "explanation": "No selected acting Oscar category is recorded for this person in Wikidata."
+        },
+        {
+          "name": "Margot Robbie",
+          "wikidataId": "Q1924847",
+          "wikidataUrl": "http://www.wikidata.org/entity/Q1924847",
+          "imageFile": "images/Margot_Robbie_Q1924847.jpg",
+          "isCorrectOddOneOut": false,
+          "explanation": "No selected acting Oscar category is recorded for this person in Wikidata."
+        },
+        {
+          "name": "Justin Timberlake",
+          "wikidataId": "Q43432",
+          "wikidataUrl": "http://www.wikidata.org/entity/Q43432",
+          "imageFile": "images/Justin_Timberlake_Q43432.jpg",
+          "isCorrectOddOneOut": true,
+          "explanation": "This is the odd one out based on the selected filter criteria."
+        }
+      ]
+    }
+  ]
+}
