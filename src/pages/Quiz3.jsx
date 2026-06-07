@@ -12,6 +12,7 @@ function Quiz3({ onExit, onFinish }) {
   const [result, setResult] = useState("");
   const [isCorrect, setIsCorrect] = useState(null);
   const [timeRemaining, setTimeRemaining] = useState(60);
+  const [isFinished, setIsFinished] = useState(false);
   const timerRef = useRef(null);
 
   useEffect(() => {
@@ -41,17 +42,21 @@ function Quiz3({ onExit, onFinish }) {
     const newScore = score + points;
     setScore(newScore);
     scoreRef.current = newScore;
+
+    // If this is the last question, mark as finished
+    if (!hasNextQuestion(currentQuestionIndex, questions.length)) {
+      setIsFinished(true);
+    }
   }
 
   function handleNextQuestion() {
-    setResult("");
-    setIsCorrect(null);
-    if (!hasNextQuestion(currentQuestionIndex, questions.length)) {
-      console.log("Quiz finished! Score:", scoreRef.current);
+    if (isFinished) {
       stopTimer(timerRef.current);
       onFinish(scoreRef.current);
       return;
     }
+    setResult("");
+    setIsCorrect(null);
     setCurrentQuestionIndex(getNextQuestionIndex(currentQuestionIndex, questions.length));
   }
 
@@ -103,11 +108,14 @@ function Quiz3({ onExit, onFinish }) {
       {result && (
         <div style={{
           ...styles.resultBadge,
-          background: (result === "Correct!" || result === "Quiz Finished!") ? "rgba(34,197,94,0.2)" : "rgba(239,68,68,0.2)",
-          borderColor: (result === "Correct!" || result === "Quiz Finished!") ? "#22c55e" : "#ef4444",
-          color: (result === "Correct!" || result === "Quiz Finished!") ? "#22c55e" : "#ef4444",
+          background: (result === "Correct!" || result === "Wrong!") && isFinished
+            ? "rgba(34,197,94,0.2)"
+            : result === "Correct!" ? "rgba(34,197,94,0.2)" : "rgba(239,68,68,0.2)",
+          borderColor: result === "Correct!" ? "#22c55e" : "#ef4444",
+          color: result === "Correct!" ? "#22c55e" : "#ef4444",
         }}>
-          {result === "Correct!" ? "✅ Correct!" : result === "Quiz Finished!" ? "🎉 Quiz Finished!" : "❌ Wrong!"}
+          {result === "Correct!" ? "✅ Correct!" : "❌ Wrong!"}
+          {isFinished && <div style={{ marginTop: "8px", fontSize: "16px" }}>🎉 Quiz Finished! Click Next to see your score.</div>}
         </div>
       )}
 
@@ -117,7 +125,7 @@ function Quiz3({ onExit, onFinish }) {
         onMouseEnter={(e) => e.currentTarget.style.opacity = "0.85"}
         onMouseLeave={(e) => e.currentTarget.style.opacity = "1"}
       >
-        Next Question →
+        {isFinished ? "See Score →" : "Next Question →"}
       </button>
 
       <button onClick={handleExit} style={styles.exitButton}>✕ Exit</button>
@@ -213,6 +221,7 @@ const styles = {
     fontSize: "20px",
     fontWeight: "700",
     marginBottom: "20px",
+    textAlign: "center",
   },
   nextButton: {
     background: "linear-gradient(90deg, #f472b6, #a78bfa)",
