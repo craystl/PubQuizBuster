@@ -7,12 +7,10 @@ import MemoryFlip from "./pages/Quiz1";
 
 function App() {
   const [page, setPage] = useState("home");
-
   if (page === "quiz-menu") return <QuizMenu onSelectGame={setPage} />;
-  if (page === "odd-one-out") return <OddOneOut />;
+  if (page === "odd-one-out") return <OddOneOut onExit={() => setPage("quiz-menu")} />;
   if (page === "memory-flip") return <MemoryFlip />;
   if (page === "multiple-choice") return <MultiChoice />;
-
   return <Home onPlay={() => setPage("quiz-menu")} />;
 }
 
