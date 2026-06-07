@@ -1,0 +1,90 @@
+{
+  "activityType": "matching-cards",
+  "activityId": "music_memory_flip",
+  "title": "Artist-Album Memory Flip",
+  "description": "Match the artist with their albums",
+  "matchSize": 3,
+  "cards": [
+    {
+      "id": "alanparsons-album-01",
+      "img": "",
+      "cardType": "album-cover",
+      "label": "A Valid Path",
+      "matchingName": "Alan Parsons",
+      "artistName": "Alan Parsons",
+      "albumTitle": "A Valid Path"
+    },
+    {
+      "id": "alanparsons-album-02",
+      "img": "",
+      "cardType": "album-cover",
+      "label": "A Walk Down Abbey Road",
+      "matchingName": "Alan Parsons",
+      "artistName": "Alan Parsons",
+      "albumTitle": "A Walk Down Abbey Road"
+    },
+    {
+      "id": "alanparsons-artist-01",
+      "img": "images/Alan_Parsons.jpg",
+      "cardType": "artist-photo",
+      "label": "Alan Parsons",
+      "matchingName": "Alan Parsons",
+      "artistName": "Alan Parsons"
+    },
+    {
+      "id": "aslyn-album-01",
+      "img": "",
+      "cardType": "album-cover",
+      "label": "Lemon Love",
+      "matchingName": "Aslyn",
+      "artistName": "Aslyn",
+      "albumTitle": "Lemon Love"
+    },
+    {
+      "id": "aslyn-album-02",
+      "img": "",
+      "cardType": "album-cover",
+      "label": "The Dandelion Sessions",
+      "matchingName": "Aslyn",
+      "artistName": "Aslyn",
+      "albumTitle": "The Dandelion Sessions"
+    },
+    {
+      "id": "aslyn-artist-01",
+      "img": "images/Aslyn.jpg",
+      "cardType": "artist-photo",
+      "label": "Aslyn",
+      "matchingName": "Aslyn",
+      "artistName": "Aslyn"
+    },
+    {
+      "id": "christineanu-album-01",
+      "img": "",
+      "cardType": "album-cover",
+      "label": "45 Degrees",
+      "matchingName": "Christine Anu",
+      "artistName": "Christine Anu",
+      "albumTitle": "45 Degrees"
+    },
+    {
+      "id": "christineanu-album-02",
+      "img": "",
+      "cardType": "album-cover",
+      "label": "Acoustically",
+      "matchingName": "Christine Anu",
+      "artistName": "Christine Anu",
+      "albumTitle": "Acoustically"
+    },
+    {
+      "id": "christineanu-artist-01",
+      "img": "images/Christine_Anu.jpg",
+      "cardType": "artist-photo",
+      "label": "Christine Anu",
+      "matchingName": "Christine Anu",
+      "artistName": "Christine Anu"
+    }
+  ],
+  "sparqlQueriesUsed": [
+    "PREFIX dbo:  \u003Chttp://dbpedia.org/ontology/\u003E\r\nPREFIX dbp:  \u003Chttp://dbpedia.org/property/\u003E\r\nPREFIX rdfs: \u003Chttp://www.w3.org/2000/01/rdf-schema#\u003E\r\nPREFIX foaf: \u003Chttp://xmlns.com/foaf/0.1/\u003E\r\n\r\nSELECT DISTINCT ?artist ?artistName ?artistImage ?album ?albumName WHERE {\r\n\r\n  ?artist a dbo:MusicalArtist ;\r\n          rdfs:label ?artistName ;\r\n          foaf:depiction ?artistImage .\r\n  ?artist dbo:genre \u003Chttp://dbpedia.org/resource/Pop_music\u003E .\n\r\n  FILTER(LANG(?artistName) = \u0027en\u0027)\r\n\r\n  {\r\n    ?album dbo:artist ?artist ;\r\n           rdfs:label ?albumName .\r\n  } UNION {\r\n    ?album dbo:musicalArtist ?artist ;\r\n           rdfs:label ?albumName .\r\n  } UNION {\r\n    ?album dbp:artist ?artist ;\r\n           rdfs:label ?albumName .\r\n  }\r\n\r\n  FILTER(LANG(?albumName) = \u0027en\u0027)\r\n  FILTER NOT EXISTS { ?album a dbo:Single }\r\n  FILTER NOT EXISTS { ?album a dbo:Song   }\r\n\r\n}\r\nORDER BY ?artist ?albumName\r\nLIMIT 2000"
+  ]
+}
