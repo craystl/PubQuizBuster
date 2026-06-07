@@ -149,7 +149,7 @@ const styles = {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    padding: "80px 20px 40px",
+    padding: "100px 20px 40px",
     fontFamily: "'Segoe UI', sans-serif",
     boxSizing: "border-box",
     position: "relative",
@@ -179,7 +179,7 @@ const styles = {
     fontWeight: "700",
   },
   title: {
-    fontSize: "clamp(28px, 5vw, 52px)",
+    fontSize: "clamp(22px, 4vw, 38px)",
     fontWeight: "800",
     background: "linear-gradient(90deg, #f472b6, #a78bfa, #67e8f9)",
     WebkitBackgroundClip: "text",
