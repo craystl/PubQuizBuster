@@ -11,8 +11,9 @@ function App() {
   const [finalScore, setFinalScore] = useState({ score: 0, maxScore: 0 });
 
   function goToScore(score, maxScore) {
+    console.log("goToScore called:", score, maxScore);
     setFinalScore({ score, maxScore });
-    setPage("score");
+    setTimeout(() => setPage("score"), 0);
   }
 
   if (page === "quiz-menu") return <QuizMenu onSelectGame={setPage} />;
