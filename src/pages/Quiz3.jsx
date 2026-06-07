@@ -68,12 +68,8 @@ function Quiz3({ onExit }) {
 
   return (
     <div style={styles.page}>
-      {/* Exit button top left */}
+      {/* Top bar: timer left, score right */}
       <div style={styles.topBar}>
-        <button onClick={handleExit} style={styles.exitButton}>
-          ✕ Exit
-        </button>
-
         <div style={styles.statBox}>
           <span style={styles.statLabel}>⏱ Time</span>
           <span style={{ ...styles.statValue, color: timeRemaining <= 5 ? "#ff4d4d" : "#f97316" }}>
@@ -143,6 +139,11 @@ function Quiz3({ onExit }) {
       >
         Next Question →
       </button>
+
+      {/* Exit button fixed bottom left */}
+      <button onClick={handleExit} style={styles.exitButtonBottom}>
+        ✕ Exit
+      </button>
     </div>
   );
 }
@@ -187,7 +188,10 @@ const styles = {
     fontSize: "26px",
     fontWeight: "700",
   },
-  exitButton: {
+  exitButtonBottom: {
+    position: "fixed",
+    bottom: "30px",
+    left: "30px",
     background: "rgba(239,68,68,0.15)",
     border: "1px solid rgba(239,68,68,0.4)",
     color: "#ef4444",
