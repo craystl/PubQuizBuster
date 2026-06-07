@@ -8,6 +8,7 @@ function Quiz3({ onExit, onFinish }) {
   const [title, setTitle] = useState("");
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [score, setScore] = useState(0);
+  const scoreRef = useRef(0);
   const [result, setResult] = useState("");
   const [isCorrect, setIsCorrect] = useState(null);
   const [timeRemaining, setTimeRemaining] = useState(60);
@@ -37,7 +38,9 @@ function Quiz3({ onExit, onFinish }) {
     const points = calculatePoints(correct, timeRemaining, 0);
     setIsCorrect(correct);
     setResult(correct ? "Correct!" : "Wrong!");
-    setScore(score + points);
+    const newScore = score + points;
+    setScore(newScore);
+    scoreRef.current = newScore;
   }
 
   function handleNextQuestion() {
@@ -45,7 +48,7 @@ function Quiz3({ onExit, onFinish }) {
     setIsCorrect(null);
     if (!hasNextQuestion(currentQuestionIndex, questions.length)) {
       stopTimer(timerRef.current);
-      onFinish(score);
+      onFinish(scoreRef.current);
       return;
     }
     setCurrentQuestionIndex(getNextQuestionIndex(currentQuestionIndex, questions.length));
