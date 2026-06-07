@@ -2,9 +2,8 @@ import { useEffect, useState, useRef } from "react";
 import { createTimer, stopTimer } from "../gameLogic/timerLogic";
 import { checkOddOneOutAnswer, getAnswerMessage, hasNextQuestion, getNextQuestionIndex } from "../gameLogic/oddOneOutLogic";
 import { calculatePoints, saveHighScore } from "../gameLogic/scoring";
-import { useNavigate } from "react-router-dom";
 
-function Quiz3() {
+function Quiz3({ onExit }) {
   const [questions, setQuestions] = useState(null);
   const [title, setTitle] = useState("");
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -12,7 +11,6 @@ function Quiz3() {
   const [result, setResult] = useState("");
   const [timeRemaining, setTimeRemaining] = useState(60);
   const timerRef = useRef(null);
-  const navigate = useNavigate();
 
   useEffect(() => {
     fetch("/data/odd-one-out/movie_odd_one_out.json")
@@ -51,7 +49,7 @@ function Quiz3() {
 
   function handleExit() {
     if (confirm("Are you sure you want to exit the quiz?")) {
-      navigate("/");
+      onExit();
     }
   }
 
@@ -67,7 +65,6 @@ function Quiz3() {
 
   return (
     <div style={styles.page}>
-      {/* Top bar */}
       <div style={styles.topBar}>
         <div style={styles.statBox}>
           <span style={styles.statLabel}>⏱ Time</span>
@@ -86,10 +83,8 @@ function Quiz3() {
         </div>
       </div>
 
-      {/* Title */}
       <h1 style={styles.title}>{title}</h1>
 
-      {/* Prompt */}
       <div style={styles.promptCard}>
         <h2 style={styles.prompt}>{currentQuestion.prompt}</h2>
         <p style={styles.questionCount}>
@@ -97,7 +92,6 @@ function Quiz3() {
         </p>
       </div>
 
-      {/* Answer buttons */}
       <div style={styles.answersGrid}>
         {currentQuestion.answers.map((answer, index) => (
           <button
@@ -120,7 +114,6 @@ function Quiz3() {
         ))}
       </div>
 
-      {/* Result */}
       {result && (
         <div style={{
           ...styles.resultBadge,
@@ -138,7 +131,6 @@ function Quiz3() {
         </div>
       )}
 
-      {/* Next button */}
       <button
         onClick={handleNextQuestion}
         style={styles.nextButton}
