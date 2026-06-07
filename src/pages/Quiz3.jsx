@@ -13,7 +13,7 @@ function OddOneOut() {
   const timerRef = useRef(null);
 
   useEffect(() => {
-    fetch("/data/odd-one-out/test_movie_odd_one_out.json")
+    fetch("/data/odd-one-out/movie_odd_one_out.json")
       .then((response) => response.json())
       .then((data) => setActivities(data));
   }, []);
