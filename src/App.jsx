@@ -9,7 +9,7 @@ function App() {
   const [page, setPage] = useState("home");
   if (page === "quiz-menu") return <QuizMenu onSelectGame={setPage} />;
   if (page === "odd-one-out") return <OddOneOut onExit={() => setPage("quiz-menu")} />;
-  if (page === "memory-flip") return <MemoryFlip />;
+  if (page === "memory-flip") return <MemoryFlip onExit={() => setPage("quiz-menu")} />;
   if (page === "multiple-choice") return <MultiChoice />;
   return <Home onPlay={() => setPage("quiz-menu")} />;
 }
