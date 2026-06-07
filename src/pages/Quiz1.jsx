@@ -2,10 +2,11 @@ import { useState, useEffect, useRef } from "react";
 import { createTimer, stopTimer } from "../gameLogic/timerLogic";
 import { createBoard, flipCard, evaluateFlip, resetBoard, calculateNewScore } from "../gameLogic/memoryFlipLogic";
 
-function MemoryFlip({ onExit }) {
+function MemoryFlip({ onExit, onFinish }) {
   const [gameData, setGameData] = useState(null);
   const [board, setBoard] = useState(null);
   const [score, setScore] = useState(0);
+  const scoreRef = useRef(0);
   const [timeRemaining, setTimeRemaining] = useState(60);
   const timerRef = useRef(null);
 
@@ -20,7 +21,12 @@ function MemoryFlip({ onExit }) {
   }, [gameData]);
 
   useEffect(() => {
-    if (!board || board.isSolved) return;
+    if (!board) return;
+    if (board.isSolved) {
+      stopTimer(timerRef.current);
+      setTimeout(() => onFinish(scoreRef.current), 800);
+      return;
+    }
     timerRef.current = createTimer(60, (t) => setTimeRemaining(t), () => alert("Time's up!"));
     return () => stopTimer(timerRef.current);
   }, [board?.isSolved]);
@@ -31,7 +37,11 @@ function MemoryFlip({ onExit }) {
     if (newBoard.flippedIds.length === 3) {
       const { board: evaluatedBoard, isMatch } = evaluateFlip(newBoard);
       newBoard = evaluatedBoard;
-      if (isMatch) setScore(calculateNewScore(score, true));
+      if (isMatch) {
+        const newScore = calculateNewScore(scoreRef.current, true);
+        setScore(newScore);
+        scoreRef.current = newScore;
+      }
       setTimeout(() => setBoard(resetBoard(newBoard)), isMatch ? 0 : 1000);
       return;
     }
@@ -173,7 +183,6 @@ return (
         left: "-100px",
       }}
     />
-
     <div
       style={{
         position: "absolute",
@@ -191,19 +200,10 @@ return (
     {/* Timer */}
     <div
       className="memory-panel"
-      style={{
-        position: "fixed",
-        left: "30px",
-        top: "30px",
-        zIndex: 20,
-      }}
+      style={{ position: "fixed", left: "30px", top: "30px", zIndex: 20 }}
     >
       ⏳ Time:{" "}
-      <span
-        style={{
-          color: timeRemaining <= 5 ? "#ff6b6b" : "#fff",
-        }}
-      >
+      <span style={{ color: timeRemaining <= 5 ? "#ff6b6b" : "#fff" }}>
         {timeRemaining}
       </span>
     </div>
@@ -211,12 +211,7 @@ return (
     {/* Score */}
     <div
       className="memory-panel"
-      style={{
-        position: "fixed",
-        right: "30px",
-        top: "30px",
-        zIndex: 20,
-      }}
+      style={{ position: "fixed", right: "30px", top: "30px", zIndex: 20 }}
     >
       🏆 Score: {score}
     </div>
@@ -237,7 +232,9 @@ return (
       <h1 className="memory-title">Memory Flip</h1>
 
       <p className="memory-text">
-        Match the correct cards and build your score before the timer runs out.
+        {board.isSolved
+          ? "🎉 All matched! Loading your score..."
+          : "Match the correct cards and build your score before the timer runs out."}
       </p>
 
       <div
@@ -252,14 +249,8 @@ return (
       >
         {board.cards.map((card) => {
           let className = "memory-card memory-card-back";
-
-          if (card.isFlipped) {
-            className = "memory-card memory-card-front";
-          }
-
-          if (card.isMatched) {
-            className = "memory-card memory-card-matched";
-          }
+          if (card.isFlipped) className = "memory-card memory-card-front";
+          if (card.isMatched) className = "memory-card memory-card-matched";
 
           return (
             <div
@@ -267,16 +258,14 @@ return (
               className={className}
               onClick={() => handleCardClick(card.id)}
             >
-              {card.isFlipped || card.isMatched
-                ? card.value
-                : "❓"}
+              {card.isFlipped || card.isMatched ? card.value : "❓"}
             </div>
           );
         })}
       </div>
     </div>
 
-    {/* Exit button — matches Quiz3 style */}
+    {/* Exit button */}
     <button
       onClick={handleExit}
       style={{
