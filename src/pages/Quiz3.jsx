@@ -59,7 +59,7 @@ function Quiz3({ onExit }) {
   if (!questions) {
     return (
       <div style={styles.page}>
-        <h1 style={{ color: "#fff", fontFamily: "sans-serif" }}>Loading...</h1>
+        <h1 style={{ color: "#fff" }}>Loading...</h1>
       </div>
     );
   }
@@ -68,45 +68,37 @@ function Quiz3({ onExit }) {
 
   return (
     <div style={styles.page}>
-      {/* Top bar: timer left, score right */}
-      <div style={styles.topBar}>
-        <div style={styles.statBox}>
-          <span style={styles.statLabel}>⏱ Time</span>
-          <span style={{ ...styles.statValue, color: timeRemaining <= 5 ? "#ff4d4d" : "#f97316" }}>
-            {timeRemaining}s
-          </span>
-        </div>
-
-        <div style={styles.statBox}>
-          <span style={styles.statLabel}>⭐ Score</span>
-          <span style={styles.statValue}>{score}</span>
-        </div>
+      {/* Timer top left */}
+      <div style={styles.timerBadge}>
+        ⏳ Time: {timeRemaining}
       </div>
 
+      {/* Score top right */}
+      <div style={styles.scoreBadge}>
+        🏆 Score: {score}
+      </div>
+
+      {/* Title */}
       <h1 style={styles.title}>{title}</h1>
 
-      <div style={styles.promptCard}>
-        <h2 style={styles.prompt}>{currentQuestion.prompt}</h2>
-        <p style={styles.questionCount}>
-          Question {currentQuestionIndex + 1} of {questions.length}
-        </p>
-      </div>
+      {/* Prompt */}
+      <p style={styles.subtitle}>{currentQuestion.prompt}</p>
+      <p style={styles.questionCount}>Question {currentQuestionIndex + 1} of {questions.length}</p>
 
+      {/* Answer buttons styled like cards */}
       <div style={styles.answersGrid}>
         {currentQuestion.answers.map((answer, index) => (
           <button
             key={index}
             onClick={() => handleAnswerClick(answer)}
-            style={styles.answerButton}
+            style={styles.answerCard}
             onMouseEnter={(e) => {
-              e.currentTarget.style.background = "rgba(249,115,22,0.25)";
-              e.currentTarget.style.borderColor = "#f97316";
-              e.currentTarget.style.transform = "scale(1.04)";
+              e.currentTarget.style.transform = "scale(1.05)";
+              e.currentTarget.style.boxShadow = "0 8px 30px rgba(139,92,246,0.6)";
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.background = "rgba(255,255,255,0.07)";
-              e.currentTarget.style.borderColor = "rgba(255,255,255,0.15)";
               e.currentTarget.style.transform = "scale(1)";
+              e.currentTarget.style.boxShadow = "0 4px 15px rgba(0,0,0,0.3)";
             }}
           >
             {answer.name}
@@ -114,6 +106,7 @@ function Quiz3({ onExit }) {
         ))}
       </div>
 
+      {/* Result */}
       {result && (
         <div style={{
           ...styles.resultBadge,
@@ -131,6 +124,7 @@ function Quiz3({ onExit }) {
         </div>
       )}
 
+      {/* Next button */}
       <button
         onClick={handleNextQuestion}
         style={styles.nextButton}
@@ -141,7 +135,7 @@ function Quiz3({ onExit }) {
       </button>
 
       {/* Exit button fixed bottom left */}
-      <button onClick={handleExit} style={styles.exitButtonBottom}>
+      <button onClick={handleExit} style={styles.exitButton}>
         ✕ Exit
       </button>
     </div>
@@ -151,44 +145,101 @@ function Quiz3({ onExit }) {
 const styles = {
   page: {
     minHeight: "100vh",
-    background: "linear-gradient(135deg, #1a1040 0%, #2d1b69 40%, #1e3a5f 100%)",
+    background: "linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    padding: "30px 20px",
+    padding: "80px 20px 40px",
     fontFamily: "'Segoe UI', sans-serif",
     boxSizing: "border-box",
+    position: "relative",
   },
-  topBar: {
-    width: "100%",
-    maxWidth: "800px",
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    marginBottom: "30px",
-  },
-  statBox: {
-    background: "rgba(255,255,255,0.08)",
-    border: "1px solid rgba(255,255,255,0.15)",
-    borderRadius: "16px",
-    padding: "10px 24px",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    gap: "2px",
-  },
-  statLabel: {
-    color: "rgba(255,255,255,0.5)",
-    fontSize: "12px",
-    textTransform: "uppercase",
-    letterSpacing: "1px",
-  },
-  statValue: {
-    color: "#f97316",
-    fontSize: "26px",
+  timerBadge: {
+    position: "fixed",
+    top: "20px",
+    left: "20px",
+    background: "rgba(30,30,50,0.85)",
+    border: "1px solid rgba(255,255,255,0.1)",
+    borderRadius: "50px",
+    padding: "10px 20px",
+    color: "#fff",
+    fontSize: "16px",
     fontWeight: "700",
   },
-  exitButtonBottom: {
+  scoreBadge: {
+    position: "fixed",
+    top: "20px",
+    right: "20px",
+    background: "rgba(30,30,50,0.85)",
+    border: "1px solid rgba(255,255,255,0.1)",
+    borderRadius: "50px",
+    padding: "10px 20px",
+    color: "#fff",
+    fontSize: "16px",
+    fontWeight: "700",
+  },
+  title: {
+    fontSize: "clamp(28px, 5vw, 52px)",
+    fontWeight: "800",
+    background: "linear-gradient(90deg, #f472b6, #a78bfa, #67e8f9)",
+    WebkitBackgroundClip: "text",
+    WebkitTextFillColor: "transparent",
+    textAlign: "center",
+    margin: "0 0 16px 0",
+  },
+  subtitle: {
+    color: "rgba(255,255,255,0.75)",
+    fontSize: "clamp(14px, 2vw, 18px)",
+    textAlign: "center",
+    margin: "0 0 8px 0",
+    maxWidth: "600px",
+  },
+  questionCount: {
+    color: "rgba(255,255,255,0.4)",
+    fontSize: "14px",
+    margin: "0 0 32px 0",
+  },
+  answersGrid: {
+    display: "grid",
+    gridTemplateColumns: "repeat(2, 1fr)",
+    gap: "20px",
+    maxWidth: "700px",
+    width: "100%",
+    marginBottom: "28px",
+  },
+  answerCard: {
+    background: "linear-gradient(135deg, #6d28d9, #4f46e5)",
+    border: "none",
+    borderRadius: "16px",
+    color: "#fff",
+    fontSize: "clamp(14px, 2vw, 18px)",
+    fontWeight: "700",
+    padding: "40px 20px",
+    cursor: "pointer",
+    transition: "all 0.2s ease",
+    boxShadow: "0 4px 15px rgba(0,0,0,0.3)",
+  },
+  resultBadge: {
+    border: "1px solid",
+    borderRadius: "16px",
+    padding: "14px 40px",
+    fontSize: "20px",
+    fontWeight: "700",
+    marginBottom: "20px",
+  },
+  nextButton: {
+    background: "linear-gradient(90deg, #f472b6, #a78bfa)",
+    border: "none",
+    borderRadius: "50px",
+    color: "#fff",
+    fontSize: "18px",
+    fontWeight: "700",
+    padding: "16px 48px",
+    cursor: "pointer",
+    transition: "opacity 0.2s",
+    boxShadow: "0 4px 20px rgba(167,139,250,0.4)",
+  },
+  exitButton: {
     position: "fixed",
     bottom: "30px",
     left: "30px",
@@ -200,74 +251,6 @@ const styles = {
     fontSize: "15px",
     cursor: "pointer",
     fontWeight: "600",
-  },
-  title: {
-    fontSize: "clamp(22px, 4vw, 36px)",
-    fontWeight: "800",
-    background: "linear-gradient(90deg, #f97316, #ec4899)",
-    WebkitBackgroundClip: "text",
-    WebkitTextFillColor: "transparent",
-    textAlign: "center",
-    marginBottom: "20px",
-  },
-  promptCard: {
-    background: "rgba(255,255,255,0.07)",
-    border: "1px solid rgba(255,255,255,0.12)",
-    borderRadius: "20px",
-    padding: "24px 36px",
-    textAlign: "center",
-    maxWidth: "700px",
-    width: "100%",
-    marginBottom: "32px",
-  },
-  prompt: {
-    color: "#fff",
-    fontSize: "clamp(16px, 2.5vw, 22px)",
-    fontWeight: "600",
-    margin: "0 0 10px 0",
-  },
-  questionCount: {
-    color: "rgba(255,255,255,0.45)",
-    fontSize: "14px",
-    margin: 0,
-  },
-  answersGrid: {
-    display: "grid",
-    gridTemplateColumns: "repeat(2, 1fr)",
-    gap: "16px",
-    maxWidth: "700px",
-    width: "100%",
-    marginBottom: "28px",
-  },
-  answerButton: {
-    background: "rgba(255,255,255,0.07)",
-    border: "1px solid rgba(255,255,255,0.15)",
-    borderRadius: "16px",
-    color: "#fff",
-    fontSize: "clamp(14px, 2vw, 18px)",
-    fontWeight: "600",
-    padding: "28px 16px",
-    cursor: "pointer",
-    transition: "all 0.2s ease",
-  },
-  resultBadge: {
-    border: "1px solid",
-    borderRadius: "16px",
-    padding: "14px 40px",
-    fontSize: "20px",
-    fontWeight: "700",
-    marginBottom: "20px",
-  },
-  nextButton: {
-    background: "linear-gradient(90deg, #f97316, #ec4899)",
-    border: "none",
-    borderRadius: "50px",
-    color: "#fff",
-    fontSize: "18px",
-    fontWeight: "700",
-    padding: "16px 48px",
-    cursor: "pointer",
-    transition: "opacity 0.2s",
   },
 };
 
