@@ -21,8 +21,15 @@ function Quiz3({ onExit, onFinish, quizData }) {
   useEffect(() => {
     if (quizData) {
       console.log("Quiz data received:", quizData);
-      setTitle(quizData.title);
-      setQuestions(quizData.questions);
+
+      setTitle(quizData.title || "Odd One Out Quiz");
+
+      const loadedQuestions =
+        quizData.questions ||
+        quizData.activities ||
+        quizData;
+
+      setQuestions(Array.isArray(loadedQuestions) ? loadedQuestions : []);
     }
   }, [quizData]);
 
@@ -38,7 +45,9 @@ function Quiz3({ onExit, onFinish, quizData }) {
   }, []);
 
   function handleAnswerClick(answer) {
-    const correct = answer.isCorrectOddOneOut === true;
+    const correct =
+      answer.isCorrectOddOneOut === true || answer.isOddOneOut === true;
+
     const points = calculatePoints(correct, timeRemaining, 0);
 
     setIsCorrect(correct);
@@ -62,6 +71,7 @@ function Quiz3({ onExit, onFinish, quizData }) {
 
     setResult("");
     setIsCorrect(null);
+
     setCurrentQuestionIndex(
       getNextQuestionIndex(currentQuestionIndex, questions.length)
     );
@@ -73,7 +83,7 @@ function Quiz3({ onExit, onFinish, quizData }) {
     }
   }
 
-  if (!questions) {
+  if (!questions || questions.length === 0) {
     return (
       <div style={styles.page}>
         <h1 style={{ color: "#fff" }}>No quiz loaded...</h1>
@@ -82,6 +92,7 @@ function Quiz3({ onExit, onFinish, quizData }) {
   }
 
   const currentQuestion = questions[currentQuestionIndex];
+  const answers = currentQuestion.answers || currentQuestion.items || [];
 
   return (
     <div style={styles.page}>
@@ -89,13 +100,17 @@ function Quiz3({ onExit, onFinish, quizData }) {
       <div style={styles.scoreBadge}>🏆 Score: {score}</div>
 
       <h1 style={styles.title}>{title}</h1>
-      <p style={styles.subtitle}>{currentQuestion.prompt}</p>
+
+      <p style={styles.subtitle}>
+        {currentQuestion.prompt || currentQuestion.question}
+      </p>
+
       <p style={styles.questionCount}>
         Question {currentQuestionIndex + 1} of {questions.length}
       </p>
 
       <div style={styles.answersGrid}>
-        {currentQuestion.answers.map((answer, index) => (
+        {answers.map((answer, index) => (
           <button
             key={index}
             onClick={() => handleAnswerClick(answer)}
@@ -119,6 +134,7 @@ function Quiz3({ onExit, onFinish, quizData }) {
           }}
         >
           {result === "Correct!" ? "✅ Correct!" : "❌ Wrong!"}
+
           {isFinished && (
             <div style={{ marginTop: "8px", fontSize: "16px" }}>
               🎉 Quiz Finished! Click Next to see your score.
@@ -137,3 +153,5 @@ function Quiz3({ onExit, onFinish, quizData }) {
     </div>
   );
 }
+
+export default Quiz3;
