@@ -1,9 +1,9 @@
 import { useState } from "react";
 
 const categories = [
-  { icon: "🌍", label: "Geography", game: "multiple-choice", gameLabel: "Multiple Choice" },
-  { icon: "🎬", label: "Movies", game: "odd-one-out", gameLabel: "Odd One Out" },
-  { icon: "🎵", label: "Music", game: "memory-flip", gameLabel: "Memory Flip" },
+  { icon: "🌍", label: "Geography", game: "upload-page", gameLabel: "Upload Page" },
+  { icon: "🎬", label: "Movies", game: "upload-page", gameLabel: "Upload Page" },
+  { icon: "🎵", label: "Music", game: "upload-page", gameLabel: "Upload Page" },
 ];
 
 function QuizMenu({ onSelectGame }) {

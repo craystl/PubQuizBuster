@@ -5,6 +5,7 @@ import OddOneOut from "./pages/Quiz3";
 import MultiChoice from "./pages/Quiz2";
 import MemoryFlip from "./pages/Quiz1";
 import ScorePage from "./pages/Scoreboard";
+import UploadPage from "./pages/UploadPage";
 
 function App() {
   const [page, setPage] = useState("home");
@@ -21,6 +22,7 @@ function App() {
   if (page === "memory-flip") return <MemoryFlip onExit={() => setPage("quiz-menu")} onFinish={(score) => goToScore(score, 600)} />;
   if (page === "multiple-choice") return <MultiChoice onExit={() => setPage("quiz-menu")} onFinish={(score) => goToScore(score, 800)} />;
   if (page === "score") return <ScorePage score={finalScore.score} maxScore={finalScore.maxScore} onExit={() => setPage("quiz-menu")} onHome={() => setPage("home")} />;
+  if (page == "upload-page") return <UploadPage onExit = {() => setPage("quiz-menu")} />;
   return <Home onPlay={() => setPage("quiz-menu")} />;
 }
 
