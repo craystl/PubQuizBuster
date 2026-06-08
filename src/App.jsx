@@ -20,7 +20,7 @@ function App() {
   }
 
   if (page === "home") {
-    return <Home onStart={() => setPage("quiz-menu")} />;
+    return <Home onPlay={() => setPage("quiz-menu")} />;
   }
 
   if (page === "quiz-menu") {
@@ -40,7 +40,6 @@ function App() {
       <UploadPage
         onExit={() => setPage("quiz-menu")}
         onUpload={(data) => {
-          console.log("New uploaded JSON in App:", data);
           setQuizData(data);
           setQuizKey((oldKey) => oldKey + 1);
           setPage(selectedGame);
@@ -60,7 +59,7 @@ function App() {
     );
   }
 
-  if (page === "multi-choice") {
+  if (page === "multiple-choice") {
     return (
       <MultiChoice
         key={quizKey}
@@ -88,11 +87,12 @@ function App() {
         score={finalScore.score}
         maxScore={finalScore.maxScore}
         onExit={() => setPage("quiz-menu")}
+        onHome={() => setPage("home")}
       />
     );
   }
 
-  return <Home onStart={() => setPage("quiz-menu")} />;
+  return <Home onPlay={() => setPage("quiz-menu")} />;
 }
 
 export default App;
