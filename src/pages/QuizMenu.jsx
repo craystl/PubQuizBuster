@@ -10,7 +10,7 @@ const categories = [
   {
     icon: "🎬",
     label: "Movies",
-    game: "upload-page",
+    game: "odd-one-out",
     gameLabel: "Upload Odd One Out JSON",
   },
   {
