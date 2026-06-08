@@ -1,21 +1,27 @@
 import { useEffect, useState, useRef } from "react";
 import { createTimer, stopTimer } from "../gameLogic/timerLogic";
-
 import { checkOddOneOutAnswer, getAnswerMessage, hasNextQuestion, getNextQuestionIndex } from "../gameLogic/oddOneOutLogic";
 import { calculatePoints, saveHighScore } from "../gameLogic/scoring";
 
-function OddOneOut() {
-  const [activities, setActivities] = useState(null);
+function Quiz3({ onExit, onFinish }) {
+  const [questions, setQuestions] = useState(null);
+  const [title, setTitle] = useState("");
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [score, setScore] = useState(0);
+  const scoreRef = useRef(0);
   const [result, setResult] = useState("");
+  const [isCorrect, setIsCorrect] = useState(null);
   const [timeRemaining, setTimeRemaining] = useState(60);
+  const [isFinished, setIsFinished] = useState(false);
   const timerRef = useRef(null);
 
   useEffect(() => {
-    fetch("/data/odd-one-out/test_movie_odd_one_out.json")
+    fetch("/data/odd-one-out/movie_odd_one_out.json")
       .then((response) => response.json())
-      .then((data) => setActivities(data));
+      .then((data) => {
+        setTitle(data.title);
+        setQuestions(data.questions);
+      });
   }, []);
 
   useEffect(() => {
@@ -28,141 +34,222 @@ function OddOneOut() {
     return () => stopTimer(timerRef.current);
   }, []);
 
-  //function handleAnswerClick(item) {
-    //if (item.isOddOneOut) {
-      //setResult("Correct!");
-      //setScore(score + 1);
-    //} else {
-      //setResult("Incorrect, try again.");
-    //}
-  //}
-  function handleAnswerClick(item) 
-  {
-  const isCorrect = checkOddOneOutAnswer({ isOdd: item.isOddOneOut });
-  const points = calculatePoints(isCorrect, timeRemaining, 0);
-  setResult(getAnswerMessage(isCorrect));
-  setScore(score + points);
+  function handleAnswerClick(answer) {
+    const correct = answer.isCorrectOddOneOut === true;
+    const points = calculatePoints(correct, timeRemaining, 0);
+    setIsCorrect(correct);
+    setResult(correct ? "Correct!" : "Wrong!");
+    const newScore = score + points;
+    setScore(newScore);
+    scoreRef.current = newScore;
+
+    // If this is the last question, mark as finished
+    if (!hasNextQuestion(currentQuestionIndex, questions.length)) {
+      setIsFinished(true);
+    }
   }
 
-  //function handleNextQuestion() {
-    //setResult("");
-
-    //if (currentQuestionIndex < activities.length - 1) {
-      //setCurrentQuestionIndex(currentQuestionIndex + 1);
-    //} else {
-      //setResult("Quiz Finished!");
-    //}
-  //}
-  function handleNextQuestion() 
-  {
-  setResult("");
-  if (!hasNextQuestion(currentQuestionIndex, activities.length)) {
-    setResult("Quiz Finished!");
-    return;
-  }
-  setCurrentQuestionIndex(getNextQuestionIndex(currentQuestionIndex, activities.length));
+  function handleNextQuestion() {
+    if (isFinished) {
+      stopTimer(timerRef.current);
+      onFinish(scoreRef.current);
+      return;
+    }
+    setResult("");
+    setIsCorrect(null);
+    setCurrentQuestionIndex(getNextQuestionIndex(currentQuestionIndex, questions.length));
   }
 
-  if (!activities) {
-    return <h1>Loading...</h1>;
+  function handleExit() {
+    if (confirm("Are you sure you want to exit the quiz?")) {
+      onExit();
+    }
   }
 
-  const currentActivity = activities[currentQuestionIndex];
+  if (!questions) {
+    return (
+      <div style={styles.page}>
+        <h1 style={{ color: "#fff" }}>Loading...</h1>
+      </div>
+    );
+  }
+
+  const currentQuestion = questions[currentQuestionIndex];
 
   return (
-    <div
-      style={{
-        fontFamily: "Arial, sans-serif",
-        padding: "40px",
-      }}
-    >
-      <p 
-        style={{ float: "left", fontSize: "24px", color: timeRemaining <= 5 ? "red" : "#111" }}> 
-        Time: {timeRemaining} 
-      </p>
+    <div style={styles.page}>
+      <div style={styles.timerBadge}>⏳ Time: {timeRemaining}</div>
+      <div style={styles.scoreBadge}>🏆 Score: {score}</div>
 
-      <p
-        style={{
-          float: "right",
-          fontSize: "24px",
-        }}
-      >
-        Score: {score}
-      </p>
+      <h1 style={styles.title}>{title}</h1>
+      <p style={styles.subtitle}>{currentQuestion.prompt}</p>
+      <p style={styles.questionCount}>Question {currentQuestionIndex + 1} of {questions.length}</p>
 
-      <br />
-      <br />
-      <br />
-
-      <h1
-        style={{
-          textAlign: "center",
-          fontSize: "30px",
-          color: "#111",
-        }}
-      >
-        {currentActivity.title}
-      </h1>
-
-      <h2
-        style={{
-          textAlign: "center",
-          fontSize: "20px",
-          color: "#222",
-        }}
-      >
-        {currentActivity.question}
-      </h2>
-
-      <p style={{ textAlign: "center" }}>
-        Question {currentQuestionIndex + 1} of {activities.length}
-      </p>
-
-      <br />
-
-      <div style={{ textAlign: "center" }}>
-        {currentActivity.items.map((item, index) => (
+      <div style={styles.answersGrid}>
+        {currentQuestion.answers.map((answer, index) => (
           <button
             key={index}
-            onClick={() => handleAnswerClick(item)}
-            style={{
-              width: "200px",
-              height: "120px",
-              fontSize: "25px",
-              margin: "15px",
+            onClick={() => handleAnswerClick(answer)}
+            style={styles.answerCard}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = "scale(1.05)";
+              e.currentTarget.style.boxShadow = "0 8px 30px rgba(139,92,246,0.6)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = "scale(1)";
+              e.currentTarget.style.boxShadow = "0 4px 15px rgba(0,0,0,0.3)";
             }}
           >
-            {item.name}
+            {answer.name}
           </button>
         ))}
       </div>
 
       {result && (
-        <h2
-          style={{
-            textAlign: "center",
-            color: (result === "Correct!" || result === "Quiz Finished!") ? "green" : "red"
-          }}
-        >
-          {result}
-        </h2>
+        <div style={{
+          ...styles.resultBadge,
+          background: (result === "Correct!" || result === "Wrong!") && isFinished
+            ? "rgba(34,197,94,0.2)"
+            : result === "Correct!" ? "rgba(34,197,94,0.2)" : "rgba(239,68,68,0.2)",
+          borderColor: result === "Correct!" ? "#22c55e" : "#ef4444",
+          color: result === "Correct!" ? "#22c55e" : "#ef4444",
+        }}>
+          {result === "Correct!" ? "✅ Correct!" : "❌ Wrong!"}
+          {isFinished && <div style={{ marginTop: "8px", fontSize: "16px" }}>🎉 Quiz Finished! Click Next to see your score.</div>}
+        </div>
       )}
 
-      <div style={{ textAlign: "center" }}>
-        <button
-          onClick={handleNextQuestion}
-          style={{
-            padding: "12px 30px",
-            fontSize: "18px",
-            marginTop: "20px",
-            cursor: "pointer",
-          }}
-        >
-          Next Question
-        </button>
-      </div>
+      <button
+        onClick={handleNextQuestion}
+        style={styles.nextButton}
+        onMouseEnter={(e) => e.currentTarget.style.opacity = "0.85"}
+        onMouseLeave={(e) => e.currentTarget.style.opacity = "1"}
+      >
+        {isFinished ? "See Score →" : "Next Question →"}
+      </button>
+
+      <button onClick={handleExit} style={styles.exitButton}>✕ Exit</button>
     </div>
   );
 }
 
-export default OddOneOut;
+const styles = {
+  page: {
+    minHeight: "100vh",
+    background: "linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    padding: "120px 20px 100px",
+    fontFamily: "'Segoe UI', sans-serif",
+    boxSizing: "border-box",
+    position: "relative",
+  },
+  timerBadge: {
+    position: "fixed",
+    top: "20px",
+    left: "20px",
+    background: "rgba(30,30,50,0.85)",
+    border: "1px solid rgba(255,255,255,0.1)",
+    borderRadius: "50px",
+    padding: "10px 20px",
+    color: "#fff",
+    fontSize: "16px",
+    fontWeight: "700",
+    zIndex: 10,
+  },
+  scoreBadge: {
+    position: "fixed",
+    top: "20px",
+    right: "20px",
+    background: "rgba(30,30,50,0.85)",
+    border: "1px solid rgba(255,255,255,0.1)",
+    borderRadius: "50px",
+    padding: "10px 20px",
+    color: "#fff",
+    fontSize: "16px",
+    fontWeight: "700",
+    zIndex: 10,
+  },
+  title: {
+    fontSize: "clamp(20px, 3.5vw, 34px)",
+    fontWeight: "800",
+    background: "linear-gradient(90deg, #f472b6, #a78bfa, #67e8f9)",
+    WebkitBackgroundClip: "text",
+    WebkitTextFillColor: "transparent",
+    textAlign: "center",
+    margin: "0 0 16px 0",
+    lineHeight: "1.3",
+    padding: "0 10px",
+  },
+  subtitle: {
+    color: "rgba(255,255,255,0.75)",
+    fontSize: "clamp(14px, 2vw, 18px)",
+    textAlign: "center",
+    margin: "0 0 8px 0",
+    maxWidth: "600px",
+  },
+  questionCount: {
+    color: "rgba(255,255,255,0.4)",
+    fontSize: "14px",
+    margin: "0 0 32px 0",
+  },
+  answersGrid: {
+    display: "grid",
+    gridTemplateColumns: "repeat(2, 1fr)",
+    gap: "20px",
+    maxWidth: "700px",
+    width: "100%",
+    marginBottom: "28px",
+  },
+  answerCard: {
+    background: "linear-gradient(135deg, #6d28d9, #4f46e5)",
+    border: "none",
+    borderRadius: "16px",
+    color: "#fff",
+    fontSize: "clamp(14px, 2vw, 18px)",
+    fontWeight: "700",
+    padding: "40px 20px",
+    cursor: "pointer",
+    transition: "all 0.2s ease",
+    boxShadow: "0 4px 15px rgba(0,0,0,0.3)",
+  },
+  resultBadge: {
+    border: "1px solid",
+    borderRadius: "16px",
+    padding: "14px 40px",
+    fontSize: "20px",
+    fontWeight: "700",
+    marginBottom: "20px",
+    textAlign: "center",
+  },
+  nextButton: {
+    background: "linear-gradient(90deg, #f472b6, #a78bfa)",
+    border: "none",
+    borderRadius: "50px",
+    color: "#fff",
+    fontSize: "18px",
+    fontWeight: "700",
+    padding: "16px 48px",
+    cursor: "pointer",
+    transition: "opacity 0.2s",
+    boxShadow: "0 4px 20px rgba(167,139,250,0.4)",
+    marginBottom: "20px",
+  },
+  exitButton: {
+    position: "fixed",
+    bottom: "30px",
+    left: "30px",
+    background: "rgba(239,68,68,0.15)",
+    border: "1px solid rgba(239,68,68,0.4)",
+    color: "#ef4444",
+    borderRadius: "20px",
+    padding: "10px 24px",
+    fontSize: "15px",
+    cursor: "pointer",
+    fontWeight: "600",
+    zIndex: 10,
+  },
+};
+
+export default Quiz3;
