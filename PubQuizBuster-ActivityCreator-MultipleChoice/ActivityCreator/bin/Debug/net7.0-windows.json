@@ -1,34 +1,34 @@
 {
-  "Type": "MultipleChoice",
-  "Title": "Select all correct answers to this geography question",
+  "Type": "multiple_choice",
+  "Title": "Geography Quiz 1",
   "NumOfQuestions": 1,
   "Questions": [
     {
-      "Prompt": "Which countries are in Europe?",
-      "NumOfAnswers": 0,
+      "Prompt": "Which of these countries are in Europe?",
+      "NumOfAnswers": 6,
       "Answers": [
         {
-          "Text": "Germany",
+          "Text": "United Kingdom",
           "IsCorrect": true
         },
         {
-          "Text": "Hungary",
+          "Text": "Switzerland",
           "IsCorrect": true
         },
         {
-          "Text": "Latvia",
+          "Text": "Lithuania",
           "IsCorrect": true
         },
         {
-          "Text": "Luxembourg",
-          "IsCorrect": true
-        },
-        {
-          "Text": "Philippines",
+          "Text": "Qatar",
           "IsCorrect": false
         },
         {
-          "Text": "Iran",
+          "Text": "Bahrain",
+          "IsCorrect": false
+        },
+        {
+          "Text": "Yemen",
           "IsCorrect": false
         }
       ]

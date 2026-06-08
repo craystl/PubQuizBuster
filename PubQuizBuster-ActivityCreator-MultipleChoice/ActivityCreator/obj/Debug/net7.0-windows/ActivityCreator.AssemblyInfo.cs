@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ActivityCreator")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+821b7a99979cd7ace061ef171fb70b5cd0673491")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+05313d1781326b02cde67ff63444aa8d73a49b5d")]
 [assembly: System.Reflection.AssemblyProductAttribute("ActivityCreator")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ActivityCreator")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

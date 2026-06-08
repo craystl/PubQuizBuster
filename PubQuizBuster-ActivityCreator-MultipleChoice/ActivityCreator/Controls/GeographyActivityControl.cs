@@ -302,98 +302,31 @@ public sealed partial class GeographyActivityControl : UserControl
         }
     }
 
-    public tempQuestion[] questions = new tempQuestion[8];
+    public List<Question> questionsList = new List<Question>();
     public int numOfQuestions = 0;
     private void _completeQuestionButton_Click(object sender, EventArgs e)
     {
-        tempQuestion question = new tempQuestion(_questionBox.Text, currentAnswerIndex, currentQuestionAnswers, currentQuestionsIsCorrect);
-        questions[numOfQuestions] = question;
+        Question question = new Question(_questionBox.Text, currentAnswerIndex, currentQuestionAnswers, currentQuestionsIsCorrect);
+        questionsList.Add(question);
         numOfQuestions++;
-        _selectedPanel.Controls.Clear();
         currentAnswerIndex = 0;
-        updateJsonFile();
+        Array.Clear(currentQuestionAnswers, 0, 8);
+        Array.Clear(currentQuestionsIsCorrect, 0, 8);
+        _selectedPanel.Controls.Clear();
+        updateJsonFile(questionsList);
     }
 
-    public List<string> jsonLines;
+    public Activity activity = new Activity { Questions = new List<Question>() };
 
-    public Activity activityFinal;
-
-    public void updateJsonFile()
+    public void updateJsonFile(List<Question> questions)
     {
-        //Me not understanding how the json serealizer works, trying to create the json syntax manually...
-
-        /*
-        var json = new List<string>
-        {
-            "{",
-            "\"Type\": \"MultipleChoice\"",
-            $"\"NumOfQuestions\": {numOfQuestions}",
-            $"\"Title\": \"{_titleBox.Text}\"",
-            "\"Questions\": ["
-        };
-        for (int i = 0; i < numOfQuestions; i++)
-        {
-            json.AddRange(new[]
-            {
-                $"\"Q{i+1}\" {{",
-                $"\"Prompt\":\"{questions[i].prompt}\"",
-                "\"Answers\": [",
-            });
-            for (int j = 0; j < questions[i].numOfAnswers; j++)
-            {
-                json.AddRange(new[]
-                {
-                    $"\"A{j + 1}\": {{",
-                    $"\"Text\": \"{questions[i].answers[j]}\",",
-                    $"\"IsCorrect\": \"{questions[i].isCorrect[j]}\",",
-                    "}"
-                });
-            }
-            json.AddRange(new[]
-            {
-                "]",
-                "}"
-            });
-        }
-        json.AddRange(new[]
-        {
-            "]",
-            "}"
-        });
-        jsonLines = json;
-        */
-        var activity = new Activity
-        {
-            Type = "MultipleChoice",
-            NumOfQuestions = numOfQuestions,
-            Title = _titleBox.Text,
-            Questions = new List<Question>()
-        };
-
-        for (int i = 0; i < numOfQuestions; i++)
-        {
-            var q = new Question
-            {
-                Prompt = questions[i].prompt,
-                Answers = new List<Answer>()
-            };
-
-            for (int j = 0; j < questions[i].numOfAnswers; j++)
-            {
-                q.Answers.Add(new Answer
-                {
-                    Text = questions[i].answers[j],
-                    IsCorrect = questions[i].isCorrect[j]
-                });
-            }
-
-            activity.Questions.Add(q);
-        }
-        activityFinal = activity;
+        activity.Type = "multiple_choice";
+        activity.Title = _titleBox.Text;
+        activity.NumOfQuestions = questions.Count;
+        activity.Questions = questions;
     }
     private async void _saveButton_Click(object sender, EventArgs e)
     {
-        updateJsonFile();
         await saveToFile();
     }
 
@@ -416,7 +349,6 @@ public sealed partial class GeographyActivityControl : UserControl
         };
         form.Controls.Add(box);
 
-        updateJsonFile();
         String jsonPreview = getJson();
 
         box.Text = jsonPreview;
@@ -425,12 +357,9 @@ public sealed partial class GeographyActivityControl : UserControl
 
     private async Task saveToFile()
     {
-        string documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+        string documentsPath = Path.GetDirectoryName(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments));
 
-        string appFolder = Path.Combine(documentsPath, "GeographyActivityCreator");
-        Directory.CreateDirectory(appFolder);
-
-        string filePath = Path.Combine(appFolder, _filenameBox.Text + ".json");
+        string filePath = Path.Combine(documentsPath, _filenameBox.Text + ".json");
 
         string activityJson = getJson();
 
@@ -440,24 +369,8 @@ public sealed partial class GeographyActivityControl : UserControl
     private string getJson()
     {
         var options = new JsonSerializerOptions { WriteIndented = true };
-        string activityJson = JsonSerializer.Serialize(activityFinal, options);
+        string activityJson = JsonSerializer.Serialize(activity, options);
         return activityJson;
-    }
-}
-
-public class tempQuestion //Pointless and confusing, but I originally wrote the code poorly and had to add new stuff to finish it, and don't have the time to fix everything up at this point
-{
-    public string prompt;
-    public string[] answers;
-    public bool[] isCorrect;
-    public int numOfAnswers;
-
-    public tempQuestion(string prompt, int numOfAnswers, string[] answers, bool[] isCorrect)
-    {
-        this.prompt = prompt;
-        this.numOfAnswers = numOfAnswers;
-        this.answers = answers;
-        this.isCorrect = isCorrect;
     }
 }
 
@@ -467,6 +380,14 @@ public class Activity
     public string Title { get; set; }
     public int NumOfQuestions { get; set; }
     public List<Question> Questions { get; set; }
+
+    public Activity()
+    {
+        Type = "";
+        Title = "";
+        NumOfQuestions = 0;
+        Questions = new List<Question>();
+    }
 }
 
 public class Question
@@ -474,7 +395,24 @@ public class Question
     public string Prompt { get; set; }
     public int NumOfAnswers { get; set; }
     public List<Answer> Answers { get; set; }
+
+    public Question(string prompt, int numOfAnswers, string[] answersText, bool[] isCorrect)
+    {
+        Prompt = prompt;
+        NumOfAnswers = numOfAnswers;
+        Answers = new List<Answer>();
+
+        for (int i = 0; i < numOfAnswers; i++)
+        {
+            Answers.Add(new Answer
+            {
+                Text = answersText[i],
+                IsCorrect = isCorrect[i]
+            });
+        }
+    }
 }
+
 public class Answer
 {
     public string Text { get; set; }
