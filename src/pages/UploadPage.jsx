@@ -1,47 +1,64 @@
-import React from 'react';
+import React, { useState } from "react";
 
-function UploadPage() {
-  // Form submission handler
-  const handleSubmit = (event) => {
+function UploadPage({ onUpload, onExit }) {
+  const [selectedData, setSelectedData] = useState(null);
+  const [fileName, setFileName] = useState("");
+
+  function handleFileChange(event) {
+    const file = event.target.files[0];
+
+    if (!file) return;
+
+    setFileName(file.name);
+
+    const reader = new FileReader();
+
+    reader.onload = (e) => {
+      try {
+        const data = JSON.parse(e.target.result);
+        console.log("Loaded JSON:", data);
+        setSelectedData(data);
+      } catch (error) {
+        alert("Invalid JSON file. Please choose a valid .json file.");
+        console.error("JSON parse error:", error);
+        setSelectedData(null);
+      }
+    };
+
+    reader.readAsText(file);
+  }
+
+  function handleSubmit(event) {
     event.preventDefault();
-    // Add logic to handle file upload here
-  };
+
+    if (!selectedData) {
+      alert("Please choose a JSON file first");
+      return;
+    }
+
+    onUpload(selectedData);
+  }
 
   return (
-        <div style={{
-      width: "100%",
-      height: "100vh",
-      background: "linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%)",
-      display: "flex",
-      flexDirection: "column",
-      justifyContent: "center",
-      alignItems: "center",
-      overflow: "hidden",
-      position: "relative",
-      boxSizing: "border-box",
-      fontFamily: "'Nunito', sans-serif",
-    }}>
+    <div
+      style={{
+        width: "100%",
+        height: "100vh",
+        background:
+          "linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%)",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        overflow: "hidden",
+        position: "relative",
+        boxSizing: "border-box",
+        fontFamily: "'Nunito', sans-serif",
+      }}
+    >
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;700;900&display=swap');
-        @keyframes blobPulse {
-          0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
-          50%       { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
-        }
-        @keyframes slideUp {
-          0%   { opacity: 0; transform: translateY(30px); }
-          100% { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes shimmer {
-          0%   { background-position: -200% center; }
-          100% { background-position: 200% center; }
-        }
-        .qm-blob {
-          position: absolute;
-          animation: blobPulse 8s ease-in-out infinite;
-          pointer-events: none;
-          filter: blur(80px);
-          opacity: 0.25;
-        }
+
         .qm-title {        
           font-family: 'Fredoka One', cursive;
           font-size: clamp(2.5rem, 5vw, 4rem);
@@ -50,21 +67,19 @@ function UploadPage() {
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
-          animation: slideUp 0.6s cubic-bezier(0.22,1,0.36,1) 0.1s both,
-          shimmer 5s linear 0.8s infinite;
           line-height: 1.2;
           margin: 0 0 16px 0;
           letter-spacing: 2px;
         }
+
         .qm-subtitle {
-          font-family: 'Nunito', sans-serif;
           color: #c4b5fd;
           font-weight: 700;
           letter-spacing: 2px;
-          font-size: clamp(0.9rem, 1.5vw, 1.1rem);
-          margin: 0 0 48px 0;
-          animation: slideUp 0.6s cubic-bezier(0.22,1,0.36,1) 0.2s both;
+          font-size: 1rem;
+          margin: 0 0 32px 0;
         }
+
         .qm-card {
           background: rgba(255,255,255,0.07);
           border: 1px solid rgba(255,255,255,0.15);
@@ -73,24 +88,9 @@ function UploadPage() {
           display: flex;
           flex-direction: column;
           align-items: center;
-          gap: 16px;
-          transition: transform 0.2s cubic-bezier(0.34,1.56,0.64,1), background 0.2s;
-          cursor: default;
+          gap: 18px;
         }
-        .qm-card:hover {
-          transform: translateY(-6px) scale(1.03);
-          background: rgba(255,255,255,0.12);
-        }
-        .qm-card-icon {
-          font-size: 2.8rem;
-          line-height: 1;
-        }
-        .qm-card-label {
-          font-family: 'Fredoka One', cursive;
-          font-size: 1.4rem;
-          color: white;
-          letter-spacing: 1px;
-        }
+
         .qm-btn {
           font-family: 'Fredoka One', cursive;
           font-size: 1rem;
@@ -101,41 +101,44 @@ function UploadPage() {
           color: white;
           cursor: pointer;
           letter-spacing: 2px;
-          transition: transform 0.15s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.2s;
-          box-shadow: 0 0 20px #f59e0b55;
         }
+
         .qm-btn:hover {
-          transform: scale(1.08) translateY(-2px);
-          box-shadow: 0 0 35px #f59e0b88;
+          transform: scale(1.05);
         }
-        .qm-btn:active { transform: scale(0.95); }
-        .qm-badge {
-          font-family: 'Nunito', sans-serif;
-          font-size: 0.75rem;
+
+        .file-input {
+          color: white;
+        }
+
+        .file-name {
           color: #a5f3fc;
-          font-weight: 800;
-          letter-spacing: 3px;
-          text-transform: uppercase;
-          background: rgba(255,255,255,0.07);
-          border: 1px solid rgba(255,255,255,0.15);
-          border-radius: 100px;
-          padding: 7px 22px;
-          margin-bottom: 16px;
-          display: inline-block;
-          animation: slideUp 0.6s cubic-bezier(0.22,1,0.36,1) 0s both;
+          font-weight: 700;
         }
-    `}</style>
+      `}</style>
 
-    <form onSubmit={handleSubmit}>
-      {/* File input */}
-      <label>
-        Choose a File:
-        <input type="file" />
-      </label>
+      <h1 className="qm-title">Upload Quiz</h1>
+      <p className="qm-subtitle">Choose your JSON quiz file</p>
 
-      {/* Submit button */}
-      <button type="submit">Submit</button>
-    </form>
+      <form className="qm-card" onSubmit={handleSubmit}>
+        <input
+          className="file-input"
+          type="file"
+          accept=".json"
+          onChange={handleFileChange}
+        />
+
+        {fileName && <p className="file-name">Selected: {fileName}</p>}
+
+        <button className="qm-btn" type="submit">
+          Submit
+        </button>
+
+        <button className="qm-btn" type="button" onClick={onExit}>
+          Back
+        </button>
+      </form>
+    </div>
   );
 }
 
