@@ -12,10 +12,15 @@ function App() {
   const [finalScore, setFinalScore] = useState({ score: 0, maxScore: 0 });
   const [quizData, setQuizData] = useState(null);
   const [selectedGame, setSelectedGame] = useState(null);
+  const [quizKey, setQuizKey] = useState(0);
 
   function goToScore(score, maxScore) {
     setFinalScore({ score, maxScore });
-    setTimeout(() => setPage("score"), 0);
+    setPage("score");
+  }
+
+  if (page === "home") {
+    return <Home onStart={() => setPage("quiz-menu")} />;
   }
 
   if (page === "quiz-menu") {
@@ -23,6 +28,7 @@ function App() {
       <QuizMenu
         onSelectGame={(game) => {
           setSelectedGame(game);
+          setQuizData(null);
           setPage("upload-page");
         }}
       />
@@ -34,7 +40,9 @@ function App() {
       <UploadPage
         onExit={() => setPage("quiz-menu")}
         onUpload={(data) => {
+          console.log("New uploaded JSON in App:", data);
           setQuizData(data);
+          setQuizKey((oldKey) => oldKey + 1);
           setPage(selectedGame);
         }}
       />
@@ -44,6 +52,7 @@ function App() {
   if (page === "odd-one-out") {
     return (
       <OddOneOut
+        key={quizKey}
         quizData={quizData}
         onExit={() => setPage("quiz-menu")}
         onFinish={(score) => goToScore(score, 1000)}
@@ -51,3 +60,39 @@ function App() {
     );
   }
 
+  if (page === "multi-choice") {
+    return (
+      <MultiChoice
+        key={quizKey}
+        quizData={quizData}
+        onExit={() => setPage("quiz-menu")}
+        onFinish={(score) => goToScore(score, 1000)}
+      />
+    );
+  }
+
+  if (page === "memory-flip") {
+    return (
+      <MemoryFlip
+        key={quizKey}
+        quizData={quizData}
+        onExit={() => setPage("quiz-menu")}
+        onFinish={(score) => goToScore(score, 1000)}
+      />
+    );
+  }
+
+  if (page === "score") {
+    return (
+      <ScorePage
+        score={finalScore.score}
+        maxScore={finalScore.maxScore}
+        onExit={() => setPage("quiz-menu")}
+      />
+    );
+  }
+
+  return <Home onStart={() => setPage("quiz-menu")} />;
+}
+
+export default App;
