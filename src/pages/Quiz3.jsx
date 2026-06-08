@@ -43,16 +43,19 @@ const styles = {
     fontWeight: "800",
     zIndex: 20,
   },
-  title: {
-    fontFamily: "'Fredoka One', cursive",
-    fontSize: "clamp(2rem, 4vw, 3rem)",
-    background: "linear-gradient(90deg, #fbbf24, #f87171, #a78bfa, #34d399, #fbbf24)",
-    backgroundSize: "300% auto",
-    WebkitBackgroundClip: "text",
-    WebkitTextFillColor: "transparent",
-    marginBottom: "8px",
-    textAlign: "center",
-  },
+ title: {
+  fontFamily: "'Fredoka One', cursive",
+  fontSize: "clamp(1.5rem, 3vw, 2.2rem)",  // ← smaller
+  background: "linear-gradient(90deg, #fbbf24, #f87171, #a78bfa, #34d399, #fbbf24)",
+  backgroundSize: "300% auto",
+  WebkitBackgroundClip: "text",
+  WebkitTextFillColor: "transparent",
+  marginBottom: "8px",
+  paddingTop: "16px",       // ← stops top clipping
+  paddingBottom: "8px",     // ← stops bottom clipping
+  lineHeight: "1.3",        // ← gives letters room to breathe
+  textAlign: "center",
+},
   subtitle: {
     color: "#d8d4ff",
     fontSize: "1.2rem",
