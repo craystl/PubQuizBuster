@@ -47,19 +47,19 @@
         },
         {
           "Text": "Laos",
-          "IsCorrect": false
+          "IsCorrect": true
         },
         {
-          "Text": "Chile",
+          "Text": "Indonesia",
           "IsCorrect": true
         },
         {
           "Text": "Brazil",
-          "IsCorrect": true
+          "IsCorrect": false
         },
         {
           "Text": "Suriname",
-          "IsCorrect": true
+          "IsCorrect": false
         }
       ]
     },
@@ -102,7 +102,7 @@
           "IsCorrect": false
         },
         {
-          "Text": "Dominica",
+          "Text": "Canada",
           "IsCorrect": false
         },
         {
