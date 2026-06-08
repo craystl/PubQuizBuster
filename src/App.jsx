@@ -11,15 +11,22 @@ function App() {
   const [page, setPage] = useState("home");
   const [finalScore, setFinalScore] = useState({ score: 0, maxScore: 0 });
   const [quizData, setQuizData] = useState(null);
+  const [selectedGame, setSelectedGame] = useState(null);
 
   function goToScore(score, maxScore) {
-    console.log("goToScore called:", score, maxScore);
     setFinalScore({ score, maxScore });
     setTimeout(() => setPage("score"), 0);
   }
 
   if (page === "quiz-menu") {
-    return <QuizMenu onSelectGame={setPage} />;
+    return (
+      <QuizMenu
+        onSelectGame={(game) => {
+          setSelectedGame(game);
+          setPage("upload-page");
+        }}
+      />
+    );
   }
 
   if (page === "upload-page") {
@@ -28,7 +35,7 @@ function App() {
         onExit={() => setPage("quiz-menu")}
         onUpload={(data) => {
           setQuizData(data);
-          setPage("odd-one-out");
+          setPage(selectedGame);
         }}
       />
     );
@@ -44,36 +51,3 @@ function App() {
     );
   }
 
-  if (page === "memory-flip") {
-    return (
-      <MemoryFlip
-        onExit={() => setPage("quiz-menu")}
-        onFinish={(score) => goToScore(score, 600)}
-      />
-    );
-  }
-
-  if (page === "multiple-choice") {
-    return (
-      <MultiChoice
-        onExit={() => setPage("quiz-menu")}
-        onFinish={(score) => goToScore(score, 800)}
-      />
-    );
-  }
-
-  if (page === "score") {
-    return (
-      <ScorePage
-        score={finalScore.score}
-        maxScore={finalScore.maxScore}
-        onExit={() => setPage("quiz-menu")}
-        onHome={() => setPage("home")}
-      />
-    );
-  }
-
-  return <Home onPlay={() => setPage("quiz-menu")} />;
-}
-
-export default App;
