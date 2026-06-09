@@ -45,15 +45,15 @@ const styles = {
   },
  title: {
   fontFamily: "'Fredoka One', cursive",
-  fontSize: "clamp(1.5rem, 3vw, 2.2rem)",  // ← smaller
+  fontSize: "clamp(1.5rem, 3vw, 2.2rem)",  
   background: "linear-gradient(90deg, #fbbf24, #f87171, #a78bfa, #34d399, #fbbf24)",
   backgroundSize: "300% auto",
   WebkitBackgroundClip: "text",
   WebkitTextFillColor: "transparent",
   marginBottom: "8px",
-  paddingTop: "16px",       // ← stops top clipping
-  paddingBottom: "8px",     // ← stops bottom clipping
-  lineHeight: "1.3",        // ← gives letters room to breathe
+  paddingTop: "16px",       
+  paddingBottom: "8px",    
+  lineHeight: "1.3",        
   textAlign: "center",
 },
   subtitle: {
