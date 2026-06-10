@@ -229,8 +229,11 @@ public sealed partial class GeographyActivityControl : UserControl
 
             Label _returnedValueLabel = new Label();
             _returnedValueLabel.Click += _returnedValue_Click;
-            _returnedValueLabel.Text = value.GetString() ?? "(no name)";
+            _returnedValueLabel.Text = value.GetString() + "   " ?? "(no name)";
             _returnedValueLabel.Tag = qid;
+
+            _returnedValueLabel.AutoSize = true;
+
             _resultsPanel.Controls.Add(_returnedValueLabel);
         }
     }
@@ -357,9 +360,12 @@ public sealed partial class GeographyActivityControl : UserControl
 
     private async Task saveToFile()
     {
-        string documentsPath = Path.GetDirectoryName(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments));
+        string documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 
-        string filePath = Path.Combine(documentsPath, _filenameBox.Text + ".json");
+        string appFolder = Path.Combine(documentsPath, "GeographyActivityCreator");
+        Directory.CreateDirectory(appFolder);
+
+        string filePath = Path.Combine(appFolder, _filenameBox.Text + ".json");
 
         string activityJson = getJson();
 
