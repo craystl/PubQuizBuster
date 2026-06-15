@@ -1,0 +1,166 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\yama\\Downloads\\PubQuizBuster-Progression-Path\\Test\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\yama\\Downloads\\PubQuizBuster-Progression-Path\\Test\\ActivityCreator\\bin\\Debug\\net7.0-windows\\output\\music_memory_flip\\music_memory_flip.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ActivityCreator\\bin\\Debug\\net7.0-windows\\output\\music_memory_flip\\music_memory_flip.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B0F0E7DE-A4A9-4E3B-BE08-51CF8C0B8B1E}|ActivityCreator\\ActivityCreator.csproj|c:\\users\\yama\\downloads\\pubquizbuster-progression-path\\test\\activitycreator\\controls\\musicactivitycontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B0F0E7DE-A4A9-4E3B-BE08-51CF8C0B8B1E}|ActivityCreator\\ActivityCreator.csproj|solutionrelative:activitycreator\\controls\\musicactivitycontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B0F0E7DE-A4A9-4E3B-BE08-51CF8C0B8B1E}|ActivityCreator\\ActivityCreator.csproj|C:\\Users\\yama\\Downloads\\PubQuizBuster-Progression-Path\\Test\\activitycreator\\controls\\musicactivitycontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{B0F0E7DE-A4A9-4E3B-BE08-51CF8C0B8B1E}|ActivityCreator\\ActivityCreator.csproj|solutionrelative:activitycreator\\controls\\musicactivitycontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B0F0E7DE-A4A9-4E3B-BE08-51CF8C0B8B1E}|ActivityCreator\\ActivityCreator.csproj|c:\\users\\yama\\downloads\\pubquizbuster-progression-path\\test\\activitycreator\\models\\activitymodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B0F0E7DE-A4A9-4E3B-BE08-51CF8C0B8B1E}|ActivityCreator\\ActivityCreator.csproj|solutionrelative:activitycreator\\models\\activitymodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B0F0E7DE-A4A9-4E3B-BE08-51CF8C0B8B1E}|ActivityCreator\\ActivityCreator.csproj|c:\\users\\yama\\downloads\\pubquizbuster-progression-path\\test\\activitycreator\\services\\sparqlutils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B0F0E7DE-A4A9-4E3B-BE08-51CF8C0B8B1E}|ActivityCreator\\ActivityCreator.csproj|solutionrelative:activitycreator\\services\\sparqlutils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B0F0E7DE-A4A9-4E3B-BE08-51CF8C0B8B1E}|ActivityCreator\\ActivityCreator.csproj|c:\\users\\yama\\downloads\\pubquizbuster-progression-path\\test\\activitycreator\\controls\\musicactivitycontrol.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B0F0E7DE-A4A9-4E3B-BE08-51CF8C0B8B1E}|ActivityCreator\\ActivityCreator.csproj|solutionrelative:activitycreator\\controls\\musicactivitycontrol.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B0F0E7DE-A4A9-4E3B-BE08-51CF8C0B8B1E}|ActivityCreator\\ActivityCreator.csproj|c:\\users\\yama\\downloads\\pubquizbuster-progression-path\\test\\activitycreator\\services\\imagedownloadservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B0F0E7DE-A4A9-4E3B-BE08-51CF8C0B8B1E}|ActivityCreator\\ActivityCreator.csproj|solutionrelative:activitycreator\\services\\imagedownloadservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1D7E211A-4F78-4B20-9E09-557E6FE84342}|BasicSparqlQuery\\BasicSparqlQuery.csproj|c:\\users\\yama\\downloads\\pubquizbuster-progression-path\\test\\basicsparqlquery\\basicsparqlquery.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{1D7E211A-4F78-4B20-9E09-557E6FE84342}|BasicSparqlQuery\\BasicSparqlQuery.csproj|solutionrelative:basicsparqlquery\\basicsparqlquery.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B0F0E7DE-A4A9-4E3B-BE08-51CF8C0B8B1E}|ActivityCreator\\ActivityCreator.csproj|c:\\users\\yama\\downloads\\pubquizbuster-progression-path\\test\\activitycreator\\activitycreator.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{B0F0E7DE-A4A9-4E3B-BE08-51CF8C0B8B1E}|ActivityCreator\\ActivityCreator.csproj|solutionrelative:activitycreator\\activitycreator.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ActivityModels.cs",
+              "DocumentMoniker": "C:\\Users\\yama\\Downloads\\PubQuizBuster-Progression-Path\\Test\\ActivityCreator\\Models\\ActivityModels.cs",
+              "RelativeDocumentMoniker": "ActivityCreator\\Models\\ActivityModels.cs",
+              "ToolTip": "C:\\Users\\yama\\Downloads\\PubQuizBuster-Progression-Path\\Test\\ActivityCreator\\Models\\ActivityModels.cs",
+              "RelativeToolTip": "ActivityCreator\\Models\\ActivityModels.cs",
+              "ViewState": "AgIAAGoAAAAAAAAAAAAcwI0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-28T23:48:57.071Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "music_memory_flip.json",
+              "DocumentMoniker": "C:\\Users\\yama\\Downloads\\PubQuizBuster-Progression-Path\\Test\\ActivityCreator\\bin\\Debug\\net7.0-windows\\output\\music_memory_flip\\music_memory_flip.json",
+              "RelativeDocumentMoniker": "ActivityCreator\\bin\\Debug\\net7.0-windows\\output\\music_memory_flip\\music_memory_flip.json",
+              "ToolTip": "C:\\Users\\yama\\Downloads\\PubQuizBuster-Progression-Path\\Test\\ActivityCreator\\bin\\Debug\\net7.0-windows\\output\\music_memory_flip\\music_memory_flip.json",
+              "RelativeToolTip": "ActivityCreator\\bin\\Debug\\net7.0-windows\\output\\music_memory_flip\\music_memory_flip.json",
+              "ViewState": "AgIAAEEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-06-07T08:10:04.332Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ImageDownloadService.cs",
+              "DocumentMoniker": "C:\\Users\\yama\\Downloads\\PubQuizBuster-Progression-Path\\Test\\ActivityCreator\\Services\\ImageDownloadService.cs",
+              "RelativeDocumentMoniker": "ActivityCreator\\Services\\ImageDownloadService.cs",
+              "ToolTip": "C:\\Users\\yama\\Downloads\\PubQuizBuster-Progression-Path\\Test\\ActivityCreator\\Services\\ImageDownloadService.cs",
+              "RelativeToolTip": "ActivityCreator\\Services\\ImageDownloadService.cs",
+              "ViewState": "AgIAAFwAAAAAAAAAAAAcwIIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-28T23:49:55.157Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "SparqlUtils.cs",
+              "DocumentMoniker": "C:\\Users\\yama\\Downloads\\PubQuizBuster-Progression-Path\\Test\\ActivityCreator\\Services\\SparqlUtils.cs",
+              "RelativeDocumentMoniker": "ActivityCreator\\Services\\SparqlUtils.cs",
+              "ToolTip": "C:\\Users\\yama\\Downloads\\PubQuizBuster-Progression-Path\\Test\\ActivityCreator\\Services\\SparqlUtils.cs",
+              "RelativeToolTip": "ActivityCreator\\Services\\SparqlUtils.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAE0BAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-28T23:49:20.969Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MusicActivityControl.cs",
+              "DocumentMoniker": "C:\\Users\\yama\\Downloads\\PubQuizBuster-Progression-Path\\Test\\ActivityCreator\\Controls\\MusicActivityControl.cs",
+              "RelativeDocumentMoniker": "ActivityCreator\\Controls\\MusicActivityControl.cs",
+              "ToolTip": "C:\\Users\\yama\\Downloads\\PubQuizBuster-Progression-Path\\Test\\ActivityCreator\\Controls\\MusicActivityControl.cs",
+              "RelativeToolTip": "ActivityCreator\\Controls\\MusicActivityControl.cs",
+              "ViewState": "AgIAAAEBAAAAAAAAAAAowBMBAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-28T23:48:19.943Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MusicActivityControl.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\yama\\Downloads\\PubQuizBuster-Progression-Path\\Test\\ActivityCreator\\Controls\\MusicActivityControl.cs",
+              "RelativeDocumentMoniker": "ActivityCreator\\Controls\\MusicActivityControl.cs",
+              "ToolTip": "C:\\Users\\yama\\Downloads\\PubQuizBuster-Progression-Path\\Test\\ActivityCreator\\Controls\\MusicActivityControl.cs [Design]*",
+              "RelativeToolTip": "ActivityCreator\\Controls\\MusicActivityControl.cs [Design]*",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-27T11:10:38.248Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "MusicActivityControl.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\yama\\Downloads\\PubQuizBuster-Progression-Path\\Test\\ActivityCreator\\Controls\\MusicActivityControl.Designer.cs",
+              "RelativeDocumentMoniker": "ActivityCreator\\Controls\\MusicActivityControl.Designer.cs",
+              "ToolTip": "C:\\Users\\yama\\Downloads\\PubQuizBuster-Progression-Path\\Test\\ActivityCreator\\Controls\\MusicActivityControl.Designer.cs",
+              "RelativeToolTip": "ActivityCreator\\Controls\\MusicActivityControl.Designer.cs",
+              "ViewState": "AgIAAFsBAAAAAAAAAAAcwIEBAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-27T11:09:55.156Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ActivityCreator.csproj",
+              "DocumentMoniker": "C:\\Users\\yama\\Downloads\\PubQuizBuster-Progression-Path\\Test\\ActivityCreator\\ActivityCreator.csproj",
+              "RelativeDocumentMoniker": "ActivityCreator\\ActivityCreator.csproj",
+              "ToolTip": "C:\\Users\\yama\\Downloads\\PubQuizBuster-Progression-Path\\Test\\ActivityCreator\\ActivityCreator.csproj",
+              "RelativeToolTip": "ActivityCreator\\ActivityCreator.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-05-26T02:56:07.748Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "BasicSparqlQuery.csproj",
+              "DocumentMoniker": "C:\\Users\\yama\\Downloads\\PubQuizBuster-Progression-Path\\Test\\BasicSparqlQuery\\BasicSparqlQuery.csproj",
+              "RelativeDocumentMoniker": "BasicSparqlQuery\\BasicSparqlQuery.csproj",
+              "ToolTip": "C:\\Users\\yama\\Downloads\\PubQuizBuster-Progression-Path\\Test\\BasicSparqlQuery\\BasicSparqlQuery.csproj",
+              "RelativeToolTip": "BasicSparqlQuery\\BasicSparqlQuery.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-05-26T02:55:46.337Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

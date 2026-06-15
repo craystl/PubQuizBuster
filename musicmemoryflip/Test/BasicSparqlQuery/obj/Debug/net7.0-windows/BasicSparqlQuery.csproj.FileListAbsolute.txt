@@ -1,0 +1,49 @@
+C:\Users\davidb\Downloads\PubQuizBuster-starterkit\PubQuizBuster-v17-basic-sparql-values\BasicSparqlQuery\bin\Debug\net7.0-windows\BasicSparqlQuery.exe
+C:\Users\davidb\Downloads\PubQuizBuster-starterkit\PubQuizBuster-v17-basic-sparql-values\BasicSparqlQuery\bin\Debug\net7.0-windows\BasicSparqlQuery.deps.json
+C:\Users\davidb\Downloads\PubQuizBuster-starterkit\PubQuizBuster-v17-basic-sparql-values\BasicSparqlQuery\bin\Debug\net7.0-windows\BasicSparqlQuery.runtimeconfig.json
+C:\Users\davidb\Downloads\PubQuizBuster-starterkit\PubQuizBuster-v17-basic-sparql-values\BasicSparqlQuery\bin\Debug\net7.0-windows\BasicSparqlQuery.dll
+C:\Users\davidb\Downloads\PubQuizBuster-starterkit\PubQuizBuster-v17-basic-sparql-values\BasicSparqlQuery\bin\Debug\net7.0-windows\BasicSparqlQuery.pdb
+C:\Users\davidb\Downloads\PubQuizBuster-starterkit\PubQuizBuster-v17-basic-sparql-values\BasicSparqlQuery\obj\Debug\net7.0-windows\BasicSparqlQuery.csproj.AssemblyReference.cache
+C:\Users\davidb\Downloads\PubQuizBuster-starterkit\PubQuizBuster-v17-basic-sparql-values\BasicSparqlQuery\obj\Debug\net7.0-windows\PubQuizBuster.BasicSparqlQuery.BasicSparqlQueryForm.resources
+C:\Users\davidb\Downloads\PubQuizBuster-starterkit\PubQuizBuster-v17-basic-sparql-values\BasicSparqlQuery\obj\Debug\net7.0-windows\BasicSparqlQuery.csproj.GenerateResource.cache
+C:\Users\davidb\Downloads\PubQuizBuster-starterkit\PubQuizBuster-v17-basic-sparql-values\BasicSparqlQuery\obj\Debug\net7.0-windows\BasicSparqlQuery.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\davidb\Downloads\PubQuizBuster-starterkit\PubQuizBuster-v17-basic-sparql-values\BasicSparqlQuery\obj\Debug\net7.0-windows\BasicSparqlQuery.AssemblyInfoInputs.cache
+C:\Users\davidb\Downloads\PubQuizBuster-starterkit\PubQuizBuster-v17-basic-sparql-values\BasicSparqlQuery\obj\Debug\net7.0-windows\BasicSparqlQuery.AssemblyInfo.cs
+C:\Users\davidb\Downloads\PubQuizBuster-starterkit\PubQuizBuster-v17-basic-sparql-values\BasicSparqlQuery\obj\Debug\net7.0-windows\BasicSparqlQuery.csproj.CoreCompileInputs.cache
+C:\Users\davidb\Downloads\PubQuizBuster-starterkit\PubQuizBuster-v17-basic-sparql-values\BasicSparqlQuery\obj\Debug\net7.0-windows\BasicSparqlQuery.dll
+C:\Users\davidb\Downloads\PubQuizBuster-starterkit\PubQuizBuster-v17-basic-sparql-values\BasicSparqlQuery\obj\Debug\net7.0-windows\refint\BasicSparqlQuery.dll
+C:\Users\davidb\Downloads\PubQuizBuster-starterkit\PubQuizBuster-v17-basic-sparql-values\BasicSparqlQuery\obj\Debug\net7.0-windows\BasicSparqlQuery.pdb
+C:\Users\davidb\Downloads\PubQuizBuster-starterkit\PubQuizBuster-v17-basic-sparql-values\BasicSparqlQuery\obj\Debug\net7.0-windows\BasicSparqlQuery.genruntimeconfig.cache
+C:\Users\davidb\Downloads\PubQuizBuster-starterkit\PubQuizBuster-v17-basic-sparql-values\BasicSparqlQuery\obj\Debug\net7.0-windows\ref\BasicSparqlQuery.dll
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\PubQuizBuster-Progression-Path - Copy - Copy\BasicSparqlQuery\bin\Debug\net7.0-windows\BasicSparqlQuery.exe
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\PubQuizBuster-Progression-Path - Copy - Copy\BasicSparqlQuery\bin\Debug\net7.0-windows\BasicSparqlQuery.deps.json
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\PubQuizBuster-Progression-Path - Copy - Copy\BasicSparqlQuery\bin\Debug\net7.0-windows\BasicSparqlQuery.runtimeconfig.json
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\PubQuizBuster-Progression-Path - Copy - Copy\BasicSparqlQuery\bin\Debug\net7.0-windows\BasicSparqlQuery.dll
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\PubQuizBuster-Progression-Path - Copy - Copy\BasicSparqlQuery\bin\Debug\net7.0-windows\BasicSparqlQuery.pdb
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\PubQuizBuster-Progression-Path - Copy - Copy\BasicSparqlQuery\obj\Debug\net7.0-windows\PubQuizBuster.BasicSparqlQuery.BasicSparqlQueryForm.resources
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\PubQuizBuster-Progression-Path - Copy - Copy\BasicSparqlQuery\obj\Debug\net7.0-windows\BasicSparqlQuery.csproj.GenerateResource.cache
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\PubQuizBuster-Progression-Path - Copy - Copy\BasicSparqlQuery\obj\Debug\net7.0-windows\BasicSparqlQuery.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\PubQuizBuster-Progression-Path - Copy - Copy\BasicSparqlQuery\obj\Debug\net7.0-windows\BasicSparqlQuery.AssemblyInfoInputs.cache
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\PubQuizBuster-Progression-Path - Copy - Copy\BasicSparqlQuery\obj\Debug\net7.0-windows\BasicSparqlQuery.AssemblyInfo.cs
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\PubQuizBuster-Progression-Path - Copy - Copy\BasicSparqlQuery\obj\Debug\net7.0-windows\BasicSparqlQuery.csproj.CoreCompileInputs.cache
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\PubQuizBuster-Progression-Path - Copy - Copy\BasicSparqlQuery\obj\Debug\net7.0-windows\BasicSparqlQuery.dll
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\PubQuizBuster-Progression-Path - Copy - Copy\BasicSparqlQuery\obj\Debug\net7.0-windows\refint\BasicSparqlQuery.dll
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\PubQuizBuster-Progression-Path - Copy - Copy\BasicSparqlQuery\obj\Debug\net7.0-windows\BasicSparqlQuery.pdb
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\PubQuizBuster-Progression-Path - Copy - Copy\BasicSparqlQuery\obj\Debug\net7.0-windows\BasicSparqlQuery.genruntimeconfig.cache
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\PubQuizBuster-Progression-Path - Copy - Copy\BasicSparqlQuery\obj\Debug\net7.0-windows\ref\BasicSparqlQuery.dll
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\Test\BasicSparqlQuery\bin\Debug\net7.0-windows\BasicSparqlQuery.exe
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\Test\BasicSparqlQuery\bin\Debug\net7.0-windows\BasicSparqlQuery.deps.json
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\Test\BasicSparqlQuery\bin\Debug\net7.0-windows\BasicSparqlQuery.runtimeconfig.json
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\Test\BasicSparqlQuery\bin\Debug\net7.0-windows\BasicSparqlQuery.dll
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\Test\BasicSparqlQuery\bin\Debug\net7.0-windows\BasicSparqlQuery.pdb
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\Test\BasicSparqlQuery\obj\Debug\net7.0-windows\PubQuizBuster.BasicSparqlQuery.BasicSparqlQueryForm.resources
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\Test\BasicSparqlQuery\obj\Debug\net7.0-windows\BasicSparqlQuery.csproj.GenerateResource.cache
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\Test\BasicSparqlQuery\obj\Debug\net7.0-windows\BasicSparqlQuery.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\Test\BasicSparqlQuery\obj\Debug\net7.0-windows\BasicSparqlQuery.AssemblyInfoInputs.cache
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\Test\BasicSparqlQuery\obj\Debug\net7.0-windows\BasicSparqlQuery.AssemblyInfo.cs
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\Test\BasicSparqlQuery\obj\Debug\net7.0-windows\BasicSparqlQuery.csproj.CoreCompileInputs.cache
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\Test\BasicSparqlQuery\obj\Debug\net7.0-windows\BasicSparqlQuery.dll
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\Test\BasicSparqlQuery\obj\Debug\net7.0-windows\refint\BasicSparqlQuery.dll
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\Test\BasicSparqlQuery\obj\Debug\net7.0-windows\BasicSparqlQuery.pdb
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\Test\BasicSparqlQuery\obj\Debug\net7.0-windows\BasicSparqlQuery.genruntimeconfig.cache
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\Test\BasicSparqlQuery\obj\Debug\net7.0-windows\ref\BasicSparqlQuery.dll

@@ -1,0 +1,77 @@
+C:\Users\davidb\Downloads\PubQuizBuster-starterkit\PubQuizBuster-v17-basic-sparql-values\ActivityCreator\bin\Debug\net7.0-windows\ActivityCreator.exe
+C:\Users\davidb\Downloads\PubQuizBuster-starterkit\PubQuizBuster-v17-basic-sparql-values\ActivityCreator\bin\Debug\net7.0-windows\ActivityCreator.deps.json
+C:\Users\davidb\Downloads\PubQuizBuster-starterkit\PubQuizBuster-v17-basic-sparql-values\ActivityCreator\bin\Debug\net7.0-windows\ActivityCreator.runtimeconfig.json
+C:\Users\davidb\Downloads\PubQuizBuster-starterkit\PubQuizBuster-v17-basic-sparql-values\ActivityCreator\bin\Debug\net7.0-windows\ActivityCreator.dll
+C:\Users\davidb\Downloads\PubQuizBuster-starterkit\PubQuizBuster-v17-basic-sparql-values\ActivityCreator\bin\Debug\net7.0-windows\ActivityCreator.pdb
+C:\Users\davidb\Downloads\PubQuizBuster-starterkit\PubQuizBuster-v17-basic-sparql-values\ActivityCreator\obj\Debug\net7.0-windows\ActivityCreator.csproj.AssemblyReference.cache
+C:\Users\davidb\Downloads\PubQuizBuster-starterkit\PubQuizBuster-v17-basic-sparql-values\ActivityCreator\obj\Debug\net7.0-windows\PubQuizBuster.ActivityCreator.GeographyActivityControl.resources
+C:\Users\davidb\Downloads\PubQuizBuster-starterkit\PubQuizBuster-v17-basic-sparql-values\ActivityCreator\obj\Debug\net7.0-windows\PubQuizBuster.ActivityCreator.MoviesActivityControl.resources
+C:\Users\davidb\Downloads\PubQuizBuster-starterkit\PubQuizBuster-v17-basic-sparql-values\ActivityCreator\obj\Debug\net7.0-windows\PubQuizBuster.ActivityCreator.MusicActivityControl.resources
+C:\Users\davidb\Downloads\PubQuizBuster-starterkit\PubQuizBuster-v17-basic-sparql-values\ActivityCreator\obj\Debug\net7.0-windows\PubQuizBuster.ActivityCreator.PQBActivityForm.resources
+C:\Users\davidb\Downloads\PubQuizBuster-starterkit\PubQuizBuster-v17-basic-sparql-values\ActivityCreator\obj\Debug\net7.0-windows\ActivityCreator.csproj.GenerateResource.cache
+C:\Users\davidb\Downloads\PubQuizBuster-starterkit\PubQuizBuster-v17-basic-sparql-values\ActivityCreator\obj\Debug\net7.0-windows\ActivityCreator.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\davidb\Downloads\PubQuizBuster-starterkit\PubQuizBuster-v17-basic-sparql-values\ActivityCreator\obj\Debug\net7.0-windows\ActivityCreator.AssemblyInfoInputs.cache
+C:\Users\davidb\Downloads\PubQuizBuster-starterkit\PubQuizBuster-v17-basic-sparql-values\ActivityCreator\obj\Debug\net7.0-windows\ActivityCreator.AssemblyInfo.cs
+C:\Users\davidb\Downloads\PubQuizBuster-starterkit\PubQuizBuster-v17-basic-sparql-values\ActivityCreator\obj\Debug\net7.0-windows\ActivityCreator.csproj.CoreCompileInputs.cache
+C:\Users\davidb\Downloads\PubQuizBuster-starterkit\PubQuizBuster-v17-basic-sparql-values\ActivityCreator\obj\Debug\net7.0-windows\ActivityCreator.dll
+C:\Users\davidb\Downloads\PubQuizBuster-starterkit\PubQuizBuster-v17-basic-sparql-values\ActivityCreator\obj\Debug\net7.0-windows\refint\ActivityCreator.dll
+C:\Users\davidb\Downloads\PubQuizBuster-starterkit\PubQuizBuster-v17-basic-sparql-values\ActivityCreator\obj\Debug\net7.0-windows\ActivityCreator.pdb
+C:\Users\davidb\Downloads\PubQuizBuster-starterkit\PubQuizBuster-v17-basic-sparql-values\ActivityCreator\obj\Debug\net7.0-windows\ActivityCreator.genruntimeconfig.cache
+C:\Users\davidb\Downloads\PubQuizBuster-starterkit\PubQuizBuster-v17-basic-sparql-values\ActivityCreator\obj\Debug\net7.0-windows\ref\ActivityCreator.dll
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\PubQuizBuster-Progression-Path\ActivityCreator\bin\Debug\net7.0-windows\ActivityCreator.exe
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\PubQuizBuster-Progression-Path\ActivityCreator\bin\Debug\net7.0-windows\ActivityCreator.deps.json
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\PubQuizBuster-Progression-Path\ActivityCreator\bin\Debug\net7.0-windows\ActivityCreator.runtimeconfig.json
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\PubQuizBuster-Progression-Path\ActivityCreator\bin\Debug\net7.0-windows\ActivityCreator.dll
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\PubQuizBuster-Progression-Path\ActivityCreator\bin\Debug\net7.0-windows\ActivityCreator.pdb
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\PubQuizBuster-Progression-Path\ActivityCreator\obj\Debug\net7.0-windows\PubQuizBuster.ActivityCreator.GeographyActivityControl.resources
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\PubQuizBuster-Progression-Path\ActivityCreator\obj\Debug\net7.0-windows\PubQuizBuster.ActivityCreator.MoviesActivityControl.resources
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\PubQuizBuster-Progression-Path\ActivityCreator\obj\Debug\net7.0-windows\PubQuizBuster.ActivityCreator.MusicActivityControl.resources
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\PubQuizBuster-Progression-Path\ActivityCreator\obj\Debug\net7.0-windows\PubQuizBuster.ActivityCreator.PQBActivityForm.resources
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\PubQuizBuster-Progression-Path\ActivityCreator\obj\Debug\net7.0-windows\ActivityCreator.csproj.GenerateResource.cache
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\PubQuizBuster-Progression-Path\ActivityCreator\obj\Debug\net7.0-windows\ActivityCreator.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\PubQuizBuster-Progression-Path\ActivityCreator\obj\Debug\net7.0-windows\ActivityCreator.AssemblyInfoInputs.cache
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\PubQuizBuster-Progression-Path\ActivityCreator\obj\Debug\net7.0-windows\ActivityCreator.AssemblyInfo.cs
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\PubQuizBuster-Progression-Path\ActivityCreator\obj\Debug\net7.0-windows\ActivityCreator.csproj.CoreCompileInputs.cache
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\PubQuizBuster-Progression-Path\ActivityCreator\obj\Debug\net7.0-windows\ActivityCreator.dll
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\PubQuizBuster-Progression-Path\ActivityCreator\obj\Debug\net7.0-windows\refint\ActivityCreator.dll
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\PubQuizBuster-Progression-Path\ActivityCreator\obj\Debug\net7.0-windows\ActivityCreator.pdb
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\PubQuizBuster-Progression-Path\ActivityCreator\obj\Debug\net7.0-windows\ActivityCreator.genruntimeconfig.cache
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\PubQuizBuster-Progression-Path\ActivityCreator\obj\Debug\net7.0-windows\ref\ActivityCreator.dll
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\PubQuizBuster-Progression-Path - Copy - Copy\ActivityCreator\bin\Debug\net7.0-windows\ActivityCreator.exe
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\PubQuizBuster-Progression-Path - Copy - Copy\ActivityCreator\bin\Debug\net7.0-windows\ActivityCreator.deps.json
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\PubQuizBuster-Progression-Path - Copy - Copy\ActivityCreator\bin\Debug\net7.0-windows\ActivityCreator.runtimeconfig.json
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\PubQuizBuster-Progression-Path - Copy - Copy\ActivityCreator\bin\Debug\net7.0-windows\ActivityCreator.dll
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\PubQuizBuster-Progression-Path - Copy - Copy\ActivityCreator\bin\Debug\net7.0-windows\ActivityCreator.pdb
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\PubQuizBuster-Progression-Path - Copy - Copy\ActivityCreator\obj\Debug\net7.0-windows\PubQuizBuster.ActivityCreator.GeographyActivityControl.resources
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\PubQuizBuster-Progression-Path - Copy - Copy\ActivityCreator\obj\Debug\net7.0-windows\PubQuizBuster.ActivityCreator.MoviesActivityControl.resources
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\PubQuizBuster-Progression-Path - Copy - Copy\ActivityCreator\obj\Debug\net7.0-windows\PubQuizBuster.ActivityCreator.MusicActivityControl.resources
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\PubQuizBuster-Progression-Path - Copy - Copy\ActivityCreator\obj\Debug\net7.0-windows\PubQuizBuster.ActivityCreator.PQBActivityForm.resources
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\PubQuizBuster-Progression-Path - Copy - Copy\ActivityCreator\obj\Debug\net7.0-windows\ActivityCreator.csproj.GenerateResource.cache
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\PubQuizBuster-Progression-Path - Copy - Copy\ActivityCreator\obj\Debug\net7.0-windows\ActivityCreator.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\PubQuizBuster-Progression-Path - Copy - Copy\ActivityCreator\obj\Debug\net7.0-windows\ActivityCreator.AssemblyInfoInputs.cache
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\PubQuizBuster-Progression-Path - Copy - Copy\ActivityCreator\obj\Debug\net7.0-windows\ActivityCreator.AssemblyInfo.cs
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\PubQuizBuster-Progression-Path - Copy - Copy\ActivityCreator\obj\Debug\net7.0-windows\ActivityCreator.csproj.CoreCompileInputs.cache
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\PubQuizBuster-Progression-Path - Copy - Copy\ActivityCreator\obj\Debug\net7.0-windows\ActivityCreator.dll
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\PubQuizBuster-Progression-Path - Copy - Copy\ActivityCreator\obj\Debug\net7.0-windows\refint\ActivityCreator.dll
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\PubQuizBuster-Progression-Path - Copy - Copy\ActivityCreator\obj\Debug\net7.0-windows\ActivityCreator.pdb
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\PubQuizBuster-Progression-Path - Copy - Copy\ActivityCreator\obj\Debug\net7.0-windows\ActivityCreator.genruntimeconfig.cache
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\PubQuizBuster-Progression-Path - Copy - Copy\ActivityCreator\obj\Debug\net7.0-windows\ref\ActivityCreator.dll
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\Test\ActivityCreator\bin\Debug\net7.0-windows\ActivityCreator.exe
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\Test\ActivityCreator\bin\Debug\net7.0-windows\ActivityCreator.deps.json
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\Test\ActivityCreator\bin\Debug\net7.0-windows\ActivityCreator.runtimeconfig.json
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\Test\ActivityCreator\bin\Debug\net7.0-windows\ActivityCreator.dll
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\Test\ActivityCreator\bin\Debug\net7.0-windows\ActivityCreator.pdb
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\Test\ActivityCreator\obj\Debug\net7.0-windows\PubQuizBuster.ActivityCreator.GeographyActivityControl.resources
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\Test\ActivityCreator\obj\Debug\net7.0-windows\PubQuizBuster.ActivityCreator.MoviesActivityControl.resources
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\Test\ActivityCreator\obj\Debug\net7.0-windows\PubQuizBuster.ActivityCreator.MusicActivityControl.resources
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\Test\ActivityCreator\obj\Debug\net7.0-windows\PubQuizBuster.ActivityCreator.PQBActivityForm.resources
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\Test\ActivityCreator\obj\Debug\net7.0-windows\ActivityCreator.csproj.GenerateResource.cache
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\Test\ActivityCreator\obj\Debug\net7.0-windows\ActivityCreator.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\Test\ActivityCreator\obj\Debug\net7.0-windows\ActivityCreator.AssemblyInfoInputs.cache
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\Test\ActivityCreator\obj\Debug\net7.0-windows\ActivityCreator.AssemblyInfo.cs
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\Test\ActivityCreator\obj\Debug\net7.0-windows\ActivityCreator.csproj.CoreCompileInputs.cache
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\Test\ActivityCreator\obj\Debug\net7.0-windows\ActivityCreator.dll
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\Test\ActivityCreator\obj\Debug\net7.0-windows\refint\ActivityCreator.dll
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\Test\ActivityCreator\obj\Debug\net7.0-windows\ActivityCreator.pdb
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\Test\ActivityCreator\obj\Debug\net7.0-windows\ActivityCreator.genruntimeconfig.cache
+C:\Users\yama\Downloads\PubQuizBuster-Progression-Path\Test\ActivityCreator\obj\Debug\net7.0-windows\ref\ActivityCreator.dll
