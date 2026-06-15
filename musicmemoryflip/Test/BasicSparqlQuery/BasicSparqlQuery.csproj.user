@@ -1,0 +1,10 @@
+<Project>
+  <ItemGroup>
+    <Compile Update="BasicSparqlQueryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="BasicSparqlQueryForm.Designer.cs">
+      <DependentUpon>BasicSparqlQueryForm.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,90 @@
+﻿{
+  "activityType": "matching-cards",
+  "activityId": "music_memory_flip",
+  "title": "Artist-Album Memory Flip",
+  "description": "Match the artist with their albums",
+  "matchSize": 3,
+  "cards": [
+    {
+      "id": "adamfranklin-album-01",
+      "img": "",
+      "cardType": "album-cover",
+      "label": "Bolts of Melody",
+      "matchingName": "Adam Franklin",
+      "artistName": "Adam Franklin",
+      "albumTitle": "Bolts of Melody"
+    },
+    {
+      "id": "adamfranklin-album-02",
+      "img": "",
+      "cardType": "album-cover",
+      "label": "Spent Bullets",
+      "matchingName": "Adam Franklin",
+      "artistName": "Adam Franklin",
+      "albumTitle": "Spent Bullets"
+    },
+    {
+      "id": "adamfranklin-artist-01",
+      "img": "images/Adam_Franklin.jpg",
+      "cardType": "artist-photo",
+      "label": "Adam Franklin",
+      "matchingName": "Adam Franklin",
+      "artistName": "Adam Franklin"
+    },
+    {
+      "id": "ademilhan-album-01",
+      "img": "",
+      "cardType": "album-cover",
+      "label": "Homesongs",
+      "matchingName": "Adem Ilhan",
+      "artistName": "Adem Ilhan",
+      "albumTitle": "Homesongs"
+    },
+    {
+      "id": "ademilhan-album-02",
+      "img": "",
+      "cardType": "album-cover",
+      "label": "Love and Other Planets",
+      "matchingName": "Adem Ilhan",
+      "artistName": "Adem Ilhan",
+      "albumTitle": "Love and Other Planets"
+    },
+    {
+      "id": "ademilhan-artist-01",
+      "img": "images/Adem_Ilhan.jpg",
+      "cardType": "artist-photo",
+      "label": "Adem Ilhan",
+      "matchingName": "Adem Ilhan",
+      "artistName": "Adem Ilhan"
+    },
+    {
+      "id": "annemurray-album-01",
+      "img": "",
+      "cardType": "album-cover",
+      "label": "15 of the Best",
+      "matchingName": "Anne Murray",
+      "artistName": "Anne Murray",
+      "albumTitle": "15 of the Best"
+    },
+    {
+      "id": "annemurray-album-02",
+      "img": "",
+      "cardType": "album-cover",
+      "label": "A Country Collection",
+      "matchingName": "Anne Murray",
+      "artistName": "Anne Murray",
+      "albumTitle": "A Country Collection"
+    },
+    {
+      "id": "annemurray-artist-01",
+      "img": "images/Anne_Murray.jpg",
+      "cardType": "artist-photo",
+      "label": "Anne Murray",
+      "matchingName": "Anne Murray",
+      "artistName": "Anne Murray"
+    }
+  ],
+  "sparqlQueriesUsed": [
+    "PREFIX dbo:  \u003Chttp://dbpedia.org/ontology/\u003E\r\nPREFIX dbp:  \u003Chttp://dbpedia.org/property/\u003E\r\nPREFIX rdfs: \u003Chttp://www.w3.org/2000/01/rdf-schema#\u003E\r\nPREFIX foaf: \u003Chttp://xmlns.com/foaf/0.1/\u003E\r\n\r\nSELECT DISTINCT ?artist ?artistName ?artistImage ?album ?albumName WHERE {\r\n\r\n  ?artist a dbo:MusicalArtist ;\r\n          rdfs:label ?artistName ;\r\n          foaf:depiction ?artistImage .\r\n  ?artist dbo:genre \u003Chttp://dbpedia.org/resource/Country_music\u003E .\n\r\n  FILTER(LANG(?artistName) = \u0027en\u0027)\r\n\r\n  {\r\n    ?album dbo:artist ?artist ;\r\n           rdfs:label ?albumName .\r\n  } UNION {\r\n    ?album dbo:musicalArtist ?artist ;\r\n           rdfs:label ?albumName .\r\n  } UNION {\r\n    ?album dbp:artist ?artist ;\r\n           rdfs:label ?albumName .\r\n  }\r\n\r\n  FILTER(LANG(?albumName) = \u0027en\u0027)\r\n  FILTER NOT EXISTS { ?album a dbo:Single }\r\n  FILTER NOT EXISTS { ?album a dbo:Song   }\r\n\r\n}\r\nORDER BY ?artist ?albumName\r\nLIMIT 570"
+  ]
+}
